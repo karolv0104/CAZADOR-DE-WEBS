@@ -1,0 +1,112 @@
+import Link from "next/link";
+import { FileCheck2, PackagePlus } from "lucide-react";
+import { products } from "@/lib/products";
+import ProductCard from "@/components/ProductCard";
+import TrustBar from "@/components/TrustBar";
+import FeatureIcons from "@/components/FeatureIcons";
+
+const FEATURED_SLUGS = [
+  "bpc-157",
+  "tb-500",
+  "glp-1-s",
+  "ghk-cu",
+  "selank",
+  "nad",
+];
+
+export default function HomePage() {
+  const featured = FEATURED_SLUGS.map((slug) =>
+    products.find((p) => p.slug === slug),
+  ).filter(Boolean);
+
+  return (
+    <>
+      <section className="container-page py-20 text-center md:py-28">
+        <p className="font-display text-sm font-semibold tracking-widest text-cyan">
+          COREX 91
+        </p>
+        <h1 className="mx-auto mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-primary md:text-5xl">
+          Research-grade peptides for laboratory use.
+        </h1>
+        <p className="mx-auto mt-4 max-w-xl text-base text-muted">
+          Third-party tested. Certificate of Analysis on every product.
+        </p>
+        <div className="mt-8 flex justify-center gap-3">
+          <Link
+            href="/productos"
+            className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            Shop products
+          </Link>
+          <Link
+            href="/coa"
+            className="rounded-md border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
+          >
+            View COAs
+          </Link>
+        </div>
+      </section>
+
+      <TrustBar />
+      <FeatureIcons />
+
+      <section className="container-page py-16">
+        <div className="mb-8 flex items-end justify-between">
+          <h2 className="font-display text-2xl font-bold text-primary">
+            Featured products
+          </h2>
+          <Link
+            href="/productos"
+            className="text-sm font-semibold text-primary hover:underline"
+          >
+            View all &rarr;
+          </Link>
+        </div>
+        <div className="grid grid-cols-2 gap-6 md:grid-cols-3 lg:grid-cols-6">
+          {featured.map((product) => (
+            <ProductCard key={product.slug} product={product} />
+          ))}
+        </div>
+      </section>
+
+      <section className="border-y border-surface bg-surface">
+        <div className="container-page flex flex-col items-center gap-4 py-16 text-center">
+          <FileCheck2 size={36} strokeWidth={1.5} className="text-primary" />
+          <h2 className="font-display text-2xl font-bold text-primary">
+            Purity You Can Verify
+          </h2>
+          <p className="max-w-xl text-sm text-muted">
+            Quality starts with verification. Every batch undergoes
+            independent third-party laboratory testing and is backed by a
+            documented Certificate of Analysis.
+          </p>
+          <Link
+            href="/coa"
+            className="mt-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
+          >
+            Ver todos los resultados
+          </Link>
+        </div>
+      </section>
+
+      <section className="container-page py-16">
+        <div className="flex flex-col items-center gap-3 rounded-lg bg-primary px-6 py-12 text-center">
+          <PackagePlus size={32} strokeWidth={1.5} className="text-cyan" />
+          <h2 className="font-display text-2xl font-bold text-white">
+            Bundle &amp; Save
+          </h2>
+          <p className="text-sm text-[#B8C4CE]">Descuentos por volumen.</p>
+          <p className="text-sm text-[#B8C4CE]">
+            Envío gratis en compras mayores a $200.
+          </p>
+          <Link
+            href="/productos"
+            className="mt-3 rounded-md bg-cyan px-6 py-3 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
+          >
+            Shop products
+          </Link>
+        </div>
+      </section>
+    </>
+  );
+}
