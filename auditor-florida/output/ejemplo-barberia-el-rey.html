@@ -1,0 +1,278 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Diagnóstico de presencia digital — Barbería El Rey — 1 de septiembre de 2026</title>
+<style>
+  /* Único color de acento del documento. Cambiarlo aquí lo cambia todo. */
+  :root{
+    --acento:#0F4C75;
+    --tinta:#15181d;
+    --gris:#6a7280;
+    --linea:#dcdfe4;
+  }
+
+  @page{ size: letter; margin: 15mm 17mm; }
+
+  *{ box-sizing:border-box; }
+  html,body{ margin:0; padding:0; }
+
+  body{
+    font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",Helvetica,Arial,sans-serif;
+    font-size:10pt;
+    line-height:1.34;
+    color:var(--tinta);
+    background:#eceef1;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
+  }
+
+  .hoja{
+    width:216mm;
+    min-height:279mm;
+    margin:0 auto;
+    padding:15mm 17mm;
+    background:#fff;
+  }
+
+  /* ---------- Cabecera ---------- */
+  .cabecera{ border-bottom:2px solid var(--acento); padding-bottom:5mm; }
+  .cabecera h1{
+    margin:0;
+    font-size:12.5pt;
+    font-weight:600;
+    letter-spacing:-0.15pt;
+  }
+  .cabecera .entradilla{
+    margin:2mm 0 0;
+    font-size:9pt;
+    color:var(--gris);
+  }
+
+  /* ---------- Secciones ---------- */
+  section{ margin-top:6mm; }
+
+  h2{
+    margin:0 0 2.8mm;
+    font-size:8.5pt;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.9pt;
+    color:var(--acento);
+  }
+  h2 .num{
+    display:inline-block;
+    width:5.5mm;
+    color:var(--gris);
+    font-weight:400;
+  }
+
+  .apunte{
+    margin:0 0 2.4mm;
+    font-size:9pt;
+    color:var(--gris);
+  }
+
+  /* ---------- 1 · Búsqueda local ---------- */
+  .ranking{ margin:0; padding:0; list-style:none; }
+  .ranking li{
+    display:flex;
+    align-items:baseline;
+    gap:5mm;
+    padding:1.2mm 0;
+    border-bottom:1px solid var(--linea);
+  }
+  .ranking .pos{
+    width:8mm;
+    flex:0 0 8mm;
+    font-size:11pt;
+    font-weight:600;
+    color:var(--gris);
+    font-variant-numeric:tabular-nums;
+  }
+  .ranking li.propio{ border-bottom:none; padding-top:3.5mm; }
+  .ranking li.propio .pos{ color:var(--acento); }
+  .ranking li.propio .nombre{ font-weight:600; color:var(--acento); }
+
+  /* ---------- 2 · Tabla comparativa ---------- */
+  table{
+    width:100%;
+    border-collapse:collapse;
+    font-variant-numeric:tabular-nums;
+  }
+  th,td{ text-align:left; padding:1.7mm 3mm; border-bottom:1px solid var(--linea); }
+  thead th{
+    font-size:8.5pt;
+    font-weight:600;
+    text-transform:uppercase;
+    letter-spacing:0.5pt;
+    color:var(--gris);
+    border-bottom:1px solid var(--tinta);
+    padding-bottom:1.8mm;
+  }
+  th.dato, td.dato{ text-align:right; width:32mm; }
+  td.propio{ font-weight:600; color:var(--acento); }
+  tbody tr:last-child th, tbody tr:last-child td{ border-bottom:none; }
+  tbody th{ font-weight:400; }
+
+  /* ---------- 3 y 4 · Bloques de cifras ---------- */
+  .cifras{
+    display:flex;
+    gap:14mm;
+    padding:1mm 0;
+  }
+  .cifra .etiqueta{
+    display:block;
+    font-size:8.5pt;
+    text-transform:uppercase;
+    letter-spacing:0.5pt;
+    color:var(--gris);
+    margin-bottom:1.2mm;
+  }
+  .cifra .valor{
+    display:block;
+    font-size:11pt;
+    font-variant-numeric:tabular-nums;
+  }
+  .cifra.destacada .valor{
+    font-size:17pt;
+    font-weight:600;
+    line-height:1.1;
+    color:var(--acento);
+    letter-spacing:-0.4pt;
+  }
+  .cifra .nota{
+    display:block;
+    font-size:9pt;
+    color:var(--gris);
+    margin-top:0.8mm;
+  }
+
+  /* ---------- Cierre ---------- */
+  .cierre{
+    margin-top:7mm;
+    padding-top:5mm;
+    border-top:2px solid var(--acento);
+  }
+  .cierre .llamada{
+    margin:0;
+    font-size:12pt;
+    font-weight:600;
+    color:var(--acento);
+  }
+  .cierre .contacto{
+    margin:3mm 0 0;
+    font-size:9.5pt;
+    color:var(--gris);
+  }
+  .cierre .contacto strong{ color:var(--tinta); font-weight:600; }
+
+  /* ---------- Impresión: una página, sin excepción ---------- */
+  @media print{
+    body{ background:#fff; }
+    .hoja{ width:auto; min-height:0; margin:0; padding:0; }
+    section{ break-inside:avoid; page-break-inside:avoid; }
+    .cierre{ break-inside:avoid; page-break-inside:avoid; }
+  }
+</style>
+</head>
+<body>
+<div class="hoja">
+
+  <header class="cabecera">
+    <h1>Diagnóstico de presencia digital — Barbería El Rey — 1 de septiembre de 2026</h1>
+    <p class="entradilla">Cuatro comprobaciones sobre lo que un cliente de Hialeah encuentra hoy. Todos los datos son públicos y están tomados el 1 de septiembre de 2026.</p>
+  </header>
+
+  <section>
+    <h2><span class="num">1</span> Búsqueda local</h2>
+    <p class="apunte">Búsqueda en Google: «barbería en Hialeah». Aparecen antes que usted:</p>
+    <ol class="ranking">
+      <li><span class="pos">1</span><span class="nombre">Kings Barber Studio</span></li>
+      <li><span class="pos">2</span><span class="nombre">Fade Factory Miami</span></li>
+      <li><span class="pos">3</span><span class="nombre">Don Pepe Barbershop</span></li>
+      <li class="propio"><span class="pos">12</span><span class="nombre">Barbería El Rey</span></li>
+    </ol>
+  </section>
+
+  <section>
+    <h2><span class="num">2</span> Ficha de Google</h2>
+    <table>
+      <thead>
+        <tr>
+          <th></th>
+          <th class="dato">Barbería El Rey</th>
+          <th class="dato">Kings Barber Studio</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <th>Fotos publicadas</th>
+          <td class="dato propio">4</td>
+          <td class="dato">63</td>
+        </tr>
+        <tr>
+          <th>Reseñas</th>
+          <td class="dato propio">12</td>
+          <td class="dato">218</td>
+        </tr>
+        <tr>
+          <th>Reseñas respondidas</th>
+          <td class="dato propio">0 de 12</td>
+          <td class="dato">191 de 218</td>
+        </tr>
+        <tr>
+          <th>Horario publicado y al día</th>
+          <td class="dato propio">No</td>
+          <td class="dato">Sí</td>
+        </tr>
+      </tbody>
+    </table>
+  </section>
+
+  <section>
+    <h2><span class="num">3</span> Prueba de respuesta</h2>
+    <p class="apunte">Escribimos a su negocio como un cliente más, sin identificarnos.</p>
+    <div class="cifras">
+      <div class="cifra">
+        <span class="etiqueta">Mensaje enviado</span>
+        <span class="valor">27 ago · 10:14</span>
+      </div>
+      <div class="cifra">
+        <span class="etiqueta">Respuesta</span>
+        <span class="valor">30 ago · 01:32</span>
+      </div>
+      <div class="cifra destacada">
+        <span class="etiqueta">Tiempo transcurrido</span>
+        <span class="valor">63 horas</span>
+        <span class="nota">desde el mensaje hasta la respuesta</span>
+      </div>
+    </div>
+  </section>
+
+  <section>
+    <h2><span class="num">4</span> Sitio web</h2>
+    <p class="apunte">https://barberia-el-rey.example</p>
+    <div class="cifras">
+      <div class="cifra destacada">
+        <span class="etiqueta">Velocidad en móvil</span>
+        <span class="valor">31 / 100</span>
+        <span class="nota">8,4 segundos hasta ver la página</span>
+      </div>
+      <div class="cifra">
+        <span class="etiqueta">La palabra «Hialeah» en su web</span>
+        <span class="valor">No aparece</span>
+        <span class="nota">ni una vez en el texto de la página</span>
+      </div>
+    </div>
+  </section>
+
+  <div class="cierre">
+    <p class="llamada">Estas cuatro cosas se corrigen en 2 semanas. ¿Conversamos?</p>
+    <p class="contacto"><strong>Karol Vega</strong> · +1 (305) 555-0142 · hola@tudominio.com</p>
+  </div>
+
+</div>
+</body>
+</html>

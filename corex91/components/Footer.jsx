@@ -1,5 +1,7 @@
 import Link from "next/link";
 
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+
 export default function Footer() {
   return (
     <footer className="border-t border-surface bg-surface">
@@ -15,7 +17,7 @@ export default function Footer() {
           <h4 className="text-sm font-semibold text-ink">Shop</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/productos" className="hover:text-primary">
+              <Link href="/products" className="hover:text-primary">
                 All products
               </Link>
             </li>
@@ -31,12 +33,12 @@ export default function Footer() {
           <h4 className="text-sm font-semibold text-ink">Company</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>
-              <Link href="/nosotros" className="hover:text-primary">
+              <Link href="/about" className="hover:text-primary">
                 About
               </Link>
             </li>
             <li>
-              <Link href="/contacto" className="hover:text-primary">
+              <Link href="/contact" className="hover:text-primary">
                 Contact
               </Link>
             </li>
@@ -47,7 +49,7 @@ export default function Footer() {
           <h4 className="text-sm font-semibold text-ink">Contact</h4>
           <ul className="mt-3 space-y-2 text-sm text-muted">
             <li>
-              <a href="https://wa.me/10000000000" className="hover:text-primary">
+              <a href={`https://wa.me/${WHATSAPP_NUMBER}`} className="hover:text-primary">
                 WhatsApp
               </a>
             </li>

@@ -2,17 +2,20 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { ShoppingCart } from "lucide-react";
+import { useCart } from "@/lib/cart-context";
 
 const NAV_LINKS = [
   { href: "/", label: "Home" },
-  { href: "/productos", label: "Products" },
+  { href: "/products", label: "Products" },
   { href: "/coa", label: "COA" },
-  { href: "/nosotros", label: "About" },
-  { href: "/contacto", label: "Contact" },
+  { href: "/about", label: "About" },
+  { href: "/contact", label: "Contact" },
 ];
 
 export default function Header() {
   const pathname = usePathname();
+  const { itemCount, openCart } = useCart();
 
   return (
     <header className="sticky top-0 z-40 border-b border-surface bg-white/95 backdrop-blur">
@@ -38,12 +41,28 @@ export default function Header() {
           })}
         </nav>
 
-        <Link
-          href="/productos"
-          className="rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-        >
-          Shop
-        </Link>
+        <div className="flex items-center gap-3">
+          <button
+            type="button"
+            onClick={openCart}
+            className="relative flex h-10 w-10 items-center justify-center rounded-md text-primary hover:bg-surface"
+            aria-label="Open cart"
+          >
+            <ShoppingCart size={20} />
+            {itemCount > 0 && (
+              <span className="absolute -right-1 -top-1 flex h-[18px] min-w-[18px] items-center justify-center rounded-full bg-cyan px-1 text-[10px] font-bold text-white">
+                {itemCount}
+              </span>
+            )}
+          </button>
+
+          <Link
+            href="/products"
+            className="hidden rounded-md bg-primary px-4 py-2 text-sm font-semibold text-white transition-opacity hover:opacity-90 sm:block"
+          >
+            Shop
+          </Link>
+        </div>
       </div>
 
       <nav className="flex items-center gap-5 overflow-x-auto border-t border-surface px-5 py-2 md:hidden">

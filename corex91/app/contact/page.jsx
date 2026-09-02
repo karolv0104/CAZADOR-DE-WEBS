@@ -1,6 +1,8 @@
 import { MessageCircle, Mail } from "lucide-react";
 import ContactForm from "@/components/ContactForm";
 
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
+
 export const metadata = {
   title: "Contact",
   description: "Get in touch with Corex 91 Research Sciences.",
@@ -25,7 +27,7 @@ export default function ContactPage() {
 
         <div className="space-y-4">
           <a
-            href="https://wa.me/10000000000"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="flex items-center gap-3 rounded-lg border border-surface p-5 transition-colors hover:border-cyan"

@@ -3,19 +3,19 @@ import { ShieldCheck, Truck, MapPin } from "lucide-react";
 const FEATURES = [
   {
     icon: ShieldCheck,
-    title: "Testeado por terceros",
+    title: "Third-party tested",
     description:
-      "Cada lote se verifica en laboratorio independiente antes de salir a la venta.",
+      "Every batch is verified by an independent laboratory before it goes on sale.",
   },
   {
     icon: Truck,
-    title: "Envío rápido",
-    description: "Pedidos procesados y despachados en 24-48h laborables.",
+    title: "Fast shipping",
+    description: "Orders processed and shipped within 24-48 business hours.",
   },
   {
     icon: MapPin,
-    title: "Empresa con base en EE.UU. (Florida)",
-    description: "Operación y soporte desde Estados Unidos.",
+    title: "U.S.-based company (Florida)",
+    description: "Operations and support run from the United States.",
   },
 ];
 

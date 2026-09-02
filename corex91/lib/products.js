@@ -2,81 +2,81 @@ export const products = [
   {
     slug: "bpc-157",
     name: "BPC-157",
-    category: "Reparación tisular",
+    category: "Tissue Repair Research",
     lot: "1160",
     purity: "99%+",
     description:
-      "Péptido de investigación sintetizado para estudios sobre reparación y regeneración tisular en modelos de laboratorio.",
+      "Research peptide synthesized for studies on tissue repair and regeneration in laboratory models.",
     variants: [{ weight: "10mg", price: 60.0 }],
   },
   {
     slug: "tb-500",
     name: "TB-500",
-    category: "Reparación tisular",
+    category: "Tissue Repair Research",
     lot: "1159",
     purity: "99%+",
     description:
-      "Fragmento de investigación de Timosina Beta-4, utilizado en estudios sobre reparación y recuperación tisular.",
+      "Research fragment of Thymosin Beta-4, used in studies on tissue repair and recovery.",
     variants: [{ weight: "10mg", price: 65.0 }],
   },
   {
     slug: "kpv",
     name: "KPV",
-    category: "Investigación inflamatoria",
+    category: "Inflammatory Research",
     lot: "1167",
     purity: "99%+",
     description:
-      "Tripéptido utilizado en estudios de investigación relacionados con procesos inflamatorios a nivel celular.",
+      "Tripeptide used in research studies related to inflammatory processes at the cellular level.",
     variants: [{ weight: "10mg", price: 55.0 }],
   },
   {
     slug: "selank",
     name: "Selank",
-    category: "Investigación neurológica",
+    category: "Neurological Research",
     lot: "1164",
     purity: "99%+",
     description:
-      "Péptido sintético heptapéptido utilizado en investigación relacionada con función del sistema nervioso central.",
+      "Synthetic heptapeptide used in research related to central nervous system function.",
     variants: [{ weight: "10mg", price: 55.0 }],
   },
   {
     slug: "semax",
     name: "Semax",
-    category: "Investigación neurológica",
+    category: "Neurological Research",
     lot: "1149",
     purity: "99%+",
     description:
-      "Péptido de investigación utilizado en estudios sobre función cognitiva y neuroprotección.",
+      "Research peptide used in studies on cognitive function and neuroprotection.",
     variants: [{ weight: "10mg", price: 45.0 }],
   },
   {
     slug: "pt-141",
     name: "PT-141",
-    category: "Investigación",
+    category: "Research",
     lot: "1165",
     purity: "99%+",
     description:
-      "Péptido de investigación derivado de melanocortina, utilizado en estudios de laboratorio especializados.",
+      "Research peptide derived from melanocortin, used in specialized laboratory studies.",
     variants: [{ weight: "10mg", price: 65.0 }],
   },
   {
     slug: "wolverine-blend",
     name: "Wolverine Blend",
-    category: "Blend de investigación",
+    category: "Research Blend",
     lot: "1166",
     purity: "99%+",
     description:
-      "Combinación de péptidos de investigación diseñada para estudios de reparación y recuperación tisular.",
+      "Combination of research peptides designed for studies on tissue repair and recovery.",
     variants: [{ weight: "10mg", price: 65.0 }],
   },
   {
     slug: "ghk-cu",
     name: "GHK-Cu",
-    category: "Investigación dérmica",
+    category: "Dermal Research",
     lot: "1162",
     purity: "99%+",
     description:
-      "Péptido de cobre utilizado en estudios de investigación sobre regeneración tisular y señalización celular.",
+      "Copper peptide used in research studies on tissue regeneration and cellular signaling.",
     variants: [
       { weight: "50mg", price: 50.0 },
       { weight: "100mg", price: 70.0 },
@@ -85,31 +85,31 @@ export const products = [
   {
     slug: "mots-c",
     name: "MOTS-C",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1161",
     purity: "99%+",
     description:
-      "Péptido mitocondrial de investigación, utilizado en estudios metabólicos y de rendimiento celular.",
+      "Research mitochondrial peptide, used in metabolic and cellular performance studies.",
     variants: [{ weight: "10mg", price: 55.0 }],
   },
   {
     slug: "tesamorelin",
     name: "Tesamorelin",
-    category: "Investigación hormonal",
+    category: "Hormonal Research",
     lot: "1158",
     purity: "99%+",
     description:
-      "Péptido de investigación análogo de GHRH, utilizado en estudios relacionados con la secreción de hormona de crecimiento.",
+      "Research peptide, GHRH analog, used in studies related to growth hormone secretion.",
     variants: [{ weight: "10mg", price: 75.0 }],
   },
   {
     slug: "nad",
     name: "NAD+",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1156",
     purity: "99%+",
     description:
-      "Coenzima utilizada en estudios de investigación sobre metabolismo celular y longevidad.",
+      "Coenzyme used in research studies on cellular metabolism and longevity.",
     variants: [
       { weight: "500mg", price: 110.0 },
       { weight: "1000mg", price: 160.0 },
@@ -118,101 +118,101 @@ export const products = [
   {
     slug: "glutathione",
     name: "Glutathione",
-    category: "Investigación antioxidante",
+    category: "Antioxidant Research",
     lot: "1155",
     purity: "99%+",
     description:
-      "Tripéptido antioxidante utilizado en estudios de investigación sobre estrés oxidativo a nivel celular.",
+      "Antioxidant tripeptide used in research studies on cellular oxidative stress.",
     variants: [{ weight: "1500mg", price: 100.0 }],
   },
   {
     slug: "melanotan",
     name: "Melanotan",
-    category: "Investigación",
+    category: "Research",
     lot: "1153",
     purity: "99%+",
     description:
-      "Péptido de investigación derivado de melanocortina, utilizado en estudios de pigmentación en modelos de laboratorio.",
+      "Research peptide derived from melanocortin, used in pigmentation studies in laboratory models.",
     variants: [{ weight: "10mg", price: 45.0 }],
   },
   {
     slug: "5-amino-1mq",
     name: "5-Amino-1MQ",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1152",
     purity: "99%+",
     description:
-      "Compuesto de investigación inhibidor de NNMT, utilizado en estudios metabólicos y de composición corporal.",
+      "Research compound, NNMT inhibitor, used in metabolic and body composition studies.",
     variants: [{ weight: "5mg", price: 45.0 }],
   },
   {
     slug: "igf-1-lr3",
     name: "IGF-1 LR3",
-    category: "Investigación hormonal",
+    category: "Hormonal Research",
     lot: "1151",
     purity: "99%+",
     description:
-      "Análogo de IGF-1 de investigación, utilizado en estudios sobre señalización celular y crecimiento tisular.",
+      "Research IGF-1 analog, used in studies on cellular signaling and tissue growth.",
     variants: [{ weight: "1mg", price: 75.0 }],
   },
   {
     slug: "ss-31",
     name: "SS-31",
-    category: "Investigación mitocondrial",
+    category: "Mitochondrial Research",
     lot: "1150",
     purity: "99%+",
     description:
-      "Péptido de investigación dirigido a la mitocondria, utilizado en estudios sobre función y estrés mitocondrial.",
+      "Research peptide targeted to the mitochondria, used in studies on mitochondrial function and stress.",
     variants: [{ weight: "10mg", price: 55.0 }],
   },
   {
     slug: "ipamorelin",
     name: "Ipamorelin",
-    category: "Investigación hormonal",
+    category: "Hormonal Research",
     lot: "1148",
     purity: "99%+",
     description:
-      "Péptido de investigación secretagogo de hormona de crecimiento, utilizado en estudios de señalización celular.",
+      "Research peptide, growth hormone secretagogue, used in cellular signaling studies.",
     variants: [{ weight: "5mg", price: 70.0 }],
   },
   {
     slug: "sermorelin",
     name: "Sermorelin",
-    category: "Investigación hormonal",
+    category: "Hormonal Research",
     lot: "1147",
     purity: "99%+",
     description:
-      "Péptido de investigación análogo de GHRH, utilizado en estudios sobre secreción de hormona de crecimiento.",
+      "Research peptide, GHRH analog, used in studies on growth hormone secretion.",
     variants: [{ weight: "5mg", price: 60.0 }],
   },
   {
     slug: "thymosin-alpha-1",
     name: "Thymosin Alpha-1",
-    category: "Investigación inmunológica",
+    category: "Immunological Research",
     lot: "1166b",
     purity: "99%+",
     description:
-      "Péptido de investigación utilizado en estudios relacionados con la modulación de la respuesta inmunitaria.",
+      "Research peptide used in studies related to modulation of the immune response.",
     variants: [{ weight: "10mg", price: 75.0 }],
   },
   {
     slug: "cjc-ipamorelin",
     name: "CJC-Ipa (No DAC)",
-    category: "Blend de investigación",
+    category: "Research Blend",
     lot: "1169",
     purity: "99%+",
     description:
-      "Combinación de péptidos de investigación utilizada en estudios sobre liberación de hormona de crecimiento a nivel celular.",
+      "Combination of research peptides used in studies on growth hormone release at the cellular level.",
     variants: [{ weight: "10mg", price: 80.0 }],
   },
   {
     slug: "glp-1s",
     name: "GLP-1S",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1170",
     purity: "99%+",
     description:
-      "Compuesto de investigación agonista del receptor GLP-1, utilizado en estudios metabólicos.",
+      "Research compound, GLP-1 receptor agonist, used in metabolic studies.",
     variants: [
       { weight: "10mg", price: 95.0 },
       { weight: "20mg", price: 165.0 },
@@ -222,11 +222,11 @@ export const products = [
   {
     slug: "glp-2t",
     name: "GLP-2T",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1173",
     purity: "99%+",
     description:
-      "Compuesto de investigación relacionado con receptores GLP-1/GIP, utilizado en estudios metabólicos.",
+      "Research compound related to GLP-1/GIP receptors, used in metabolic studies.",
     variants: [
       { weight: "10mg", price: 95.0 },
       { weight: "20mg", price: 155.0 },
@@ -237,11 +237,11 @@ export const products = [
   {
     slug: "glp-3r",
     name: "GLP-3R",
-    category: "Investigación metabólica",
+    category: "Metabolic Research",
     lot: "1178",
     purity: "99%+",
     description:
-      "Compuesto de investigación relacionado con receptores GLP-1/GIP/glucagón, utilizado en estudios metabólicos.",
+      "Research compound related to GLP-1/GIP/glucagon receptors, used in metabolic studies.",
     variants: [
       { weight: "10mg", price: 95.0 },
       { weight: "15mg", price: 125.0 },
@@ -252,31 +252,31 @@ export const products = [
   {
     slug: "klow",
     name: "KLOW",
-    category: "Blend de investigación",
+    category: "Research Blend",
     lot: "1177",
     purity: "99%+",
     description:
-      "Combinación de péptidos de investigación utilizada en estudios sobre regeneración cutánea y salud del tejido conectivo.",
+      "Combination of research peptides used in studies on skin regeneration and connective tissue health.",
     variants: [{ weight: "80mg", price: 135.0 }],
   },
   {
     slug: "glow",
     name: "GLOW",
-    category: "Blend de investigación",
+    category: "Research Blend",
     lot: "1154",
     purity: "99%+",
     description:
-      "Combinación de péptidos de investigación utilizada en estudios sobre reparación y luminosidad cutánea en modelos de laboratorio.",
+      "Combination of research peptides used in studies on skin repair and radiance in laboratory models.",
     variants: [{ weight: "70mg", price: 105.0 }],
   },
   {
     slug: "bac-water",
     name: "BAC Water",
-    category: "Diluyente",
+    category: "Diluent",
     lot: "1168",
     purity: "USP grade",
     description:
-      "Agua bacteriostática de grado laboratorio, utilizada como diluyente en preparación de muestras de investigación.",
+      "Laboratory-grade bacteriostatic water, used as a diluent in the preparation of research samples.",
     variants: [{ weight: "10mL", price: 20.0 }],
   },
 ];

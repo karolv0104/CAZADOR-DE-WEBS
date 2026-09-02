@@ -57,7 +57,7 @@ export default function AgeGateModal() {
               onChange={(e) => setIsAdult(e.target.checked)}
               className="mt-0.5 h-4 w-4 accent-primary"
             />
-            <span>Soy mayor de 18 años.</span>
+            <span>I am 18 years of age or older.</span>
           </label>
 
           <label className="flex items-start gap-3 text-sm text-ink">
@@ -68,8 +68,8 @@ export default function AgeGateModal() {
               className="mt-0.5 h-4 w-4 accent-primary"
             />
             <span>
-              Entiendo que estos productos son exclusivamente para
-              investigación y no para consumo humano.
+              I understand these products are for laboratory research use
+              only and are not for human consumption.
             </span>
           </label>
         </div>
@@ -80,7 +80,7 @@ export default function AgeGateModal() {
             onClick={handleExit}
             className="flex-1 rounded-md border border-surface py-2.5 text-sm font-semibold text-muted transition-colors hover:bg-surface"
           >
-            Salir
+            Exit
           </button>
           <button
             type="button"
@@ -88,12 +88,12 @@ export default function AgeGateModal() {
             disabled={!canEnter}
             className="flex-1 rounded-md bg-primary py-2.5 text-sm font-semibold text-white transition-opacity disabled:cursor-not-allowed disabled:opacity-40"
           >
-            Entrar
+            Enter
           </button>
         </div>
 
-        <p className="mt-6 text-center text-[11px] leading-snug text-faint">
-          For laboratory research use only. Not for human consumption.
+        <p className="mt-6 text-center text-[11px] font-semibold uppercase tracking-wide text-faint">
+          For research use only. Not for human consumption.
         </p>
       </div>
     </div>

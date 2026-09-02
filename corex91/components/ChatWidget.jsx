@@ -1,12 +1,13 @@
 "use client";
 
 import { useEffect, useRef, useState } from "react";
-import { MessageCircle, X, Send } from "lucide-react";
+import { X, Send } from "lucide-react";
+import BotAvatar from "./BotAvatar";
 
 const WELCOME_MESSAGE = {
   role: "assistant",
   content:
-    "Hi! I can answer educational, scientific questions about our peptides — mechanism of action, molecular structure, published research. I can't advise on personal use or dosing. What would you like to know?",
+    "Hi! I can answer scientific, educational questions about our peptides — mechanism of action, molecular structure, published research. I can't advise on personal use or dosing. What would you like to know?",
 };
 
 export default function ChatWidget() {
@@ -52,7 +53,7 @@ export default function ChatWidget() {
         {
           role: "assistant",
           content:
-            "Sorry, something went wrong reaching the assistant. Please try again in a moment.",
+            "Something went wrong reaching the assistant. Please try again in a moment.",
         },
       ]);
     } finally {
@@ -64,41 +65,53 @@ export default function ChatWidget() {
     <div className="fixed bottom-5 right-5 z-30">
       {open && (
         <div className="mb-3 flex h-[28rem] w-80 flex-col overflow-hidden rounded-lg border border-surface bg-white shadow-2xl sm:w-96">
-          <div className="flex items-center justify-between bg-primary px-4 py-3">
-            <div>
-              <p className="font-display text-sm font-bold text-white">
-                COREX <span className="text-cyan">91</span> Assistant
-              </p>
-              <p className="text-[11px] text-[#B8C4CE]">
-                Educational information only
-              </p>
-            </div>
+          <div className="flex items-center gap-2.5 bg-primary px-4 py-3">
+            <BotAvatar size={30} />
+            <p className="font-display text-sm font-bold text-white">
+              COREX <span className="text-cyan">91</span> Assistant
+            </p>
             <button
               type="button"
               onClick={() => setOpen(false)}
-              className="text-white/80 hover:text-white"
+              className="ml-auto text-white/80 hover:text-white"
               aria-label="Close chat"
             >
               <X size={18} />
             </button>
           </div>
 
+          <p className="border-b border-surface bg-surface px-4 py-2 text-[10px] leading-snug text-muted">
+            This assistant provides general scientific information. It does
+            not replace professional advice. Products are for research use
+            only.
+          </p>
+
           <div ref={scrollRef} className="flex-1 space-y-3 overflow-y-auto p-4">
             {messages.map((m, i) => (
               <div
                 key={i}
-                className={`max-w-[85%] rounded-lg px-3 py-2 text-sm ${
-                  m.role === "user"
-                    ? "ml-auto bg-primary text-white"
-                    : "bg-surface text-ink"
+                className={`flex items-end gap-2 ${
+                  m.role === "user" ? "justify-end" : "justify-start"
                 }`}
               >
-                {m.content}
+                {m.role === "assistant" && <BotAvatar size={22} />}
+                <div
+                  className={`max-w-[75%] rounded-lg px-3 py-2 text-sm ${
+                    m.role === "user"
+                      ? "bg-primary text-white"
+                      : "bg-surface text-ink"
+                  }`}
+                >
+                  {m.content}
+                </div>
               </div>
             ))}
             {loading && (
-              <div className="max-w-[85%] rounded-lg bg-surface px-3 py-2 text-sm text-muted">
-                Thinking…
+              <div className="flex items-end gap-2">
+                <BotAvatar size={22} />
+                <div className="max-w-[75%] rounded-lg bg-surface px-3 py-2 text-sm text-muted">
+                  Thinking…
+                </div>
               </div>
             )}
           </div>
@@ -111,7 +124,7 @@ export default function ChatWidget() {
               type="text"
               value={input}
               onChange={(e) => setInput(e.target.value)}
-              placeholder="Ask about a peptide's mechanism…"
+              placeholder="Ask about a mechanism of action…"
               className="flex-1 rounded-md border border-surface px-3 py-2 text-sm text-ink outline-none focus:border-cyan"
             />
             <button
@@ -123,22 +136,16 @@ export default function ChatWidget() {
               <Send size={16} />
             </button>
           </form>
-
-          <p className="border-t border-surface px-4 py-2 text-[10px] leading-snug text-faint">
-            For laboratory research use only. Not for human consumption. For
-            questions about personal use, consult a qualified healthcare
-            professional.
-          </p>
         </div>
       )}
 
       <button
         type="button"
         onClick={() => setOpen((v) => !v)}
-        className="flex h-14 w-14 items-center justify-center rounded-full bg-primary text-white shadow-lg transition-opacity hover:opacity-90"
-        aria-label="Toggle chat"
+        className="flex h-14 w-14 items-center justify-center overflow-hidden rounded-full bg-primary text-white shadow-lg transition-opacity hover:opacity-90"
+        aria-label="Open chat"
       >
-        {open ? <X size={22} /> : <MessageCircle size={22} />}
+        {open ? <X size={22} /> : <BotAvatar size={56} />}
       </button>
     </div>
   );

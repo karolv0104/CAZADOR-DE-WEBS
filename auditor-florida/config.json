@@ -1,0 +1,19 @@
+{
+  "contacto": {
+    "nombre": "Karol Vega",
+    "telefono": "+1 (305) 555-0142",
+    "email": "hola@tudominio.com"
+  },
+  "pagespeed": {
+    "apiKey": "",
+    "estrategia": "mobile"
+  },
+  "secuencia": {
+    "toques": [
+      { "dia": 1,  "canal": "email",    "plantilla": "01-email-auditoria" },
+      { "dia": 3,  "canal": "whatsapp", "plantilla": "02-whatsapp-corto" },
+      { "dia": 6,  "canal": "llamada",  "plantilla": "03-llamada" },
+      { "dia": 10, "canal": "email",    "plantilla": "04-cierre-de-ciclo" }
+    ]
+  }
+}

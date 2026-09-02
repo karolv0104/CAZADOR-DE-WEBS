@@ -1,0 +1,13 @@
+{
+  "name": "auditor-florida",
+  "version": "0.1.0",
+  "private": true,
+  "type": "module",
+  "description": "Genera auditorías de presencia digital de negocios locales y gestiona la secuencia de contacto.",
+  "bin": { "auditor": "index.js" },
+  "scripts": {
+    "auditar": "node index.js auditar",
+    "secuencia": "node index.js secuencia",
+    "registrar": "node index.js registrar"
+  }
+}

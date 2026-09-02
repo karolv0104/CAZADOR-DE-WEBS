@@ -8,7 +8,7 @@ import FeatureIcons from "@/components/FeatureIcons";
 const FEATURED_SLUGS = [
   "bpc-157",
   "tb-500",
-  "glp-1-s",
+  "glp-1s",
   "ghk-cu",
   "selank",
   "nad",
@@ -21,29 +21,46 @@ export default function HomePage() {
 
   return (
     <>
-      <section className="container-page py-20 text-center md:py-28">
-        <p className="font-display text-sm font-semibold tracking-widest text-cyan">
-          COREX 91
-        </p>
-        <h1 className="mx-auto mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-primary md:text-5xl">
-          Research-grade peptides for laboratory use.
-        </h1>
-        <p className="mx-auto mt-4 max-w-xl text-base text-muted">
-          Third-party tested. Certificate of Analysis on every product.
-        </p>
-        <div className="mt-8 flex justify-center gap-3">
-          <Link
-            href="/productos"
-            className="rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
-          >
-            Shop products
-          </Link>
-          <Link
-            href="/coa"
-            className="rounded-md border border-primary px-6 py-3 text-sm font-semibold text-primary transition-colors hover:bg-primary hover:text-white"
-          >
-            View COAs
-          </Link>
+      <section className="relative overflow-hidden bg-primary py-24 text-center md:py-32">
+        {/* Cinematic scientific backdrop — glowing depth + lab grid, pure CSS */}
+        <div className="pointer-events-none absolute inset-0">
+          <div className="absolute left-1/2 top-[-10%] h-[560px] w-[560px] -translate-x-1/2 animate-pulse rounded-full bg-cyan/20 blur-[120px]" />
+          <div className="absolute -left-24 bottom-[-10%] h-72 w-72 rounded-full bg-cyan/10 blur-[110px]" />
+          <div className="absolute -right-24 top-1/3 h-80 w-80 rounded-full bg-cyan/10 blur-[110px]" />
+        </div>
+        <div
+          className="pointer-events-none absolute inset-0 opacity-[0.06]"
+          style={{
+            backgroundImage:
+              "linear-gradient(#ffffff 1px, transparent 1px), linear-gradient(90deg, #ffffff 1px, transparent 1px)",
+            backgroundSize: "48px 48px",
+          }}
+        />
+
+        <div className="container-page relative">
+          <p className="font-display text-sm font-semibold tracking-widest text-cyan">
+            COREX 91
+          </p>
+          <h1 className="mx-auto mt-4 max-w-2xl font-display text-4xl font-bold leading-tight text-white md:text-5xl">
+            Research-grade peptides for laboratory use.
+          </h1>
+          <p className="mx-auto mt-4 max-w-xl text-base text-[#B8C4CE]">
+            Third-party tested. Certificate of Analysis on every product.
+          </p>
+          <div className="mt-8 flex justify-center gap-3">
+            <Link
+              href="/products"
+              className="rounded-md bg-cyan px-6 py-3 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
+            >
+              Shop products
+            </Link>
+            <Link
+              href="/coa"
+              className="rounded-md border border-white/30 px-6 py-3 text-sm font-semibold text-white transition-colors hover:bg-white/10"
+            >
+              View COAs
+            </Link>
+          </div>
         </div>
       </section>
 
@@ -56,7 +73,7 @@ export default function HomePage() {
             Featured products
           </h2>
           <Link
-            href="/productos"
+            href="/products"
             className="text-sm font-semibold text-primary hover:underline"
           >
             View all &rarr;
@@ -84,7 +101,7 @@ export default function HomePage() {
             href="/coa"
             className="mt-2 rounded-md bg-primary px-6 py-3 text-sm font-semibold text-white transition-opacity hover:opacity-90"
           >
-            Ver todos los resultados
+            View all results
           </Link>
         </div>
       </section>
@@ -95,12 +112,12 @@ export default function HomePage() {
           <h2 className="font-display text-2xl font-bold text-white">
             Bundle &amp; Save
           </h2>
-          <p className="text-sm text-[#B8C4CE]">Descuentos por volumen.</p>
+          <p className="text-sm text-[#B8C4CE]">Volume discounts available.</p>
           <p className="text-sm text-[#B8C4CE]">
-            Envío gratis en compras mayores a $200.
+            Free shipping on orders over $200.
           </p>
           <Link
-            href="/productos"
+            href="/products"
             className="mt-3 rounded-md bg-cyan px-6 py-3 text-sm font-semibold text-primary transition-opacity hover:opacity-90"
           >
             Shop products

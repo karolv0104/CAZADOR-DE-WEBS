@@ -1,5 +1,7 @@
 import { FileText } from "lucide-react";
-import { products, getLotNumber } from "@/lib/products";
+import { products } from "@/lib/products";
+
+const WHATSAPP_NUMBER = process.env.NEXT_PUBLIC_WHATSAPP_NUMBER || "";
 
 export const metadata = {
   title: "Certificates of Analysis",
@@ -27,7 +29,6 @@ export default function CoaPage() {
 
       <div className="mx-auto max-w-2xl divide-y divide-surface rounded-lg border border-surface">
         {products.map((product) => {
-          const lot = getLotNumber(product.slug);
           const pdfUrl = coaFiles[product.slug];
 
           return (
@@ -41,7 +42,7 @@ export default function CoaPage() {
                   <p className="font-display text-sm font-bold text-ink">
                     {product.name}
                   </p>
-                  <p className="text-xs text-muted">Lot #C91-{lot}</p>
+                  <p className="text-xs text-muted">Lot #C91-{product.lot}</p>
                 </div>
               </div>
 
@@ -66,12 +67,12 @@ export default function CoaPage() {
 
       <div className="mx-auto mt-8 max-w-2xl rounded-lg bg-surface p-6 text-center">
         <p className="text-sm text-muted">
-          Certificado de análisis disponible bajo pedido — contactanos por
-          WhatsApp o email.
+          Certificate of Analysis available upon request — contact us via
+          WhatsApp or email.
         </p>
         <div className="mt-4 flex justify-center gap-3">
           <a
-            href="https://wa.me/10000000000"
+            href={`https://wa.me/${WHATSAPP_NUMBER}`}
             target="_blank"
             rel="noopener noreferrer"
             className="rounded-md bg-primary px-5 py-2.5 text-sm font-semibold text-white transition-opacity hover:opacity-90"
