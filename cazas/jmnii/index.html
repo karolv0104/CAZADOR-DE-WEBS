@@ -4,10 +4,39 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>JMNII Global Holdings | Capital to build. Expertise to scale.</title>
-  <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value. Miami, Florida | The Netherlands | London, England.">
+  <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value. Miami, Florida | London, England | The Netherlands.">
   <meta property="og:title" content="JMNII Global Holdings">
   <meta property="og:description" content="Private capital. International perspective. Disciplined execution.">
   <meta property="og:type" content="website">
+  <meta property="og:url" content="https://jmnii.com/">
+  <meta property="og:site_name" content="JMNII Global Holdings">
+  <meta property="og:image" content="https://jmnii.com/assets/og-image.jpg">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="JMNII Global Holdings — Capital to build. Expertise to scale.">
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="JMNII Global Holdings">
+  <meta name="twitter:description" content="Private capital. International perspective. Disciplined execution.">
+  <meta name="twitter:image" content="https://jmnii.com/assets/og-image.jpg">
+  <link rel="canonical" href="https://jmnii.com/">
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "Organization",
+    "name": "JMNII",
+    "alternateName": "JMNII Global Holdings",
+    "url": "https://jmnii.com/",
+    "logo": "https://jmnii.com/assets/favicon.svg",
+    "description": "A privately held global holding company combining capital, ownership and operational expertise to build long-term business value.",
+    "address": { "@type": "PostalAddress", "addressLocality": "Miami", "addressRegion": "FL", "addressCountry": "US" },
+    "areaServed": ["United States", "United Kingdom", "Netherlands"],
+    "employee": [
+      { "@type": "Person", "name": "Michael Hobart", "jobTitle": "Chief Executive Officer" },
+      { "@type": "Person", "name": "Christian Thun", "jobTitle": "Chief Operating Officer" },
+      { "@type": "Person", "name": "Jay Boateng", "jobTitle": "Senior Advisor" }
+    ]
+  }
+  </script>
   <meta name="theme-color" content="#0B0B0B">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
@@ -26,25 +55,9 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
 
-  <!-- Tailwind CSS: official CDN (pinned version) -->
-  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
-  <script>
-    /* JMNII palette (brief): deep black and charcoal, warm ivory, graphite and brushed silver */
-    tailwind.config = {
-      theme: {
-        extend: {
-          colors: {
-            black: '#0B0B0B',      // deep black — primary background
-            charcoal: '#141414',   // charcoal — alternate sections
-            graphite: '#2B2B2B',   // graphite — surfaces, cards, rules
-            ivory: '#FBF9F6',      // warm ivory — type
-            silver: '#B9B8B4'      // brushed silver — accents
-          },
-          fontFamily: { jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] }
-        }
-      }
-    };
-  </script>
+  <!-- Tailwind CSS compiled to a static file (no runtime CDN). Palette (brief): deep black #0B0B0B, charcoal #141414,
+       graphite #2B2B2B, warm ivory #FBF9F6, brushed silver #B9B8B4. Rebuild with tailwind.config.js if classes change. -->
+  <link rel="stylesheet" href="assets/tailwind.css">
 
   <style>
     html { -webkit-text-size-adjust: 100%; background: #0B0B0B; }
@@ -56,7 +69,7 @@
 
     /* Brushed silver */
     .brushed     { background: linear-gradient(90deg, #8f8e8a 0%, #dcdbd7 32%, #a6a5a1 52%, #e6e5e1 74%, #9a9995 100%); }
-    .silver-text { background: linear-gradient(100deg, #9a9995 0%, #e9e8e4 40%, #a6a5a1 60%, #dcdbd7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .silver-text { color: #B9B8B4; }
     .graphite-card { background: linear-gradient(180deg, #1C1C1C 0%, #161616 100%); border: 1px solid #2B2B2B; }
 
     /* Intro curtain */
@@ -198,7 +211,7 @@
       <a href="#leadership" class="border-b border-graphite py-4">Leadership</a>
       <a href="#contact" class="border-b border-graphite py-4">Contact</a>
     </div>
-    <p class="mt-auto text-[10px] uppercase tracking-[0.3em] text-silver">Miami, Florida | The Netherlands | London, England</p>
+    <p class="mt-auto text-[10px] uppercase tracking-[0.3em] text-silver">Miami, Florida | London, England | The Netherlands</p>
   </div>
 
   <!-- ===================== HERO: the three cities, full-bleed photography ===================== -->
@@ -211,7 +224,7 @@
         <img src="assets/photos/london.jpg" srcset="assets/photos/london-m.jpg 1200w, assets/photos/london.jpg 2400w" sizes="100vw" alt="The City of London financial district at dusk" class="city-img" style="object-position:52% 45%" data-speed="14" loading="eager" decoding="async">
       </figure>
       <figure class="city" data-city="netherlands" aria-hidden="true">
-        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1200w, assets/photos/netherlands.jpg 2400w" sizes="100vw" alt="Rotterdam waterfront and the Erasmus Bridge under a dark sky" class="city-img" style="object-position:38% 60%" data-speed="14" loading="eager" decoding="async">
+        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1200w, assets/photos/netherlands.jpg 2400w" sizes="100vw" alt="Contemporary Dutch waterfront architecture at dusk" class="city-img" style="object-position:38% 60%" data-speed="14" loading="eager" decoding="async">
       </figure>
     </div>
 
@@ -240,17 +253,17 @@
         <button type="button" class="city-tab is-active" data-city="miami" role="tab" aria-selected="true">
           <span class="city-bar"><span></span></span>
           <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">MIA</span><span class="hidden md:inline">Miami</span> <span class="tabular-nums text-ivory/70" data-clock="America/New_York">--:--</span></span>
-          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">Global Head Office</span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/60 md:block">Global Head Office</span>
         </button>
         <button type="button" class="city-tab" data-city="london" role="tab" aria-selected="false">
           <span class="city-bar"><span></span></span>
           <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">LDN</span><span class="hidden md:inline">London</span> <span class="tabular-nums text-ivory/70" data-clock="Europe/London">--:--</span></span>
-          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">United Kingdom Presence</span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/60 md:block">United Kingdom Presence</span>
         </button>
         <button type="button" class="city-tab" data-city="netherlands" role="tab" aria-selected="false">
           <span class="city-bar"><span></span></span>
           <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">NL</span><span class="hidden md:inline">The Netherlands</span> <span class="tabular-nums text-ivory/70" data-clock="Europe/Amsterdam">--:--</span></span>
-          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">European Presence</span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/60 md:block">European Presence</span>
         </button>
       </div>
     </div>
@@ -267,7 +280,7 @@
         <div class="mt-20 grid grid-cols-1 gap-10 border-t border-graphite pt-14 md:mt-24 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-5">
             <h2 class="text-[clamp(1.7rem,3vw,2.5rem)] font-light leading-[1.15] tracking-tight">More than investment. <span class="silver-text">A platform for growth.</span></h2>
-            <p class="mt-5 text-[11px] uppercase tracking-[0.26em] text-ivory/40">A global holding company with an operator’s mindset</p>
+            <p class="mt-5 text-[11px] uppercase tracking-[0.26em] text-ivory/60">A global holding company with an operator’s mindset</p>
           </div>
           <div class="reveal d1 space-y-6 text-[16px] font-light leading-[1.8] text-ivory/65 md:col-span-6 md:col-start-7">
             <p>JMNII was established around a straightforward principle: capital is most effective when paired with the expertise and commitment to put it to work. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets.</p>
@@ -316,7 +329,7 @@
             <p class="mt-6 text-[17px] font-light leading-[1.7] text-ivory/85"><span class="silver-text font-normal">Capital opens doors. Expertise builds businesses.</span> JMNII brings the two together through active engagement, commercial judgment and an unwavering focus on execution.</p>
           </article>
         </div>
-        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
+        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/60 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
 
         <!-- Three pillars -->
         <div class="mt-16 grid grid-cols-1 border-t border-graphite md:mt-20 md:grid-cols-3">
@@ -464,7 +477,7 @@
               <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Logistics</li>
               <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Selected industrial or energy-related opportunities</li>
             </ul>
-            <p class="mt-5 text-xs text-ivory/40">This describes areas of consideration, not a representation of current holdings.</p>
+            <p class="mt-5 text-xs text-ivory/60">This describes areas of consideration, not a representation of current holdings.</p>
           </div>
         </div>
       </div>
@@ -507,51 +520,50 @@
             <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/miami-m.jpg" alt="Miami skyline at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">Miami, Florida</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">The center of group leadership, strategic direction and coordination of our broader business interests.</p>
-            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">25.7617°N · 80.1918°W</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">25.7617°N · 80.1918°W</p>
           </article>
           <article class="graphite-card reveal d1 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
             <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/london-m.jpg" alt="The City of London financial district at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">London, England</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Strengthening our access to commercial relationships, international perspectives and strategic opportunities.</p>
-            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">51.5074°N · 0.1278°W</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">51.5074°N · 0.1278°W</p>
           </article>
           <article class="graphite-card reveal d2 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
-            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/netherlands-m.jpg" alt="Rotterdam and the Erasmus Bridge" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/netherlands-m.jpg" alt="Contemporary Dutch waterfront architecture" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">The Netherlands</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Supporting the group’s European commercial relationships and cross-border business development activity.</p>
-            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">52.1326°N · 5.2913°E</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">52.1326°N · 5.2913°E</p>
           </article>
         </div>
-        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
+        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/60 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
       </div>
     </section>
 
-    <!-- ===================== 05 · LEADERSHIP (black) ===================== -->
+    <!-- ===================== 05 · LEADERSHIP (black) — typographic by design: the partners prefer not to publish portraits ===================== -->
     <section id="leadership" class="bg-black px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-6">
             <span class="brushed mb-5 block h-px w-12"></span>
             <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">05 / Leadership</span>
-            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">Strategic judgment. <span class="text-ivory/50">Direct involvement in execution.</span></h2>
+            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">Strategic judgment. <span class="text-ivory/60">Direct involvement in execution.</span></h2>
           </div>
-          <p class="reveal d1 text-[16px] font-light leading-[1.8] text-ivory/60 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital.</p>
+          <p class="reveal d1 text-[16px] font-light leading-[1.8] text-ivory/70 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital. The group’s leadership model combines strategic judgment with direct involvement in execution.</p>
         </div>
 
-        <div class="mt-14 md:mt-20 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
-          <!-- Michael Hobart -->
-          <article class="graphite-card reveal group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
-            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
-              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">MH</span>
-              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">MH</span>
-              <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">CEO</span>
-            </div>
-            <div class="flex flex-1 flex-col p-7 md:p-9">
-              <h3 class="text-2xl font-light">Michael Hobart</h3>
-              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Chief Executive Officer</p>
-              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Responsible for the group’s strategic direction, executive management and coordination of its business interests.</p>
-              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-mh">Read biography</button>
-            </div>
+        <ul class="mt-14 border-t border-silver/30 md:mt-20">
+          <li class="reveal border-b border-graphite">
+            <button type="button" class="bio-open group grid w-full grid-cols-[2.25rem_1fr] items-start gap-x-4 py-10 text-left md:grid-cols-12 md:gap-x-10 md:py-12" data-bio="bio-mh" aria-haspopup="dialog">
+              <span class="pt-2 text-[11px] tracking-[0.2em] text-silver md:col-span-1">01</span>
+              <span class="md:col-span-5">
+                <span class="block text-[clamp(1.6rem,3vw,2.5rem)] font-extralight leading-tight text-ivory transition-transform duration-500 group-hover:translate-x-2">Michael Hobart</span>
+                <span class="mt-3 block text-[11px] uppercase tracking-[0.24em] text-silver">Chief Executive Officer</span>
+              </span>
+              <span class="col-start-2 mt-5 md:col-span-6 md:col-start-7 md:mt-1">
+                <span class="block text-[15px] font-light leading-[1.75] text-ivory/70">Responsible for the group’s strategic direction, executive management and coordination of its business interests.</span>
+                <span class="mt-5 inline-flex items-center gap-3 border-b border-silver/50 pb-1 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors group-hover:border-ivory">Read biography <span aria-hidden="true">&rarr;</span></span>
+              </span>
+            </button>
             <template id="bio-mh">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Chief Executive Officer</p>
               <h3 class="mt-4 text-3xl font-light md:text-4xl">Michael Hobart</h3>
@@ -562,21 +574,19 @@
                 <p>He has led significant operational projects, supported the launch and development of consumer brands, managed multidisciplinary teams and built commercial relationships across different jurisdictions. His leadership is characterized by close attention to execution, financial accountability and the establishment of scalable systems designed to support long-term business performance.</p>
               </div>
             </template>
-          </article>
-
-          <!-- Christian Thun -->
-          <article class="graphite-card reveal d1 group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
-            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
-              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">CT</span>
-              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">CT</span>
-              <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">COO</span>
-            </div>
-            <div class="flex flex-1 flex-col p-7 md:p-9">
-              <h3 class="text-2xl font-light">Christian Thun</h3>
-              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Chief Operating Officer</p>
-              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Focused on translating commercial strategy into efficient operating processes and measurable outcomes.</p>
-              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-ct">Read biography</button>
-            </div>
+          </li>
+          <li class="reveal border-b border-graphite">
+            <button type="button" class="bio-open group grid w-full grid-cols-[2.25rem_1fr] items-start gap-x-4 py-10 text-left md:grid-cols-12 md:gap-x-10 md:py-12" data-bio="bio-ct" aria-haspopup="dialog">
+              <span class="pt-2 text-[11px] tracking-[0.2em] text-silver md:col-span-1">02</span>
+              <span class="md:col-span-5">
+                <span class="block text-[clamp(1.6rem,3vw,2.5rem)] font-extralight leading-tight text-ivory transition-transform duration-500 group-hover:translate-x-2">Christian Thun</span>
+                <span class="mt-3 block text-[11px] uppercase tracking-[0.24em] text-silver">Chief Operating Officer</span>
+              </span>
+              <span class="col-start-2 mt-5 md:col-span-6 md:col-start-7 md:mt-1">
+                <span class="block text-[15px] font-light leading-[1.75] text-ivory/70">Focused on translating commercial strategy into efficient operating processes and measurable outcomes.</span>
+                <span class="mt-5 inline-flex items-center gap-3 border-b border-silver/50 pb-1 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors group-hover:border-ivory">Read biography <span aria-hidden="true">&rarr;</span></span>
+              </span>
+            </button>
             <template id="bio-ct">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Chief Operating Officer</p>
               <h3 class="mt-4 text-3xl font-light md:text-4xl">Christian Thun</h3>
@@ -587,21 +597,19 @@
                 <p>At JMNII, he works alongside the executive team to support operational performance, business development and the execution of group priorities across domestic and international activities.</p>
               </div>
             </template>
-          </article>
-
-          <!-- Jay Boateng -->
-          <article class="graphite-card reveal d2 group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
-            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
-              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">JB</span>
-              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">JB</span>
-              <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">Advisor</span>
-            </div>
-            <div class="flex flex-1 flex-col p-7 md:p-9">
-              <h3 class="text-2xl font-light">Jay Boateng</h3>
-              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Senior Advisor | Private Capital and Portfolio Strategy</p>
-              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations.</p>
-              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-jb">Read biography</button>
-            </div>
+          </li>
+          <li class="reveal border-b border-graphite">
+            <button type="button" class="bio-open group grid w-full grid-cols-[2.25rem_1fr] items-start gap-x-4 py-10 text-left md:grid-cols-12 md:gap-x-10 md:py-12" data-bio="bio-jb" aria-haspopup="dialog">
+              <span class="pt-2 text-[11px] tracking-[0.2em] text-silver md:col-span-1">03</span>
+              <span class="md:col-span-5">
+                <span class="block text-[clamp(1.6rem,3vw,2.5rem)] font-extralight leading-tight text-ivory transition-transform duration-500 group-hover:translate-x-2">Jay Boateng</span>
+                <span class="mt-3 block text-[11px] uppercase tracking-[0.24em] text-silver">Senior Advisor | Private Capital and Portfolio Strategy</span>
+              </span>
+              <span class="col-start-2 mt-5 md:col-span-6 md:col-start-7 md:mt-1">
+                <span class="block text-[15px] font-light leading-[1.75] text-ivory/70">Advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations.</span>
+                <span class="mt-5 inline-flex items-center gap-3 border-b border-silver/50 pb-1 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors group-hover:border-ivory">Read biography <span aria-hidden="true">&rarr;</span></span>
+              </span>
+            </button>
             <template id="bio-jb">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Senior Advisor | Private Capital and Portfolio Strategy</p>
               <h3 class="mt-4 text-3xl font-light md:text-4xl">Jay Boateng</h3>
@@ -612,9 +620,8 @@
                 <p>Jay advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations as the group continues to develop its investment and business interests.</p>
               </div>
             </template>
-          </article>
-        </div>
-        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
+          </li>
+        </ul>
       </div>
     </section>
 
@@ -626,7 +633,7 @@
           <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">06 / Contact</span>
           <h2 class="text-[clamp(1.9rem,3.6vw,3.1rem)] font-extralight leading-[1.1] tracking-tight">Building a stronger business begins with <span class="silver-text font-light">the right partnership.</span></h2>
           <p class="mt-7 text-[16px] font-light leading-[1.8] text-ivory/60">Start a conversation with JMNII. For corporate inquiries, strategic partnerships and business opportunities, we welcome introductions from aligned organizations and professional counterparts.</p>
-          <p class="mt-10 text-[10px] uppercase tracking-[0.28em] text-silver">Miami, Florida | The Netherlands | London, England</p>
+          <p class="mt-10 text-[10px] uppercase tracking-[0.28em] text-silver">Miami, Florida | London, England | The Netherlands</p>
         </div>
 
         <div class="reveal d1 lg:col-span-6 lg:col-start-7">
@@ -650,6 +657,7 @@
               </select>
             </label>
             <label class="block sm:col-span-2"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Message</span><textarea class="field mt-1 min-h-[130px] resize-y" name="message" required></textarea></label>
+            <p class="text-xs leading-relaxed text-ivory/60 sm:col-span-2">Information shared through this form is used only to respond to your inquiry. See our <a href="privacy.html" class="underline decoration-silver/60 underline-offset-4 hover:text-ivory">Privacy Notice</a>.</p>
             <div class="sm:col-span-2"><button type="submit" class="w-full bg-ivory px-10 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white sm:w-auto">Send Inquiry</button></div>
           </form>
         </div>
@@ -670,7 +678,7 @@
         </div>
       </div>
       <div class="mt-12 flex flex-col justify-between gap-2 text-[10px] uppercase tracking-[0.26em] text-silver/80 sm:flex-row">
-        <span>Miami, Florida | The Netherlands | London, England</span><span>&copy; 2026 JMNII</span>
+        <span>Miami, Florida | London, England | The Netherlands</span><span><a href="privacy.html" class="mr-6 hover:text-ivory">Privacy Notice</a>&copy; 2026 JMNII</span>
       </div>
       <p class="wordmark pointer-events-none mt-12 select-none text-center text-[clamp(5rem,26vw,25rem)] font-extralight" aria-hidden="true">JMNII</p>
     </div>
@@ -681,7 +689,7 @@
     <div class="backdrop absolute inset-0 bg-black/70" data-close></div>
     <div class="panel absolute bottom-0 right-0 top-0 flex w-full max-w-xl flex-col overflow-y-auto border-l border-graphite bg-charcoal px-6 py-8 md:px-14 md:py-10">
       <div class="flex items-center justify-between">
-        <span class="text-[11px] uppercase tracking-[0.3em] text-ivory/40">Leadership</span>
+        <span class="text-[11px] uppercase tracking-[0.3em] text-ivory/60">Leadership</span>
         <button type="button" id="drawer-close" class="-mr-2 flex h-11 items-center gap-3 px-2 text-[11px] uppercase tracking-[0.24em] text-ivory/70 hover:text-ivory" data-close>Close <span aria-hidden="true" class="text-lg leading-none">&times;</span></button>
       </div>
       <div id="drawer-body" class="mt-12 pb-10 md:mt-16"></div>
