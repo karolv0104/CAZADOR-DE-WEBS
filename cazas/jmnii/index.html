@@ -3,110 +3,52 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JMNII — Capital to build. Expertise to scale.</title>
-  <meta name="description" content="JMNII · Miami · London · Netherlands">
-
+  <title>JMNII | Global Holdings — Capital to build. Expertise to scale.</title>
+  <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.">
+  <meta property="og:title" content="JMNII | Global Holdings — Capital to build. Expertise to scale.">
+  <meta property="og:description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.">
+  <meta property="og:type" content="website">
+  <meta name="theme-color" content="#141414">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
-
-  <!-- Tailwind compiled to a static file (no runtime CDN): assets/tailwind.css -->
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="assets/tailwind.css">
-
-  <style>
-    :root { --carbon:#141414; --ivory:#FBF9F6; }
-    html, body { background: var(--carbon); color: var(--ivory); }
-    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
-
-    /* ---------- HERO STAGE ---------- */
-    .hero { perspective: 1400px; isolation: isolate; }
-
-    /* Every moving layer: GPU-composited, transform-only animation */
-    .layer {
-      position: absolute;
-      will-change: transform;
-      transform: translate3d(0,0,0);
-      backface-visibility: hidden;
-      pointer-events: none;
-    }
-    /* Layers are slightly oversized so edges never show while they drift */
-    .layer-bleed { inset: -6%; }
-
-    /* City silhouettes fuse into the carbon background */
-    .blend-overlay  { mix-blend-mode: overlay; }
-    .blend-screen   { mix-blend-mode: screen; }
-
-    /* Atmosphere: graphite horizon glow the overlay layers blend against */
-    .atmosphere {
-      background:
-        radial-gradient(60% 40% at 50% 72%, rgba(96,96,93,.42) 0%, rgba(48,48,46,.2) 45%, rgba(20,20,20,0) 75%),
-        radial-gradient(40% 30% at 18% 75%, rgba(80,80,78,.28) 0%, rgba(20,20,20,0) 70%),
-        radial-gradient(40% 30% at 84% 74%, rgba(80,80,78,.28) 0%, rgba(20,20,20,0) 70%),
-        linear-gradient(180deg, #141414 0%, #181818 55%, #121212 100%);
-    }
-
-    /* Water under Miami: dark horizontal "scanline" texture */
-    .water {
-      background:
-        repeating-linear-gradient(180deg, rgba(251,249,246,.045) 0 1px, rgba(0,0,0,0) 1px 6px),
-        linear-gradient(180deg, rgba(40,40,39,.9), rgba(20,20,20,1));
-      -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.6) 40%, transparent 100%);
-              mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.6) 40%, transparent 100%);
-    }
-
-    /* Film grain (static — never animated, so it costs nothing per frame) */
-    .grain {
-      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
-      opacity: .07;
-      mix-blend-mode: overlay;
-    }
-
-    /* Foreground cities dissolve into the floor instead of ending on a hard edge */
-    .fade-floor {
-      -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
-              mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
-    }
-    /* Soft carbon halo behind the headline: legibility without a visible box */
-    .scrim { background: radial-gradient(42% 30% at 50% 50%, rgba(20,20,20,.7) 0%, rgba(20,20,20,0) 100%); }
-
-    .vignette {
-      background: radial-gradient(120% 90% at 50% 45%, rgba(20,20,20,0) 45%, rgba(10,10,10,.85) 100%);
-    }
-
-    /* Aviation warning lights on the tallest towers — slow, quiet pulse */
-    .beacon { animation: beacon 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
-    .beacon.d2 { animation-delay: 1.2s; }
-    .beacon.d3 { animation-delay: 2.4s; }
-    @keyframes beacon { 0%, 100% { opacity: .15; } 50% { opacity: .9; } }
-
-    /* Headline */
-    .headline { letter-spacing: .035em; text-wrap: balance; }
-    .eyebrow  { letter-spacing: .42em; }
-
-    /* Intro reveal (opacity only on the wrapper; transforms stay owned by JS) */
-    .reveal { opacity: 0; transition: opacity 1.6s cubic-bezier(.2,.7,.2,1); }
-    .is-ready .reveal { opacity: 1; }
-    .is-ready .reveal.r2 { transition-delay: .25s; }
-    .is-ready .reveal.r3 { transition-delay: .5s; }
-    .is-ready .reveal.r4 { transition-delay: .8s; }
-
-    .rule { background: linear-gradient(90deg, transparent, rgba(251,249,246,.35), transparent); height: 1px; }
-
-    .scroll-cue span { animation: cue 2.4s cubic-bezier(.6,0,.4,1) infinite; }
-    @keyframes cue { 0% { transform: translate3d(0,-100%,0); } 60%,100% { transform: translate3d(0,100%,0); } }
-
-    @media (prefers-reduced-motion: reduce) {
-      .beacon, .scroll-cue span { animation: none; }
-      .reveal { transition: none; opacity: 1; }
-    }
-  </style>
+  <link rel="stylesheet" href="assets/site.css">
 </head>
-
 <body class="bg-carbon text-ivory font-jakarta">
+<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ivory focus:px-4 focus:py-2 focus:text-carbon">Skip to content</a>
 
-  <!-- ====================== HERO ====================== -->
-  <section id="hero" class="hero relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-carbon" aria-label="JMNII — Miami, London, Netherlands">
+<header class="site-header fixed inset-x-0 top-0 z-50">
+  <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-5 sm:px-10">
+    <a href="index.html" class="text-[15px] font-semibold tracking-[.38em] text-ivory" aria-label="JMNII home">JMNII</a>
+    <nav class="hidden items-center gap-8 text-[11px] font-medium uppercase tracking-[.24em] lg:flex" aria-label="Main">
+        <a href="about.html" class="nav-link">About</a>
+        <a href="approach.html" class="nav-link">Our Approach</a>
+        <a href="capabilities.html" class="nav-link">Capabilities</a>
+        <a href="leadership.html" class="nav-link">Leadership</a>
+        <a href="presence.html" class="nav-link">Global Presence</a>
+        <a href="contact.html" class="nav-link">Contact</a>
+    </nav>
+    <button type="button" class="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
+      <span class="block h-px w-6 bg-ivory"></span><span class="block h-px w-6 bg-ivory"></span>
+    </button>
+  </div>
+</header>
+<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-carbon/95 px-4 pt-24 backdrop-blur lg:hidden" data-menu>
+  <nav class="flex flex-col" aria-label="Mobile">
+      <a href="about.html" class="block border-b hairline py-5 text-2xl font-light">About</a>
+      <a href="approach.html" class="block border-b hairline py-5 text-2xl font-light">Our Approach</a>
+      <a href="capabilities.html" class="block border-b hairline py-5 text-2xl font-light">Capabilities</a>
+      <a href="leadership.html" class="block border-b hairline py-5 text-2xl font-light">Leadership</a>
+      <a href="presence.html" class="block border-b hairline py-5 text-2xl font-light">Global Presence</a>
+      <a href="contact.html" class="block border-b hairline py-5 text-2xl font-light">Contact</a>
+  </nav>
+  <p class="label mt-10">Miami · The Netherlands · London</p>
+</div>
 
+<main id="main">
+  <section id="hero" class="hero relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-carbon" aria-label="JMNII — Miami, London, the Netherlands">
     <!-- L0 · Atmosphere (deepest, barely moves) -->
     <div class="layer layer-bleed atmosphere" data-speed="6" aria-hidden="true"></div>
 
@@ -265,114 +207,177 @@
     <div class="pointer-events-none absolute inset-0 z-10 scrim" aria-hidden="true"></div>
     <div class="pointer-events-none absolute inset-0 grain" aria-hidden="true"></div>
 
-    <!-- ---------- NAV ---------- -->
-    <header class="reveal absolute inset-x-0 top-0 z-30 flex items-center justify-between px-4 py-6 sm:px-10">
-      <a href="#hero" class="text-[15px] font-semibold tracking-[.38em] text-ivory">JMNII</a>
-      <nav class="hidden gap-10 text-[12px] font-medium uppercase tracking-[.28em] text-ivory/60 md:flex">
-        <a href="#about" class="transition-colors hover:text-ivory">About</a>
-        <a href="#approach" class="transition-colors hover:text-ivory">Approach</a>
-        <a href="#contact" class="transition-colors hover:text-ivory">Contact</a>
-      </nav>
-    </header>
 
-    <!-- ---------- HEADLINE (top layer, moves opposite to the cursor) ---------- -->
     <div class="absolute inset-0 z-20 flex items-center justify-center px-4">
       <div id="headline" class="text-center" style="will-change:transform;transform:translate3d(0,0,0)" data-speed="-18" data-tilt="2.2">
-        <p class="reveal eyebrow mb-8 text-[11px] font-medium uppercase text-ivory/55 sm:text-xs">
-          Miami <span class="mx-2 text-ivory/25">/</span> London <span class="mx-2 text-ivory/25">/</span> Netherlands
-        </p>
+        <p class="intro eyebrow mb-8 text-[11px] font-medium uppercase text-ivory/55 sm:text-xs">JMNII <span class="mx-2 text-ivory/25">|</span> Global Holdings</p>
         <h1 class="headline text-[clamp(2.4rem,7.4vw,6.6rem)] leading-[1.02] text-ivory">
-          <span class="reveal r2 block font-medium">Capital to build.</span>
-          <span class="reveal r3 block font-extralight text-ivory/80">Expertise to scale.</span>
+          <span class="intro r2 block font-medium">Capital to build.</span>
+          <span class="intro r3 block font-extralight text-ivory/80">Expertise to scale.</span>
         </h1>
-        <div class="reveal r4 mx-auto mt-10 w-40 rule"></div>
+        <p class="intro r3 mx-auto mt-8 max-w-xl text-[15px] leading-relaxed text-ivory/65 sm:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
+        <div class="intro r4 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
+          <a href="about.html" class="btn btn-solid">Discover JMNII <svg class="arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+          <a href="approach.html" class="btn btn-ghost">Our Approach</a>
+        </div>
       </div>
     </div>
-
-    <!-- ---------- FOOTER STRIP: real coordinates of the three cities ---------- -->
-    <div class="reveal r4 absolute inset-x-0 bottom-0 z-30 flex items-end justify-between px-4 pb-6 text-[10px] uppercase tracking-[.3em] text-ivory/40 sm:px-10 sm:text-[11px]">
-      <span class="hidden sm:block">LDN&nbsp;&nbsp;51.5074°N · 0.1278°W</span>
-      <span class="hidden sm:block">MIA&nbsp;&nbsp;25.7617°N · 80.1918°W</span>
-      <span class="hidden sm:block">AMS&nbsp;&nbsp;52.3676°N · 4.9041°E</span>
-      <a href="#about" class="scroll-cue mx-auto flex flex-col items-center gap-3 sm:hidden" aria-label="Scroll">
+    <div class="intro r4 absolute inset-x-0 bottom-0 z-30 mx-auto flex max-w-[1400px] items-end justify-between px-4 pb-6 text-[10px] uppercase tracking-[.3em] text-ivory/40 sm:px-10 sm:text-[11px]">
+      <span class="hidden md:block">MIA&nbsp;&nbsp;25.7617°N · 80.1918°W</span><span class="hidden md:block">LDN&nbsp;&nbsp;51.5074°N · 0.1278°W</span><span class="hidden md:block">NLD&nbsp;&nbsp;52.1326°N · 5.2913°E</span>
+      <a href="#beyond" class="scroll-cue mx-auto flex flex-col items-center md:hidden" aria-label="Scroll down">
         <span class="block h-8 w-px overflow-hidden"><span class="block h-full w-full bg-ivory/60"></span></span>
       </a>
     </div>
   </section>
 
-  <!-- Placeholder anchor for the next section (content pending real business data) -->
-  <section id="about" class="min-h-[40vh] bg-carbon"></section>
+  <section id="beyond" class="section">
+    <div class="mx-auto grid max-w-[1400px] gap-12 px-4 py-24 sm:px-10 sm:py-32 lg:grid-cols-12">
+      <div class="lg:col-span-6">
+        <p class="label reveal-up">01 — Beyond capital</p>
+        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">More than investment. A platform for growth.</h2>
+      </div>
+      <div class="lg:col-span-5 lg:col-start-8 lg:pt-14">
+        <p class="reveal-up d2 text-[17px] leading-relaxed text-ivory/70 lede">At JMNII, we believe the most valuable contribution to a business goes beyond financial resources. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets. Our role is to help turn promising opportunities into stronger, more capable enterprises.</p>
+        <a href="about.html" class="text-link reveal-up d3 mt-8 inline-block text-sm">About JMNII</a>
+      </div>
+    </div>
+  </section>
 
-  <script>
-  /* ============================================================
-     JMNII · Hero parallax — vanilla JS, transform-only, rAF-driven
-     - mousemove sets a target; a lerp eases every layer toward it
-     - only translate3d / rotate are written (GPU compositor, no layout)
-     - the loop sleeps once everything has settled (zero idle CPU)
-     ============================================================ */
-  (() => {
-    const hero   = document.getElementById('hero');
-    const layers = [...hero.querySelectorAll('[data-speed]')].map(el => ({
-      el,
-      speed: parseFloat(el.dataset.speed) || 0,
-      tilt:  parseFloat(el.dataset.tilt)  || 0
-    }));
+  <section class="section panel">
+    <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-10 sm:py-32">
+      <p class="label reveal-up">02 — Core strengths</p>
+        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light max-w-3xl">The resources to invest. The capabilities to execute.</h2>
+      <div class="mt-16 grid gap-12 md:grid-cols-3">
+        <article class="reveal-up d1 border-t hairline pt-8">
+          <p class="num text-xs text-ivory/40">01</p>
+          <h3 class="mt-6 text-xl font-medium tracking-wide">Private Capital</h3>
+          <p class="mt-4 leading-relaxed text-ivory/65">Selective capital support designed around long-term ownership, business fundamentals and responsible allocation.</p>
+        </article>
+        <article class="reveal-up d2 border-t hairline pt-8">
+          <p class="num text-xs text-ivory/40">02</p>
+          <h3 class="mt-6 text-xl font-medium tracking-wide">Strategic Management</h3>
+          <p class="mt-4 leading-relaxed text-ivory/65">Clear priorities, performance oversight and experienced operational support across complex commercial functions.</p>
+        </article>
+        <article class="reveal-up d3 border-t hairline pt-8">
+          <p class="num text-xs text-ivory/40">03</p>
+          <h3 class="mt-6 text-xl font-medium tracking-wide">Global Execution</h3>
+          <p class="mt-4 leading-relaxed text-ivory/65">Cross-border relationships, logistical capabilities and practical experience coordinating businesses across markets.</p>
+        </article>
+      </div>
+      <a href="capabilities.html" class="text-link reveal-up mt-14 inline-block text-sm">Explore capabilities</a>
+    </div>
+  </section>
 
-    requestAnimationFrame(() => document.documentElement.classList.add('is-ready'));
+  <section class="section">
+    <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-10 sm:py-32">
+      <div class="grid gap-12 lg:grid-cols-12">
+        <div class="lg:col-span-7">
+          <p class="label reveal-up">03 — Our approach</p>
+        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">Conviction in the opportunity. Commitment to the outcome.</h2>
+        </div>
+        <div class="lg:col-span-4 lg:col-start-9 lg:pt-14">
+          <p class="reveal-up d2 text-[17px] leading-relaxed text-ivory/70 lede">We assess opportunities through their fundamentals, leadership, commercial position and capacity for sustainable growth. Where we see alignment, we bring together funding, strategic oversight and operating expertise to help the business execute its next stage of development.</p>
+        </div>
+      </div>
+      <ol class="steps mt-20 grid grid-cols-2 gap-x-8 gap-y-12 border-t hairline md:grid-cols-4">
+          <li class="reveal-up d1 relative pt-10">
+            <span class="step-dot absolute left-0 top-[-4px]"></span>
+            <p class="num text-xs text-ivory/40">01</p>
+            <p class="mt-3 text-2xl font-light">Identify</p>
+          </li>
+          <li class="reveal-up d2 relative pt-10">
+            <span class="step-dot absolute left-0 top-[-4px]"></span>
+            <p class="num text-xs text-ivory/40">02</p>
+            <p class="mt-3 text-2xl font-light">Invest</p>
+          </li>
+          <li class="reveal-up d3 relative pt-10">
+            <span class="step-dot absolute left-0 top-[-4px]"></span>
+            <p class="num text-xs text-ivory/40">03</p>
+            <p class="mt-3 text-2xl font-light">Strengthen</p>
+          </li>
+          <li class="reveal-up d4 relative pt-10">
+            <span class="step-dot absolute left-0 top-[-4px]"></span>
+            <p class="num text-xs text-ivory/40">04</p>
+            <p class="mt-3 text-2xl font-light">Grow</p>
+          </li>
+      </ol>
+      <a href="approach.html" class="text-link reveal-up mt-14 inline-block text-sm">How we work</a>
+    </div>
+  </section>
 
-    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (reduced) return;
+  <section class="section panel">
+    <div class="mx-auto grid max-w-[1400px] items-center gap-14 px-4 py-24 sm:px-10 sm:py-32 lg:grid-cols-12">
+      <div class="lg:col-span-5">
+        <p class="label reveal-up">04 — International presence</p>
+        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">International reach. Connected leadership.</h2>
+        <p class="reveal-up d2 mt-8 text-[17px] leading-relaxed text-ivory/70 lede">From our Miami headquarters to our presence in the Netherlands and London, JMNII is structured to connect capital, commercial intelligence and operational capabilities across borders.</p>
+        <a href="presence.html" class="text-link reveal-up d3 mt-8 inline-block text-sm">Global presence</a>
+      </div>
+      <div class="reveal-up d2 lg:col-span-7">
+        <svg class="w-full h-auto" viewBox="0 0 1000 375" role="img" aria-label="Miami head office connected to London and the Netherlands">
+      <defs>
+        <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#FBF9F6" fill-opacity=".14"/></pattern>
+        <radialGradient id="mapFade" cx="50%" cy="50%" r="60%"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
+        <mask id="mapMask"><rect width="1000" height="375" fill="url(#mapFade)"/></mask>
+      </defs>
+      <rect width="1000" height="375" fill="url(#dots)" mask="url(#mapMask)"/>
+      <g stroke="#FBF9F6" stroke-opacity=".08"><path d="M0 125H1000M0 250H1000M250 0V375M500 0V375M750 0V375"/></g>
+      <path class="map-arc" d="M165.1 285.3 Q 520 -60 832.3 70.8" fill="none" stroke="#FBF9F6" stroke-opacity=".5" stroke-width="1.2"/>
+      <path class="map-arc" d="M165.1 285.3 Q 560 -30 877.4 65.6" fill="none" stroke="#FBF9F6" stroke-opacity=".3" stroke-width="1"/>
+      <circle class="map-pulse" cx="165.1" cy="285.3" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
+      <circle cx="165.1" cy="285.3" r="3.2" fill="#FBF9F6"/>
+      <text x="179.1" y="289.3" text-anchor="start" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">MIAMI — HEAD OFFICE</text>
+      <circle class="map-pulse" cx="832.3" cy="70.8" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
+      <circle cx="832.3" cy="70.8" r="3.2" fill="#FBF9F6"/>
+      <text x="818.3" y="92.8" text-anchor="end" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">LONDON</text>
+      <circle class="map-pulse" cx="877.4" cy="65.6" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
+      <circle cx="877.4" cy="65.6" r="3.2" fill="#FBF9F6"/>
+      <text x="869.4" y="51.599999999999994" text-anchor="end" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">THE NETHERLANDS</text>
+    </svg>
+      </div>
+    </div>
+  </section>
 
-    const EASE = 0.075;                 // lower = silkier, heavier
-    const target  = { x: 0, y: 0 };
-    const current = { x: 0, y: 0 };
-    let rafId = null, rect = hero.getBoundingClientRect();
-
-    const onResize = () => { rect = hero.getBoundingClientRect(); };
-    window.addEventListener('resize', onResize, { passive: true });
-    window.addEventListener('scroll', onResize, { passive: true });
-
-    hero.addEventListener('mousemove', (e) => {
-      // normalised -1 … 1 from the hero centre
-      target.x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
-      target.y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
-      wake();
-    }, { passive: true });
-
-    hero.addEventListener('mouseleave', () => { target.x = 0; target.y = 0; wake(); }, { passive: true });
-
-    // Touch / no-mouse devices: a slow, almost imperceptible drift keeps the depth alive
-    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
-
-    function render(t) {
-      if (!hasFinePointer) {
-        target.x = Math.sin(t / 5200) * 0.35;
-        target.y = Math.cos(t / 7100) * 0.22;
-      }
-
-      current.x += (target.x - current.x) * EASE;
-      current.y += (target.y - current.y) * EASE;
-
-      for (const { el, speed, tilt } of layers) {
-        const x = (-current.x * speed).toFixed(2);
-        const y = (-current.y * speed * 0.6).toFixed(2);
-        el.style.transform = tilt
-          ? `translate3d(${x}px, ${y}px, 0) rotateX(${(current.y * tilt).toFixed(3)}deg) rotateY(${(-current.x * tilt).toFixed(3)}deg)`
-          : `translate3d(${x}px, ${y}px, 0)`;
-      }
-
-      const settled = Math.abs(target.x - current.x) < 0.0005 && Math.abs(target.y - current.y) < 0.0005;
-      rafId = (settled && hasFinePointer) ? null : requestAnimationFrame(render);
-    }
-
-    function wake() { if (!rafId) rafId = requestAnimationFrame(render); }
-
-    // Pause entirely when the hero is off-screen
-    new IntersectionObserver(([entry]) => {
-      if (entry.isIntersecting) wake();
-      else if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-    }).observe(hero);
-  })();
-  </script>
+  <section class="section">
+    <div class="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-10 px-4 py-24 sm:px-10 md:flex-row md:items-end">
+      <div class="max-w-3xl">
+        <h2 class="display reveal-up text-[clamp(1.8rem,4vw,3.2rem)] font-light">Building a stronger business begins with the right partnership.</h2>
+        <p class="reveal-up d1 mt-5 text-ivory/65">Explore a strategic conversation with JMNII.</p>
+      </div>
+      <a href="contact.html" class="btn btn-solid reveal-up d2 shrink-0">Contact Us <svg class="arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
+    </div>
+  </section>
+</main>
+<footer class="section">
+  <div class="mx-auto max-w-[1400px] px-4 py-16 sm:px-10">
+    <p class="reveal-up max-w-3xl text-[clamp(1.4rem,3vw,2.2rem)] font-light leading-snug text-ivory/85">Private capital. International perspective. Disciplined execution.</p>
+    <div class="mt-14 grid gap-10 border-t hairline pt-10 md:grid-cols-3">
+      <div>
+        <a href="index.html" class="text-[15px] font-semibold tracking-[.38em]">JMNII</a>
+        <p class="mt-4 text-sm text-ivory/55">A privately held global holding company.</p>
+      </div>
+      <div>
+        <p class="label mb-4">Navigate</p>
+        <nav class="grid grid-cols-2 gap-y-3 text-sm" aria-label="Footer">
+          <a href="about.html" class="nav-link">About</a>
+          <a href="approach.html" class="nav-link">Our Approach</a>
+          <a href="capabilities.html" class="nav-link">Capabilities</a>
+          <a href="leadership.html" class="nav-link">Leadership</a>
+          <a href="presence.html" class="nav-link">Global Presence</a>
+          <a href="contact.html" class="nav-link">Contact</a>
+        </nav>
+      </div>
+      <div>
+        <p class="label mb-4">Presence</p>
+        <p class="text-sm text-ivory/70">Miami, Florida<br>The Netherlands<br>London, England</p>
+      </div>
+    </div>
+    <div class="mt-14 flex flex-col justify-between gap-3 text-[11px] uppercase tracking-[.24em] text-ivory/35 sm:flex-row">
+      <span>&copy; 2026 JMNII</span>
+      <span>Miami / The Netherlands / London</span>
+    </div>
+  </div>
+</footer>
+<script src="assets/site.js" defer></script>
 </body>
 </html>
