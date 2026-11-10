@@ -7,3 +7,6 @@
 # Cazas: trabajo con webs de negocios reales — no se distribuyen con el kit
 cazas/*
 !cazas/.gitkeep
+
+# Local Netlify folder
+.netlify
