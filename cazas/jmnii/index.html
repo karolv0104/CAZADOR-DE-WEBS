@@ -2,16 +2,16 @@
 <html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
   <title>JMNII Global Holdings | Capital to build. Expertise to scale.</title>
   <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value. Miami, Florida | The Netherlands | London, England.">
   <meta property="og:title" content="JMNII Global Holdings">
   <meta property="og:description" content="Private capital. International perspective. Disciplined execution.">
   <meta property="og:type" content="website">
-  <meta name="theme-color" content="#141414">
+  <meta name="theme-color" content="#0B0B0B">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
 
-  <!-- Intro curtain only plays once per visit, and only with JavaScript on -->
+  <!-- Intro curtain: once per visit, only with JavaScript and without reduced motion -->
   <script>
     (function () {
       var d = document.documentElement, seen = false;
@@ -29,16 +29,16 @@
   <!-- Tailwind CSS: official CDN (pinned version) -->
   <script src="https://cdn.tailwindcss.com/3.4.16"></script>
   <script>
+    /* JMNII palette (brief): deep black and charcoal, warm ivory, graphite and brushed silver */
     tailwind.config = {
       theme: {
         extend: {
           colors: {
-            ivory: '#FBF9F6',
-            carbon: '#141414',
-            ink: '#0E0E0E',
-            graphite: '#2B2B2B',
-            silver: '#B9B8B4',
-            'silver-deep': '#8A8984'
+            black: '#0B0B0B',      // deep black — primary background
+            charcoal: '#141414',   // charcoal — alternate sections
+            graphite: '#2B2B2B',   // graphite — surfaces, cards, rules
+            ivory: '#FBF9F6',      // warm ivory — type
+            silver: '#B9B8B4'      // brushed silver — accents
           },
           fontFamily: { jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] }
         }
@@ -47,32 +47,33 @@
   </script>
 
   <style>
-    html { -webkit-text-size-adjust: 100%; }
-    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #FBF9F6; color: #2B2B2B; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
-    ::selection { background: #141414; color: #FBF9F6; }
-    section[id] { scroll-margin-top: 72px; }
-    :focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+    html { -webkit-text-size-adjust: 100%; background: #0B0B0B; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background: #0B0B0B; color: #FBF9F6; -webkit-font-smoothing: antialiased; text-rendering: optimizeLegibility; }
+    ::selection { background: #FBF9F6; color: #0B0B0B; }
+    section[id] { scroll-margin-top: 68px; }
+    :focus-visible { outline: 1px solid #B9B8B4; outline-offset: 4px; }
+    button, a { -webkit-tap-highlight-color: transparent; }
 
-    /* ---------- Brushed silver ---------- */
-    .brushed      { background: linear-gradient(90deg, #8f8e8a 0%, #dcdbd7 32%, #a6a5a1 52%, #e6e5e1 74%, #9a9995 100%); }
-    .brushed-deep { background: linear-gradient(90deg, #6f6e6a 0%, #a9a8a4 32%, #7f7e7a 52%, #b4b3af 74%, #75746f 100%); }
-    .silver-text  { background: linear-gradient(100deg, #9a9995 0%, #e9e8e4 40%, #a6a5a1 60%, #dcdbd7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    /* Brushed silver */
+    .brushed     { background: linear-gradient(90deg, #8f8e8a 0%, #dcdbd7 32%, #a6a5a1 52%, #e6e5e1 74%, #9a9995 100%); }
+    .silver-text { background: linear-gradient(100deg, #9a9995 0%, #e9e8e4 40%, #a6a5a1 60%, #dcdbd7 100%); -webkit-background-clip: text; background-clip: text; color: transparent; }
+    .graphite-card { background: linear-gradient(180deg, #1C1C1C 0%, #161616 100%); border: 1px solid #2B2B2B; }
 
-    /* ---------- Intro curtain ---------- */
+    /* Intro curtain */
     #curtain { display: none; }
-    .intro #curtain { display: flex; animation: curtain-up .95s cubic-bezier(.76,0,.24,1) 1.55s forwards; }
+    .intro #curtain { display: flex; animation: curtain-up .95s cubic-bezier(.76,0,.24,1) 1.45s forwards; }
     .intro body { overflow: hidden; }
     #curtain .mark span { display: inline-block; opacity: 0; transform: translate3d(0,14px,0); animation: letter .8s cubic-bezier(.2,.7,.2,1) forwards; }
     #curtain .mark span:nth-child(2) { animation-delay: .08s; } #curtain .mark span:nth-child(3) { animation-delay: .16s; }
     #curtain .mark span:nth-child(4) { animation-delay: .24s; } #curtain .mark span:nth-child(5) { animation-delay: .32s; }
-    #curtain .line { transform: scaleX(0); transform-origin: left; animation: grow 1s cubic-bezier(.76,0,.24,1) .45s forwards; }
-    #curtain .sub { opacity: 0; animation: fade .8s ease .8s forwards; }
+    #curtain .line { transform: scaleX(0); transform-origin: left; animation: grow 1s cubic-bezier(.76,0,.24,1) .4s forwards; }
+    #curtain .sub { opacity: 0; animation: fade .8s ease .75s forwards; }
     @keyframes letter { to { opacity: 1; transform: none; } }
     @keyframes grow { to { transform: scaleX(1); } }
     @keyframes fade { to { opacity: 1; } }
     @keyframes curtain-up { to { transform: translate3d(0,-100%,0); } }
 
-    /* ---------- Navigation ---------- */
+    /* Navigation */
     .nav-link { position: relative; transition: color .3s ease; }
     .nav-link::after { content: ""; position: absolute; left: 0; right: .22em; bottom: -7px; height: 1px; background: #B9B8B4; transform: scaleX(0); transform-origin: left; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
     .nav-link:hover::after, .nav-link.is-active::after { transform: scaleX(1); }
@@ -80,50 +81,47 @@
     #mobile-menu { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease; }
     #mobile-menu.is-open { opacity: 1; visibility: visible; }
 
-    /* ---------- Hero ---------- */
+    /* Hero */
     .city-layer { will-change: transform, filter, opacity; transform: translate3d(0,0,0); backface-visibility: hidden; }
     .headline-layer { will-change: transform; transform: translate3d(0,0,0); }
-    .sweep { background: linear-gradient(100deg, transparent 0%, rgba(251,249,246,.045) 45%, rgba(251,249,246,.0) 60%); width: 40%; animation: sweep 14s cubic-bezier(.45,0,.55,1) infinite; }
+    .sweep { background: linear-gradient(100deg, transparent 0%, rgba(251,249,246,.04) 45%, rgba(251,249,246,0) 60%); width: 40%; animation: sweep 14s cubic-bezier(.45,0,.55,1) infinite; }
     @keyframes sweep { 0% { transform: translate3d(-120%,0,0); } 100% { transform: translate3d(320%,0,0); } }
-    .cue span span { animation: cue 2.4s cubic-bezier(.6,0,.4,1) infinite; }
-    @keyframes cue { 0% { transform: translate3d(0,-100%,0); } 60%,100% { transform: translate3d(0,100%,0); } }
-
-    /* Short laptop screens: tighten the headline so it never meets the skyline */
-    @media (max-height: 820px) {
+    @media (max-height: 820px) and (min-width: 768px) {
       #layer-text { padding-bottom: 7rem; }
       #layer-text h1 { font-size: clamp(2.4rem, 5.2vw, 4.4rem); margin-bottom: 1.25rem; }
       #layer-text > p:first-child { margin-bottom: 1.25rem; }
-      #layer-text > p.mb-12 { margin-bottom: 2rem; }
+      #layer-text > p.lede { margin-bottom: 2rem; }
       #layer-miami > div { height: 21vh; }
     }
 
-    /* ---------- Statement: words light up with scroll ---------- */
-    .statement .w { color: rgba(43,43,43,.14); transition: color .5s ease; }
-    .statement .w.lit { color: #2B2B2B; }
+    /* Manifesto words light up with scroll */
+    .statement .w { color: rgba(251,249,246,.16); transition: color .5s ease; }
+    .statement .w.lit { color: #FBF9F6; }
 
-    /* ---------- Approach progress ---------- */
+    /* Approach progress */
     .progress-fill { transform: scaleY(0); transform-origin: top; will-change: transform; }
     .step { opacity: .35; transition: opacity .6s ease; }
     .step.is-on { opacity: 1; }
     .step.is-on .step-dot { background: #B9B8B4; border-color: #B9B8B4; }
 
-    /* ---------- Capabilities accordion ---------- */
+    /* Capabilities accordion */
     .acc-panel { display: grid; grid-template-rows: 0fr; transition: grid-template-rows .55s cubic-bezier(.2,.7,.2,1); }
     .acc-panel > div { overflow: hidden; }
     .acc[aria-expanded="true"] + .acc-panel { grid-template-rows: 1fr; }
     .acc .plus::before, .acc .plus::after { content: ""; position: absolute; inset: 50% 0 auto 0; height: 1px; background: currentColor; transition: transform .45s cubic-bezier(.2,.7,.2,1); }
     .acc .plus::after { transform: rotate(90deg); }
     .acc[aria-expanded="true"] .plus::after { transform: rotate(0deg); }
-    .acc:hover .acc-title { transform: translate3d(8px,0,0); }
-    .acc-title { transition: transform .45s cubic-bezier(.2,.7,.2,1); }
+    .acc-title { transition: transform .45s cubic-bezier(.2,.7,.2,1), color .3s ease; }
+    @media (hover: hover) { .acc:hover .acc-title { transform: translate3d(8px,0,0); } }
+    .acc[aria-expanded="true"] .acc-title { color: #FBF9F6; }
 
-    /* ---------- Map ---------- */
+    /* Map */
     .map-arc { stroke-dasharray: 3 7; animation: dash 40s linear infinite; }
     @keyframes dash { to { stroke-dashoffset: -500; } }
     .map-pulse { animation: pulse 3.2s ease-out infinite; transform-box: fill-box; transform-origin: center; }
     @keyframes pulse { 0% { transform: scale(1); opacity: .7; } 100% { transform: scale(4.5); opacity: 0; } }
 
-    /* ---------- Bio drawer ---------- */
+    /* Biography drawer */
     #drawer { visibility: hidden; transition: visibility 0s linear .65s; }
     #drawer.is-open { visibility: visible; transition: none; }
     #drawer .backdrop { opacity: 0; transition: opacity .45s ease; }
@@ -131,45 +129,45 @@
     #drawer .panel { transform: translate3d(100%,0,0); transition: transform .65s cubic-bezier(.76,0,.24,1); }
     #drawer.is-open .panel { transform: none; }
 
-    /* ---------- Form ---------- */
-    .field { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(185,184,180,.35); padding: .85rem 0; color: #FBF9F6; font-size: 15px; border-radius: 0; transition: border-color .3s ease; }
-    .field:focus { outline: none; border-color: #FBF9F6; }
+    /* Form */
+    .field { width: 100%; background: transparent; border: 0; border-bottom: 1px solid #2B2B2B; padding: .85rem 0; color: #FBF9F6; font-size: 16px; border-radius: 0; transition: border-color .3s ease; }
+    .field:focus { outline: none; border-color: #B9B8B4; }
     select.field { -webkit-appearance: none; appearance: none; background-image: linear-gradient(45deg, transparent 50%, #B9B8B4 50%), linear-gradient(135deg, #B9B8B4 50%, transparent 50%); background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
     select.field option { background: #141414; color: #FBF9F6; }
 
-    /* ---------- Footer wordmark ---------- */
-    .wordmark { -webkit-text-stroke: 1px rgba(185,184,180,.35); color: transparent; letter-spacing: .06em; line-height: .8; }
+    /* Footer wordmark */
+    .wordmark { -webkit-text-stroke: 1px rgba(185,184,180,.3); color: transparent; letter-spacing: .06em; line-height: .8; }
 
-    /* ---------- Reveals ---------- */
+    /* Reveals */
     .js .reveal { opacity: 0; transform: translate3d(0,22px,0); transition: opacity 1.1s cubic-bezier(.2,.7,.2,1), transform 1.1s cubic-bezier(.2,.7,.2,1); }
     .js .reveal.in { opacity: 1; transform: none; }
-    .js .reveal.d1 { transition-delay: .1s; } .js .reveal.d2 { transition-delay: .2s; } .js .reveal.d3 { transition-delay: .3s; }
+    .js .reveal.d1 { transition-delay: .1s; } .js .reveal.d2 { transition-delay: .2s; }
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .sweep, .cue span span, .map-arc, .map-pulse { animation: none; }
+      .sweep, .map-arc, .map-pulse { animation: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
-      .statement .w { color: #2B2B2B; }
+      .statement .w { color: #FBF9F6; }
       .step { opacity: 1; }
     }
   </style>
 </head>
 
 <body class="font-jakarta antialiased">
-  <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[90] focus:bg-ivory focus:px-4 focus:py-2 focus:text-carbon">Skip to content</a>
+  <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[90] focus:bg-ivory focus:px-4 focus:py-2 focus:text-black">Skip to content</a>
 
   <!-- ===================== INTRO CURTAIN ===================== -->
-  <div id="curtain" class="fixed inset-0 z-[100] flex-col items-center justify-center bg-[#141414] text-ivory" aria-hidden="true">
-    <p class="mark text-[clamp(2.4rem,7vw,4.5rem)] font-extralight tracking-[0.35em]"><span>J</span><span>M</span><span>N</span><span>I</span><span>I</span></p>
+  <div id="curtain" class="fixed inset-0 z-[100] flex-col items-center justify-center bg-black" aria-hidden="true">
+    <p class="mark text-[clamp(2.4rem,9vw,4.5rem)] font-extralight tracking-[0.35em] text-ivory"><span>J</span><span>M</span><span>N</span><span>I</span><span>I</span></p>
     <span class="line brushed mt-6 block h-px w-40"></span>
     <p class="sub mt-6 text-[10px] uppercase tracking-[0.5em] text-silver">Global Holdings</p>
   </div>
 
   <!-- ===================== NAVIGATION ===================== -->
-  <nav id="nav" class="fixed left-0 top-0 z-50 w-full border-b border-white/10 bg-[#141414]/85 px-6 py-5 backdrop-blur-md md:px-12" aria-label="Main">
+  <nav class="fixed left-0 top-0 z-50 w-full border-b border-graphite/70 bg-black/80 px-5 py-4 backdrop-blur-md md:px-12 md:py-5" aria-label="Main">
     <div class="mx-auto flex max-w-7xl items-center justify-between">
-      <a href="#hero" class="text-lg font-light tracking-[0.22em] text-ivory">JMNII <span class="ml-2 hidden text-[10px] tracking-[0.3em] text-silver sm:inline">| GLOBAL HOLDINGS</span></a>
-      <div class="hidden items-center gap-9 text-[11px] uppercase tracking-[0.22em] text-white/55 xl:flex">
+      <a href="#hero" class="text-base font-light tracking-[0.22em] text-ivory md:text-lg">JMNII <span class="ml-2 hidden text-[10px] tracking-[0.3em] text-silver sm:inline">| GLOBAL HOLDINGS</span></a>
+      <div class="hidden items-center gap-9 text-[11px] uppercase tracking-[0.22em] text-ivory/55 xl:flex">
         <a href="#about" class="nav-link hover:text-ivory">About</a>
         <a href="#approach" class="nav-link hover:text-ivory">Our Approach</a>
         <a href="#capabilities" class="nav-link hover:text-ivory">Capabilities</a>
@@ -177,41 +175,41 @@
         <a href="#leadership" class="nav-link hover:text-ivory">Leadership</a>
         <a href="#contact" class="nav-link hover:text-ivory">Contact</a>
       </div>
-      <button id="menu-toggle" type="button" class="flex h-10 w-10 flex-col items-center justify-center gap-[6px] xl:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+      <button id="menu-toggle" type="button" class="-mr-2 flex h-11 w-11 flex-col items-center justify-center gap-[6px] xl:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
         <span class="block h-px w-6 bg-ivory"></span><span class="block h-px w-6 bg-ivory"></span>
       </button>
     </div>
   </nav>
 
-  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#141414]/[.97] px-6 pt-28 xl:hidden">
-    <div class="flex flex-col text-2xl font-light text-ivory">
-      <a href="#about" class="border-b border-white/10 py-5">About</a>
-      <a href="#approach" class="border-b border-white/10 py-5">Our Approach</a>
-      <a href="#capabilities" class="border-b border-white/10 py-5">Capabilities</a>
-      <a href="#presence" class="border-b border-white/10 py-5">Global Presence</a>
-      <a href="#leadership" class="border-b border-white/10 py-5">Leadership</a>
-      <a href="#contact" class="border-b border-white/10 py-5">Contact</a>
+  <div id="mobile-menu" class="fixed inset-0 z-40 flex flex-col bg-black/[.97] px-6 pb-10 pt-24 xl:hidden">
+    <div class="flex flex-col text-[1.7rem] font-extralight text-ivory">
+      <a href="#about" class="border-b border-graphite py-4">About</a>
+      <a href="#approach" class="border-b border-graphite py-4">Our Approach</a>
+      <a href="#capabilities" class="border-b border-graphite py-4">Capabilities</a>
+      <a href="#presence" class="border-b border-graphite py-4">Global Presence</a>
+      <a href="#leadership" class="border-b border-graphite py-4">Leadership</a>
+      <a href="#contact" class="border-b border-graphite py-4">Contact</a>
     </div>
-    <p class="mt-10 text-[11px] uppercase tracking-[0.3em] text-silver">Miami, Florida | The Netherlands | London, England</p>
+    <p class="mt-auto text-[10px] uppercase tracking-[0.3em] text-silver">Miami, Florida | The Netherlands | London, England</p>
   </div>
 
   <!-- ===================== HERO ===================== -->
-  <header id="hero" class="relative flex h-screen min-h-[680px] w-full items-center justify-center overflow-hidden bg-[#141414]">
+  <header id="hero" class="relative flex h-[100svh] min-h-[620px] w-full items-center justify-center overflow-hidden bg-black">
     <!-- Global network -->
     <svg class="pointer-events-none absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 1440 900" aria-hidden="true">
       <g stroke="#FBF9F6" fill="none">
-        <path d="M0 450 H1440" stroke-opacity=".07"/><path d="M0 660 H1440" stroke-opacity=".05"/>
-        <path d="M360 0 V900 M1080 0 V900" stroke-opacity=".05"/>
-        <path d="M150 660 Q 720 120 1300 610" stroke-opacity=".1" stroke-dasharray="3 7"/>
-        <path d="M150 660 Q 760 260 1250 530" stroke-opacity=".07" stroke-dasharray="3 7"/>
+        <path d="M0 450 H1440" stroke-opacity=".06"/><path d="M0 660 H1440" stroke-opacity=".045"/>
+        <path d="M360 0 V900 M1080 0 V900" stroke-opacity=".045"/>
+        <path d="M150 660 Q 720 120 1300 610" stroke-opacity=".09" stroke-dasharray="3 7"/>
+        <path d="M150 660 Q 760 260 1250 530" stroke-opacity=".06" stroke-dasharray="3 7"/>
       </g>
       <g fill="#B9B8B4" fill-opacity=".75"><circle cx="150" cy="660" r="2"/><circle cx="1300" cy="610" r="2"/><circle cx="1250" cy="530" r="2"/></g>
     </svg>
     <div class="sweep pointer-events-none absolute inset-y-0 left-0 z-[5]" aria-hidden="true"></div>
 
-    <!-- LONDON -->
+    <!-- LONDON (left) -->
     <div id="layer-london" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="26" style="filter: blur(4px); opacity: .3;" aria-hidden="true">
-      <div class="absolute bottom-16 left-[4%] flex h-[56vh] w-[30vw] max-w-[440px] flex-col justify-end border-l border-t border-white/20 bg-gradient-to-tr from-white/[.06] to-transparent p-6 lg:left-[6%]">
+      <div class="absolute bottom-16 left-[4%] flex h-[56vh] w-[30vw] max-w-[440px] flex-col justify-end border-l border-t border-ivory/20 bg-gradient-to-tr from-ivory/[.05] to-transparent p-6 lg:left-[6%]">
         <svg class="absolute left-6 top-10 h-[calc(100%-7.5rem)] w-[calc(100%-3rem)]" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
           <path d="M60 520 C44 410 50 300 98 226 Q110 210 122 226 C170 300 176 410 160 520" stroke-opacity=".7"/>
           <path d="M70 470 L150 330 M60 420 L130 280 M80 520 L160 380 M150 470 L70 330 M160 420 L90 280 M140 520 L60 380" stroke-opacity=".25"/>
@@ -220,14 +218,14 @@
           <path d="M320 520 V250 L372 240 V520 M320 250 L300 520" stroke-opacity=".55"/>
           <path d="M0 519 H400" stroke-opacity=".4"/>
         </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/55">London</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">United Kingdom Presence</span></div>
+        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/55">London</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">United Kingdom Presence</span></div>
       </div>
     </div>
 
-    <!-- MIAMI -->
+    <!-- MIAMI (centre) -->
     <div id="layer-miami" class="city-layer pointer-events-none absolute inset-0 z-10" data-speed="12" style="opacity: .5;" aria-hidden="true">
-      <div class="absolute bottom-16 left-1/2 flex h-[25vh] w-full max-w-4xl -translate-x-1/2 flex-col justify-end border-x border-t border-white/10 bg-gradient-to-t from-white/[.05] to-transparent p-8">
-        <svg class="absolute left-8 top-6 h-[calc(100%-5.5rem)] w-[calc(100%-4rem)]" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
+      <div class="absolute bottom-16 left-1/2 flex h-[16vh] w-full max-w-4xl -translate-x-1/2 flex-col justify-end border-x border-t border-ivory/10 bg-gradient-to-t from-ivory/[.04] to-transparent p-6 md:h-[25vh] md:p-8">
+        <svg class="absolute left-6 top-6 h-[calc(100%-5rem)] w-[calc(100%-3rem)] md:left-8 md:h-[calc(100%-5.5rem)] md:w-[calc(100%-4rem)]" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
           <g stroke-opacity=".75">
             <path d="M40 300 V200 H80 V300 M92 300 V170 H122 V300 M134 300 V230 H190 V300"/>
             <path d="M206 300 V120 H240 V300 M252 300 V96 Q272 72 292 96 V300 M304 300 V150 H330 V300"/>
@@ -240,13 +238,13 @@
           <path d="M0 299 H900" stroke-opacity=".5"/>
           <g stroke-opacity=".18"><path d="M531 22 V300 M557 22 V300 M471 52 V300 M363 70 V300"/></g>
         </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/60">Miami</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">Global Head Office</span></div>
+        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/60">Miami</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">Global Head Office</span></div>
       </div>
     </div>
 
-    <!-- THE NETHERLANDS -->
+    <!-- THE NETHERLANDS (right) -->
     <div id="layer-netherlands" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="32" style="filter: blur(4px); opacity: .3;" aria-hidden="true">
-      <div class="absolute bottom-16 right-[4%] flex h-[50vh] w-[28vw] max-w-[400px] flex-col items-end justify-end border-r border-t border-white/20 bg-gradient-to-tl from-white/[.06] to-transparent p-6 text-right lg:right-[6%]">
+      <div class="absolute bottom-16 right-[4%] flex h-[50vh] w-[28vw] max-w-[400px] flex-col items-end justify-end border-r border-t border-ivory/20 bg-gradient-to-tl from-ivory/[.05] to-transparent p-6 text-right lg:right-[6%]">
         <svg class="absolute left-6 top-10 h-[calc(100%-7.5rem)] w-[calc(100%-3rem)]" viewBox="0 0 380 460" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
           <path d="M210 460 V300 H290 V460 M198 300 V180 H278 V300 M216 180 V80 H290 V180" stroke-opacity=".75"/>
           <path d="M300 460 V240 H368 V460 M312 240 V140 H376 V240" stroke-opacity=".6"/>
@@ -255,312 +253,256 @@
           <path d="M150 156 L30 440 M150 156 L70 440 M150 156 L196 440" stroke-opacity=".25"/>
           <path d="M0 440 H200 M0 459 H380" stroke-opacity=".4"/>
         </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/55">The Netherlands</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">European Presence</span></div>
+        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/55">The Netherlands</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">European Presence</span></div>
       </div>
     </div>
 
-    <div class="pointer-events-none absolute inset-0 z-20" style="background: radial-gradient(50% 42% at 50% 42%, rgba(20,20,20,.85) 0%, rgba(20,20,20,0) 100%);" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-0 z-20" style="background: radial-gradient(52% 44% at 50% 42%, rgba(11,11,11,.88) 0%, rgba(11,11,11,0) 100%);" aria-hidden="true"></div>
 
     <!-- Headline -->
-    <div id="layer-text" class="headline-layer relative z-30 max-w-5xl px-6 pb-36 text-center" data-speed="-14">
-      <p class="mb-7 text-[11px] font-light uppercase tracking-[0.5em] text-silver">JMNII &nbsp;|&nbsp; Global Holdings</p>
-      <h1 class="mb-8 text-[clamp(2.6rem,7vw,6rem)] font-light leading-[1.02] tracking-[0.03em] text-ivory">
+    <div id="layer-text" class="headline-layer relative z-30 max-w-5xl px-6 pb-40 text-center md:pb-36" data-speed="-14">
+      <p class="mb-6 text-[10px] font-light uppercase tracking-[0.45em] text-silver md:mb-7 md:text-[11px] md:tracking-[0.5em]">JMNII &nbsp;|&nbsp; Global Holdings</p>
+      <h1 class="mb-6 text-[clamp(2.5rem,7vw,6rem)] font-light leading-[1.04] tracking-[0.02em] text-ivory md:mb-8">
         Capital to build.<br><span class="font-extralight text-ivory/75">Expertise to scale.</span>
       </h1>
-      <p class="mx-auto mb-12 max-w-2xl text-sm font-light leading-relaxed text-white/60 md:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
-      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
-        <a href="#about" class="w-full bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white sm:w-auto">Discover JMNII</a>
-        <a href="#approach" class="w-full border border-silver/40 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-silver sm:w-auto">Our Approach</a>
+      <p class="lede mx-auto mb-10 max-w-2xl text-[15px] font-light leading-relaxed text-ivory/60 md:mb-12 md:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
+      <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+        <a href="#about" class="bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white">Discover JMNII</a>
+        <a href="#approach" class="border border-silver/40 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-silver">Our Approach</a>
       </div>
     </div>
 
     <!-- Live local time in the three markets -->
-    <div class="absolute inset-x-0 bottom-0 z-30 border-t border-white/10">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 text-[10px] uppercase tracking-[0.28em] md:px-12">
-        <div class="hidden gap-10 sm:flex">
-          <span><span class="text-silver">MIA</span> <span class="ml-2 tabular-nums text-white/70" data-clock="America/New_York">--:--</span></span>
-          <span><span class="text-silver">LDN</span> <span class="ml-2 tabular-nums text-white/70" data-clock="Europe/London">--:--</span></span>
-          <span><span class="text-silver">NLD</span> <span class="ml-2 tabular-nums text-white/70" data-clock="Europe/Amsterdam">--:--</span></span>
+    <div class="absolute inset-x-0 bottom-0 z-30 border-t border-graphite/80">
+      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 text-[10px] uppercase tracking-[0.24em] md:px-12 md:py-5 md:tracking-[0.28em]">
+        <div class="flex w-full justify-between gap-4 sm:w-auto sm:justify-start sm:gap-10">
+          <span><span class="text-silver">MIA</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="America/New_York">--:--</span></span>
+          <span><span class="text-silver">LDN</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="Europe/London">--:--</span></span>
+          <span><span class="text-silver">NLD</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="Europe/Amsterdam">--:--</span></span>
         </div>
-        <a href="#about" class="cue flex items-center gap-4 text-white/45 hover:text-ivory sm:ml-auto" aria-label="Scroll to content">
-          <span class="hidden sm:inline">Scroll</span>
-          <span class="relative block h-8 w-px overflow-hidden bg-white/10"><span class="absolute inset-0 block bg-silver"></span></span>
-        </a>
+        <a href="#about" class="hidden items-center gap-4 text-ivory/45 hover:text-ivory sm:flex" aria-label="Scroll to content">Scroll <span class="block h-6 w-px bg-silver/60"></span></a>
       </div>
     </div>
   </header>
 
   <main>
-    <!-- ===================== MANIFESTO STATEMENT ===================== -->
-    <section class="bg-ivory px-6 pb-24 pt-32 md:px-12 md:pt-48">
-      <div class="mx-auto max-w-6xl">
-        <span class="brushed-deep mb-10 block h-px w-12"></span>
-        <p id="statement" class="statement text-[clamp(1.9rem,4.6vw,4rem)] font-light leading-[1.18] tracking-tight">JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.</p>
-      </div>
-    </section>
-
-    <!-- ===================== 01 · ABOUT ===================== -->
-    <section id="about" class="bg-ivory px-6 pb-32 pt-24 md:px-12 md:pb-40">
+    <!-- ===================== 01 · ABOUT (charcoal) ===================== -->
+    <section id="about" class="bg-charcoal px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-14 border-t border-black/10 pt-20 md:grid-cols-12">
+        <span class="brushed mb-5 block h-px w-12"></span>
+        <span class="mb-10 block text-[11px] uppercase tracking-[0.3em] text-silver">01 / About JMNII</span>
+        <p id="statement" class="statement max-w-6xl text-[clamp(1.75rem,4.4vw,3.8rem)] font-light leading-[1.16] tracking-tight">JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.</p>
+
+        <div class="mt-20 grid grid-cols-1 gap-10 border-t border-graphite pt-14 md:mt-24 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-5">
-            <span class="brushed-deep mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">01 / About JMNII</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight text-graphite">A global holding company with an <span class="font-medium">operator’s mindset.</span></h2>
+            <h2 class="text-[clamp(1.7rem,3vw,2.5rem)] font-light leading-[1.15] tracking-tight">More than investment. <span class="silver-text">A platform for growth.</span></h2>
+            <p class="mt-5 text-[11px] uppercase tracking-[0.26em] text-ivory/40">A global holding company with an operator’s mindset</p>
           </div>
-          <div class="reveal d1 space-y-7 text-[17px] font-light leading-[1.85] text-black/70 md:col-span-6 md:col-start-7 md:pt-12">
-            <p>JMNII was established around a straightforward principle: capital is most effective when paired with the expertise and commitment to put it to work. We bring together investment perspective, executive leadership and business infrastructure to support the development of companies and commercial opportunities across markets.</p>
-            <p>Our role as a holding company is both strategic and practical. We work to align ownership interests, allocate resources, establish clear operating priorities and bring professional oversight to key commercial decisions. Through our leadership and network, we support areas ranging from business development and market entry to financial controls, global sourcing, logistics, brand strategy and corporate coordination.</p>
-            <p>We value long-term relationships, disciplined decision-making and businesses with the fundamentals to build enduring value. Our structure is designed to remain adaptable: capable of supporting established operations as well as carefully selected growth opportunities.</p>
-          </div>
-        </div>
-
-        <!-- Beyond capital -->
-        <div class="mt-32 grid grid-cols-1 items-start gap-14 md:grid-cols-12">
-          <div class="reveal md:col-span-7">
-            <h3 class="text-[clamp(2.2rem,4.6vw,4rem)] font-extralight leading-[1.05] tracking-tight text-graphite">More than investment.<br><span class="font-medium">A platform for growth.</span></h3>
-          </div>
-          <div class="reveal d1 space-y-6 text-[16px] font-light leading-[1.85] text-black/65 md:col-span-4 md:col-start-9 md:pt-4">
-            <p>At JMNII, we believe the most valuable contribution to a business goes beyond financial resources. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets. Our role is to help turn promising opportunities into stronger, more capable enterprises.</p>
-            <p>Our approach extends beyond providing financial backing. We work across business strategy, operating structures, commercial partnerships, financial oversight, brand development and global logistics, helping businesses navigate complexity and pursue meaningful growth. We believe sustainable enterprise value is created when capital is matched with disciplined leadership and practical execution.</p>
+          <div class="reveal d1 space-y-6 text-[16px] font-light leading-[1.8] text-ivory/65 md:col-span-6 md:col-start-7">
+            <p>JMNII was established around a straightforward principle: capital is most effective when paired with the expertise and commitment to put it to work. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets.</p>
+            <p>Our role as a holding company is both strategic and practical. We work to align ownership interests, allocate resources, establish clear operating priorities and bring professional oversight to key commercial decisions — from business development and market entry to financial controls, global sourcing, logistics, brand strategy and corporate coordination.</p>
+            <p class="text-ivory/85">We believe sustainable enterprise value is created when capital is matched with disciplined leadership and practical execution.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== PURPOSE · MISSION / VISION / PHILOSOPHY ===================== -->
-    <section id="purpose" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
+    <!-- ===================== PURPOSE & PILLARS (black) ===================== -->
+    <section id="purpose" class="bg-black px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="reveal mb-20">
+        <div class="reveal mb-12 md:mb-16">
           <span class="brushed mb-5 block h-px w-12"></span>
           <span class="block text-[11px] uppercase tracking-[0.3em] text-silver">Purpose and philosophy</span>
         </div>
-        <div class="divide-y divide-white/10 border-y border-white/10">
-          <div class="reveal grid grid-cols-1 gap-6 py-14 md:grid-cols-12">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-silver md:col-span-3">Our Mission</p>
-            <p class="text-[clamp(1.35rem,2.4vw,2rem)] font-light leading-snug text-ivory/90 md:col-span-9">To deploy private capital responsibly and strengthen the businesses we support through disciplined management, global relationships and long-term commercial thinking.</p>
-          </div>
-          <div class="reveal grid grid-cols-1 gap-6 py-14 md:grid-cols-12">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-silver md:col-span-3">Our Vision</p>
-            <p class="text-[clamp(1.35rem,2.4vw,2rem)] font-light leading-snug text-ivory/90 md:col-span-9">To build an internationally respected holding group known for backing strong businesses, creating enduring partnerships and translating opportunity into enterprise value.</p>
-          </div>
-          <div class="reveal grid grid-cols-1 gap-6 py-14 md:grid-cols-12">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-silver md:col-span-3">Our Philosophy</p>
-            <p class="text-[clamp(1.35rem,2.4vw,2rem)] font-light leading-snug text-ivory/90 md:col-span-9"><span class="silver-text font-normal">Capital opens doors. Expertise builds businesses.</span> JMNII brings the two together through active engagement, commercial judgment and an unwavering focus on execution.</p>
-          </div>
+        <div class="-mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+          <article class="graphite-card reveal flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto md:p-10">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Our Mission</p>
+            <p class="mt-6 text-[17px] font-light leading-[1.7] text-ivory/85">To deploy private capital responsibly and strengthen the businesses we support through disciplined management, global relationships and long-term commercial thinking.</p>
+          </article>
+          <article class="graphite-card reveal d1 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto md:p-10">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Our Vision</p>
+            <p class="mt-6 text-[17px] font-light leading-[1.7] text-ivory/85">To build an internationally respected holding group known for backing strong businesses, creating enduring partnerships and translating opportunity into enterprise value.</p>
+          </article>
+          <article class="graphite-card reveal d2 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto md:p-10">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Our Philosophy</p>
+            <p class="mt-6 text-[17px] font-light leading-[1.7] text-ivory/85"><span class="silver-text font-normal">Capital opens doors. Expertise builds businesses.</span> JMNII brings the two together through active engagement, commercial judgment and an unwavering focus on execution.</p>
+          </article>
         </div>
+        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
 
         <!-- Three pillars -->
-        <div class="mt-24 grid grid-cols-1 gap-14 md:grid-cols-3">
-          <div class="reveal">
-            <span class="text-[11px] tracking-[0.2em] text-silver">I</span>
-            <h3 class="mb-4 mt-6 text-xl font-light">Private capital</h3>
-            <p class="text-sm font-light leading-relaxed text-white/55">Patient, selective backing aligned with business fundamentals and long-term objectives.</p>
+        <div class="mt-16 grid grid-cols-1 border-t border-graphite md:mt-20 md:grid-cols-3">
+          <div class="reveal border-b border-graphite py-8 md:border-b-0 md:border-r md:py-10 md:pr-10">
+            <p class="text-[11px] tracking-[0.2em] text-silver">I · Private capital</p>
+            <p class="mt-4 text-[15px] font-light leading-relaxed text-ivory/60">Patient, selective backing aligned with business fundamentals and long-term objectives.</p>
           </div>
-          <div class="reveal d1">
-            <span class="text-[11px] tracking-[0.2em] text-silver">II</span>
-            <h3 class="mb-4 mt-6 text-xl font-light">Active ownership</h3>
-            <p class="text-sm font-light leading-relaxed text-white/55">Meaningful strategic involvement, management oversight and support for day-to-day execution.</p>
+          <div class="reveal d1 border-b border-graphite py-8 md:border-b-0 md:border-r md:px-10 md:py-10">
+            <p class="text-[11px] tracking-[0.2em] text-silver">II · Active ownership</p>
+            <p class="mt-4 text-[15px] font-light leading-relaxed text-ivory/60">Meaningful strategic involvement, management oversight and support for day-to-day execution.</p>
           </div>
-          <div class="reveal d2">
-            <span class="text-[11px] tracking-[0.2em] text-silver">III</span>
-            <h3 class="mb-4 mt-6 text-xl font-light">International capability</h3>
-            <p class="text-sm font-light leading-relaxed text-white/55">Connections, logistics and commercial coordination across the United States, Europe and other global markets.</p>
+          <div class="reveal d2 py-8 md:py-10 md:pl-10">
+            <p class="text-[11px] tracking-[0.2em] text-silver">III · International capability</p>
+            <p class="mt-4 text-[15px] font-light leading-relaxed text-ivory/60">Connections, logistics and commercial coordination across the United States, Europe and other global markets.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== 02 · CORE STRENGTHS ===================== -->
-    <section id="strengths" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
-      <div class="mx-auto max-w-7xl">
-        <div class="reveal mb-20 grid grid-cols-1 gap-8 md:grid-cols-12">
-          <div class="md:col-span-7">
-            <span class="brushed-deep mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">02 / Core Strengths</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight text-graphite">Private capital, strategic leadership <span class="font-medium">and international operating expertise.</span></h2>
-          </div>
-        </div>
-        <div class="grid grid-cols-1 border-t border-silver-deep/40 md:grid-cols-3">
-          <article class="reveal border-b border-black/10 py-12 md:border-b-0 md:border-r md:pr-12">
-            <p class="text-[clamp(3.5rem,6vw,5.5rem)] font-extralight leading-none text-silver-deep/50">01</p>
-            <h3 class="mb-4 mt-10 text-xs font-medium uppercase tracking-[0.24em] text-graphite">Private Capital</h3>
-            <p class="text-[15px] font-light leading-relaxed text-black/60">Selective capital support designed around long-term ownership, business fundamentals and responsible allocation.</p>
-          </article>
-          <article class="reveal d1 border-b border-black/10 py-12 md:border-b-0 md:border-r md:px-12">
-            <p class="text-[clamp(3.5rem,6vw,5.5rem)] font-extralight leading-none text-silver-deep/50">02</p>
-            <h3 class="mb-4 mt-10 text-xs font-medium uppercase tracking-[0.24em] text-graphite">Strategic Management</h3>
-            <p class="text-[15px] font-light leading-relaxed text-black/60">Clear priorities, performance oversight and experienced operational support across complex commercial functions.</p>
-          </article>
-          <article class="reveal d2 py-12 md:pl-12">
-            <p class="text-[clamp(3.5rem,6vw,5.5rem)] font-extralight leading-none text-silver-deep/50">03</p>
-            <h3 class="mb-4 mt-10 text-xs font-medium uppercase tracking-[0.24em] text-graphite">Global Execution</h3>
-            <p class="text-[15px] font-light leading-relaxed text-black/60">Cross-border relationships, logistical capabilities and practical experience coordinating businesses across markets.</p>
-          </article>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 03 · OUR APPROACH (sticky, progress on scroll) ===================== -->
-    <section id="approach" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-12">
+    <!-- ===================== 02 · OUR APPROACH (charcoal) ===================== -->
+    <section id="approach" class="bg-charcoal px-5 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
         <div class="lg:col-span-5">
-          <div class="lg:sticky lg:top-36">
+          <div class="lg:sticky lg:top-32">
             <span class="brushed mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">03 / Our Approach</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight">Conviction in the opportunity. <span class="text-white/55">Commitment to the outcome.</span></h2>
-            <p class="mt-8 text-[16px] font-light leading-[1.85] text-white/60">We assess opportunities through their fundamentals, leadership, commercial position and capacity for sustainable growth. Where we see alignment, we bring together funding, strategic oversight and operating expertise to help the business execute its next stage of development.</p>
-            <p class="mt-6 text-[16px] font-light leading-[1.85] text-white/45">Every business has its own operating reality. Our approach begins with understanding that reality: the market, the people, the capital requirements and the areas where focused support can create the greatest impact.</p>
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">02 / Our Approach</span>
+            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">Conviction in the opportunity. <span class="text-ivory/50">Commitment to the outcome.</span></h2>
+            <p class="mt-7 text-[16px] font-light leading-[1.8] text-ivory/60">We assess opportunities through their fundamentals, leadership, commercial position and capacity for sustainable growth. Where we see alignment, we bring together funding, strategic oversight and operating expertise to help the business execute its next stage of development.</p>
           </div>
         </div>
 
-        <div class="relative lg:col-span-6 lg:col-start-7">
-          <ol id="steps" class="relative space-y-24 pl-12">
-            <li class="absolute bottom-0 left-[4px] top-3 w-px bg-white/10" aria-hidden="true"><div id="progress" class="progress-fill brushed h-full w-px"></div></li>
+        <div class="lg:col-span-6 lg:col-start-7">
+          <ol id="steps" class="relative space-y-10 pl-10 md:space-y-12 md:pl-12">
+            <li class="absolute bottom-2 left-[4px] top-2 w-px bg-graphite" aria-hidden="true"><div id="progress" class="progress-fill brushed h-full w-px"></div></li>
             <li class="step relative">
-              <span class="step-dot absolute -left-12 top-[3px] h-[9px] w-[9px] rounded-full border border-white/40 bg-[#141414] transition-colors duration-500"></span>
+              <span class="step-dot absolute -left-10 top-[3px] h-[9px] w-[9px] rounded-full border border-ivory/40 bg-charcoal transition-colors duration-500 md:-left-12"></span>
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">01 · Identify</p>
-              <h3 class="mt-5 text-[clamp(1.6rem,2.6vw,2.2rem)] font-light">Evaluate with care</h3>
-              <p class="mt-4 max-w-lg text-[15px] font-light leading-relaxed text-white/60">We review opportunities against their commercial fundamentals, risk profile, leadership capabilities and potential for sustainable development.</p>
+              <h3 class="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light">Evaluate with care</h3>
+              <p class="mt-3 max-w-lg text-[15px] font-light leading-relaxed text-ivory/60">We review opportunities against their commercial fundamentals, risk profile, leadership capabilities and potential for sustainable development.</p>
             </li>
             <li class="step relative">
-              <span class="step-dot absolute -left-12 top-[3px] h-[9px] w-[9px] rounded-full border border-white/40 bg-[#141414] transition-colors duration-500"></span>
+              <span class="step-dot absolute -left-10 top-[3px] h-[9px] w-[9px] rounded-full border border-ivory/40 bg-charcoal transition-colors duration-500 md:-left-12"></span>
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">02 · Invest</p>
-              <h3 class="mt-5 text-[clamp(1.6rem,2.6vw,2.2rem)] font-light">Align capital and strategy</h3>
-              <p class="mt-4 max-w-lg text-[15px] font-light leading-relaxed text-white/60">We shape the appropriate level of financial and strategic involvement, linking resources to clearly defined business priorities.</p>
+              <h3 class="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light">Align capital and strategy</h3>
+              <p class="mt-3 max-w-lg text-[15px] font-light leading-relaxed text-ivory/60">We shape the appropriate level of financial and strategic involvement, linking resources to clearly defined business priorities.</p>
             </li>
             <li class="step relative">
-              <span class="step-dot absolute -left-12 top-[3px] h-[9px] w-[9px] rounded-full border border-white/40 bg-[#141414] transition-colors duration-500"></span>
+              <span class="step-dot absolute -left-10 top-[3px] h-[9px] w-[9px] rounded-full border border-ivory/40 bg-charcoal transition-colors duration-500 md:-left-12"></span>
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">03 · Strengthen</p>
-              <h3 class="mt-5 text-[clamp(1.6rem,2.6vw,2.2rem)] font-light">Support the operation</h3>
-              <p class="mt-4 max-w-lg text-[15px] font-light leading-relaxed text-white/60">We help businesses strengthen execution through management oversight, financial discipline, commercial relationships and operational coordination.</p>
+              <h3 class="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light">Support the operation</h3>
+              <p class="mt-3 max-w-lg text-[15px] font-light leading-relaxed text-ivory/60">We help businesses strengthen execution through management oversight, financial discipline, commercial relationships and operational coordination.</p>
             </li>
             <li class="step relative">
-              <span class="step-dot absolute -left-12 top-[3px] h-[9px] w-[9px] rounded-full border border-white/40 bg-[#141414] transition-colors duration-500"></span>
+              <span class="step-dot absolute -left-10 top-[3px] h-[9px] w-[9px] rounded-full border border-ivory/40 bg-charcoal transition-colors duration-500 md:-left-12"></span>
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">04 · Grow</p>
-              <h3 class="mt-5 text-[clamp(1.6rem,2.6vw,2.2rem)] font-light">Build for the long term</h3>
-              <p class="mt-4 max-w-lg text-[15px] font-light leading-relaxed text-white/60">We focus on enduring commercial performance, scalable systems and the capabilities required to adapt as markets change.</p>
+              <h3 class="mt-4 text-[clamp(1.4rem,2.4vw,2rem)] font-light">Build for the long term</h3>
+              <p class="mt-3 max-w-lg text-[15px] font-light leading-relaxed text-ivory/60">We focus on enduring commercial performance, scalable systems and the capabilities required to adapt as markets change.</p>
             </li>
           </ol>
 
-          <div class="reveal mt-28 border-t border-white/10 pl-12 pt-12">
+          <div class="graphite-card reveal mt-14 p-8 md:mt-16 md:p-10">
             <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Who we work with</p>
-            <p class="mt-6 text-[17px] font-light leading-[1.85] text-white/70">JMNII engages with business owners, operators, management teams, strategic partners and private investors whose objectives align with our selective, long-term approach. We seek productive relationships built on integrity, commercial substance and shared ambition.</p>
+            <p class="mt-5 text-[15px] font-light leading-[1.8] text-ivory/70">JMNII engages with business owners, operators, management teams, strategic partners and private investors whose objectives align with our selective, long-term approach. We seek productive relationships built on integrity, commercial substance and shared ambition.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== 04 · CAPABILITIES (editorial accordion) ===================== -->
-    <section id="capabilities" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
+    <!-- ===================== 03 · CAPABILITIES (black) ===================== -->
+    <section id="capabilities" class="bg-black px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-6">
-            <span class="brushed-deep mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">04 / Capabilities</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight text-graphite">The resources to invest. <span class="font-medium">The capabilities to execute.</span></h2>
+            <span class="brushed mb-5 block h-px w-12"></span>
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">03 / Capabilities</span>
+            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">The resources to invest. <span class="text-ivory/50">The capabilities to execute.</span></h2>
           </div>
-          <p class="reveal d1 text-[17px] font-light leading-[1.85] text-black/65 md:col-span-5 md:col-start-8 md:pt-12">JMNII offers a coordinated group-level platform across capital allocation, ownership strategy and commercial operations. Our capabilities are brought together around the particular needs of each business and relationship.</p>
+          <p class="reveal d1 text-[16px] font-light leading-[1.8] text-ivory/60 md:col-span-5 md:col-start-8 md:pt-12">JMNII offers a coordinated group-level platform across capital allocation, ownership strategy and commercial operations, brought together around the particular needs of each business and relationship.</p>
         </div>
 
-        <div id="accordion" class="mt-24 border-t border-silver-deep/40">
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="true" aria-controls="cap-1" id="cap-1-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">01</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">Private capital and holdings</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+        <div class="mt-14 border-t border-silver/30 md:mt-20">
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="true" aria-controls="cap-1" id="cap-1-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">01</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Private capital and holdings</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-1" class="acc-panel" role="region" aria-labelledby="cap-1-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p></div></div>
+            <div id="cap-1" class="acc-panel" role="region" aria-labelledby="cap-1-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p></div></div>
           </div>
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="false" aria-controls="cap-2" id="cap-2-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">02</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">Corporate strategy and oversight</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-2" id="cap-2-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">02</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Corporate strategy and oversight</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-2" class="acc-panel" role="region" aria-labelledby="cap-2-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p></div></div>
+            <div id="cap-2" class="acc-panel" role="region" aria-labelledby="cap-2-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p></div></div>
           </div>
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="false" aria-controls="cap-3" id="cap-3-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">03</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">Business development and partnerships</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-3" id="cap-3-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">03</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Business development and partnerships</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-3" class="acc-panel" role="region" aria-labelledby="cap-3-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p></div></div>
+            <div id="cap-3" class="acc-panel" role="region" aria-labelledby="cap-3-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p></div></div>
           </div>
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="false" aria-controls="cap-4" id="cap-4-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">04</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">International expansion and market entry</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-4" id="cap-4-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">04</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">International expansion and market entry</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-4" class="acc-panel" role="region" aria-labelledby="cap-4-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p></div></div>
+            <div id="cap-4" class="acc-panel" role="region" aria-labelledby="cap-4-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p></div></div>
           </div>
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="false" aria-controls="cap-5" id="cap-5-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">05</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">Supply chain, sourcing and logistics</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-5" id="cap-5-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">05</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Supply chain, sourcing and logistics</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-5" class="acc-panel" role="region" aria-labelledby="cap-5-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p></div></div>
+            <div id="cap-5" class="acc-panel" role="region" aria-labelledby="cap-5-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p></div></div>
           </div>
-          <div class="reveal border-b border-black/10">
-            <button class="acc flex w-full items-center gap-6 py-9 text-left md:gap-12" aria-expanded="false" aria-controls="cap-6" id="cap-6-btn">
-              <span class="w-8 text-[11px] tracking-[0.2em] text-silver-deep">06</span>
-              <span class="acc-title flex-1 text-[clamp(1.3rem,2.4vw,2rem)] font-light text-graphite">Brand, intellectual property and commercial assets</span>
-              <span class="plus relative block h-4 w-4 shrink-0 text-graphite" aria-hidden="true"></span>
+          <div class="reveal border-b border-graphite">
+            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-6" id="cap-6-btn">
+              <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">06</span>
+              <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Brand, intellectual property and commercial assets</span>
+              <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-6" class="acc-panel" role="region" aria-labelledby="cap-6-btn"><div><p class="max-w-3xl pb-10 text-[16px] font-light leading-[1.85] text-black/60 md:pl-[5rem]">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p></div></div>
+            <div id="cap-6" class="acc-panel" role="region" aria-labelledby="cap-6-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p></div></div>
           </div>
         </div>
 
         <!-- Opportunity focus -->
-        <div class="reveal mt-24 grid grid-cols-1 gap-10 md:grid-cols-12">
+        <div class="reveal mt-14 grid grid-cols-1 gap-6 md:mt-20 md:grid-cols-12 md:gap-10">
           <div class="md:col-span-4">
-            <p class="text-[11px] uppercase tracking-[0.3em] text-silver-deep">Opportunity focus</p>
-            <p class="mt-5 text-[16px] font-light leading-relaxed text-black/65">JMNII’s perspective is cross-sector rather than restricted to one industry.</p>
+            <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Opportunity focus</p>
+            <p class="mt-4 text-[15px] font-light leading-relaxed text-ivory/60">JMNII’s perspective is cross-sector rather than restricted to one industry.</p>
           </div>
           <div class="md:col-span-8">
-            <ul class="flex flex-wrap gap-3">
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Consumer brands</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Apparel and lifestyle</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Hospitality</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Health and wellness</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">International commerce</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Logistics</li>
-              <li class="border border-black/15 px-5 py-3 text-sm font-light text-graphite">Selected industrial or energy-related opportunities</li>
+            <ul class="flex flex-wrap gap-2 md:gap-3">
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Consumer brands</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Apparel and lifestyle</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Hospitality</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Health and wellness</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">International commerce</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Logistics</li>
+              <li class="border border-graphite bg-charcoal px-4 py-2.5 text-[13px] font-light text-ivory/80 md:px-5 md:py-3 md:text-sm">Selected industrial or energy-related opportunities</li>
             </ul>
-            <p class="mt-6 text-xs text-black/45">This describes areas of consideration, not a representation of current holdings.</p>
+            <p class="mt-5 text-xs text-ivory/40">This describes areas of consideration, not a representation of current holdings.</p>
           </div>
         </div>
       </div>
     </section>
 
-    <!-- ===================== 05 · GLOBAL PRESENCE ===================== -->
-    <section id="presence" class="relative overflow-hidden bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
+    <!-- ===================== 04 · GLOBAL PRESENCE (charcoal) ===================== -->
+    <section id="presence" class="bg-charcoal px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-6">
             <span class="brushed mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">05 / Global Presence</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight">International reach. <span class="text-white/55">Connected leadership.</span></h2>
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">04 / Global Presence</span>
+            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">Based in Miami. <span class="text-ivory/50">Connected internationally.</span></h2>
           </div>
-          <div class="reveal d1 space-y-6 text-[16px] font-light leading-[1.85] text-white/60 md:col-span-5 md:col-start-8 md:pt-12">
-            <p>From our Miami headquarters to our presence in the Netherlands and London, JMNII is structured to connect capital, commercial intelligence and operational capabilities across borders.</p>
-            <p class="text-white/45">JMNII operates with an international perspective, connecting executive leadership, commercial activity and business relationships across key markets.</p>
-          </div>
+          <p class="reveal d1 text-[16px] font-light leading-[1.8] text-ivory/60 md:col-span-5 md:col-start-8 md:pt-12">From our Miami headquarters to our presence in the Netherlands and London, JMNII is structured to connect capital, commercial intelligence and operational capabilities across borders.</p>
         </div>
 
-        <!-- Abstract Atlantic map with real coordinates (equirectangular, lon -100…20, lat 60…15) -->
-        <div class="reveal mt-20">
-          <svg class="w-full" viewBox="0 0 1000 375" role="img" aria-label="Miami head office connected to London and the Netherlands">
+        <!-- Abstract Atlantic map with real coordinates (tablet and desktop) -->
+        <div class="reveal mt-16 hidden sm:block">
+          <svg class="w-full" viewBox="0 25 1000 285" role="img" aria-label="Miami head office connected to London and the Netherlands">
             <defs>
-              <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#FBF9F6" fill-opacity=".13"/></pattern>
+              <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#FBF9F6" fill-opacity=".12"/></pattern>
               <radialGradient id="mapFade" cx="50%" cy="50%" r="60%"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
-              <mask id="mapMask"><rect width="1000" height="375" fill="url(#mapFade)"/></mask>
+              <mask id="mapMask"><rect width="1000" height="340" fill="url(#mapFade)"/></mask>
             </defs>
-            <rect width="1000" height="375" fill="url(#dots)" mask="url(#mapMask)"/>
-            <g stroke="#FBF9F6" stroke-opacity=".07"><path d="M0 125H1000M0 250H1000M250 0V375M500 0V375M750 0V375"/></g>
+            <rect width="1000" height="340" fill="url(#dots)" mask="url(#mapMask)"/>
             <path class="map-arc" d="M165.1 285.4 Q 520 -60 832.3 70.8" fill="none" stroke="#B9B8B4" stroke-opacity=".7" stroke-width="1.2"/>
             <path class="map-arc" d="M165.1 285.4 Q 560 -30 877.4 65.6" fill="none" stroke="#B9B8B4" stroke-opacity=".45" stroke-width="1"/>
             <circle class="map-pulse" cx="165.1" cy="285.4" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/><circle cx="165.1" cy="285.4" r="3.2" fill="#FBF9F6"/>
@@ -572,61 +514,61 @@
           </svg>
         </div>
 
-        <div class="mt-16 grid grid-cols-1 gap-px border border-white/10 bg-white/10 md:grid-cols-3">
-          <article class="reveal flex flex-col bg-[#141414] p-10">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-white/60" data-clock="America/New_York">--:--</p></div>
-            <h3 class="mt-10 text-2xl font-light">Miami, Florida</h3>
-            <p class="mt-4 flex-1 text-sm font-light leading-relaxed text-white/55">Our Miami headquarters serves as the center of group leadership, strategic direction and coordination of our broader business interests.</p>
-            <p class="mt-10 text-[10px] uppercase tracking-[0.24em] text-white/30">25.7617°N · 80.1918°W</p>
+        <div class="mt-12 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
+          <article class="graphite-card reveal flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
+            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
+            <h3 class="mt-8 text-2xl font-light">Miami, Florida</h3>
+            <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">The center of group leadership, strategic direction and coordination of our broader business interests.</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">25.7617°N · 80.1918°W</p>
           </article>
-          <article class="reveal d1 flex flex-col bg-[#141414] p-10">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-white/60" data-clock="Europe/Amsterdam">--:--</p></div>
-            <h3 class="mt-10 text-2xl font-light">The Netherlands</h3>
-            <p class="mt-4 flex-1 text-sm font-light leading-relaxed text-white/55">Our Netherlands presence supports the group’s European commercial relationships and cross-border business development activity.</p>
-            <p class="mt-10 text-[10px] uppercase tracking-[0.24em] text-white/30">52.1326°N · 5.2913°E</p>
+          <article class="graphite-card reveal d1 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
+            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
+            <h3 class="mt-8 text-2xl font-light">The Netherlands</h3>
+            <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Supporting the group’s European commercial relationships and cross-border business development activity.</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">52.1326°N · 5.2913°E</p>
           </article>
-          <article class="reveal d2 flex flex-col bg-[#141414] p-10">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-white/60" data-clock="Europe/London">--:--</p></div>
-            <h3 class="mt-10 text-2xl font-light">London, England</h3>
-            <p class="mt-4 flex-1 text-sm font-light leading-relaxed text-white/55">Our London presence strengthens our access to commercial relationships, international perspectives and strategic opportunities.</p>
-            <p class="mt-10 text-[10px] uppercase tracking-[0.24em] text-white/30">51.5074°N · 0.1278°W</p>
+          <article class="graphite-card reveal d2 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
+            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
+            <h3 class="mt-8 text-2xl font-light">London, England</h3>
+            <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Strengthening our access to commercial relationships, international perspectives and strategic opportunities.</p>
+            <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">51.5074°N · 0.1278°W</p>
           </article>
         </div>
+        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
       </div>
     </section>
 
-    <!-- ===================== 06 · LEADERSHIP ===================== -->
-    <section id="leadership" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
+    <!-- ===================== 05 · LEADERSHIP (black) ===================== -->
+    <section id="leadership" class="bg-black px-5 py-20 md:px-12 md:py-28">
       <div class="mx-auto max-w-7xl">
-        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+        <div class="grid grid-cols-1 gap-8 md:grid-cols-12 md:gap-14">
           <div class="reveal md:col-span-6">
-            <span class="brushed-deep mb-5 block h-px w-12"></span>
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">06 / Leadership</span>
-            <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight text-graphite">Strategic judgment. <span class="font-medium">Direct involvement in execution.</span></h2>
+            <span class="brushed mb-5 block h-px w-12"></span>
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">05 / Leadership</span>
+            <h2 class="text-[clamp(1.9rem,3.4vw,2.9rem)] font-light leading-[1.12] tracking-tight">Strategic judgment. <span class="text-ivory/50">Direct involvement in execution.</span></h2>
           </div>
-          <p class="reveal d1 text-[17px] font-light leading-[1.85] text-black/65 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital. The group’s leadership model combines strategic judgment with direct involvement in execution.</p>
+          <p class="reveal d1 text-[16px] font-light leading-[1.8] text-ivory/60 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital.</p>
         </div>
 
-        <div class="mt-24 grid grid-cols-1 gap-8 lg:grid-cols-3">
+        <div class="mt-14 md:mt-20 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
           <!-- Michael Hobart -->
-          <article class="reveal group flex flex-col border border-black/10 bg-white/60">
-            <div class="relative flex aspect-[4/3] items-end justify-between overflow-hidden bg-[#141414] p-8">
-              <span class="pointer-events-none absolute -right-6 -top-10 text-[11rem] font-extralight leading-none text-white/[.04] transition-transform duration-700 group-hover:-translate-x-3" aria-hidden="true">MH</span>
-              <span class="relative text-6xl font-extralight tracking-[0.12em] text-ivory/85" aria-hidden="true">MH</span>
+          <article class="graphite-card reveal group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
+            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
+              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">MH</span>
+              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">MH</span>
               <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">CEO</span>
             </div>
-            <div class="flex flex-1 flex-col p-8 md:p-10">
-              <h3 class="text-2xl font-light text-graphite">Michael Hobart</h3>
-              <span class="brushed-deep mt-5 block h-px w-10"></span>
-              <p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Chief Executive Officer</p>
-              <p class="mt-6 flex-1 text-sm font-light leading-[1.8] text-black/65">Responsible for the group’s strategic direction, executive management and coordination of its business interests.</p>
-              <button type="button" class="bio-open mt-8 self-start border-b border-graphite/40 pb-1 text-[11px] uppercase tracking-[0.24em] text-graphite transition-colors hover:border-graphite" data-bio="bio-mh">Read biography</button>
+            <div class="flex flex-1 flex-col p-7 md:p-9">
+              <h3 class="text-2xl font-light">Michael Hobart</h3>
+              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Chief Executive Officer</p>
+              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Responsible for the group’s strategic direction, executive management and coordination of its business interests.</p>
+              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-mh">Read biography</button>
             </div>
             <template id="bio-mh">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Chief Executive Officer</p>
-              <h3 class="mt-4 text-4xl font-light">Michael Hobart</h3>
-              <span class="brushed mt-8 block h-px w-12"></span>
-              <div class="mt-8 space-y-6 text-[15px] font-light leading-[1.85] text-white/70">
+              <h3 class="mt-4 text-3xl font-light md:text-4xl">Michael Hobart</h3>
+              <span class="brushed mt-7 block h-px w-12"></span>
+              <div class="mt-7 space-y-5 text-[15px] font-light leading-[1.85] text-ivory/70">
                 <p>Michael Hobart is Chief Executive Officer of JMNII, responsible for the group’s strategic direction, executive management and coordination of its business interests. He brings broad hands-on experience leading interconnected businesses across the United States and international markets, with expertise spanning corporate operations, financial oversight, commercial development and organizational growth.</p>
                 <p>In senior leadership roles within the JII group, Michael has overseen multiple operating businesses and complex cross-border initiatives. His responsibilities have included budget planning and financial controls, banking and business administration, commercial negotiations, contract and legal coordination, senior personnel management, product development, manufacturing relationships, distribution infrastructure and international market expansion.</p>
                 <p>He has led significant operational projects, supported the launch and development of consumer brands, managed multidisciplinary teams and built commercial relationships across different jurisdictions. His leadership is characterized by close attention to execution, financial accountability and the establishment of scalable systems designed to support long-term business performance.</p>
@@ -635,24 +577,23 @@
           </article>
 
           <!-- Christian Thun -->
-          <article class="reveal d1 group flex flex-col border border-black/10 bg-white/60">
-            <div class="relative flex aspect-[4/3] items-end justify-between overflow-hidden bg-[#141414] p-8">
-              <span class="pointer-events-none absolute -right-6 -top-10 text-[11rem] font-extralight leading-none text-white/[.04] transition-transform duration-700 group-hover:-translate-x-3" aria-hidden="true">CT</span>
-              <span class="relative text-6xl font-extralight tracking-[0.12em] text-ivory/85" aria-hidden="true">CT</span>
+          <article class="graphite-card reveal d1 group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
+            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
+              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">CT</span>
+              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">CT</span>
               <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">COO</span>
             </div>
-            <div class="flex flex-1 flex-col p-8 md:p-10">
-              <h3 class="text-2xl font-light text-graphite">Christian Thun</h3>
-              <span class="brushed-deep mt-5 block h-px w-10"></span>
-              <p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Chief Operating Officer</p>
-              <p class="mt-6 flex-1 text-sm font-light leading-[1.8] text-black/65">Focused on translating commercial strategy into efficient operating processes and measurable outcomes.</p>
-              <button type="button" class="bio-open mt-8 self-start border-b border-graphite/40 pb-1 text-[11px] uppercase tracking-[0.24em] text-graphite transition-colors hover:border-graphite" data-bio="bio-ct">Read biography</button>
+            <div class="flex flex-1 flex-col p-7 md:p-9">
+              <h3 class="text-2xl font-light">Christian Thun</h3>
+              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Chief Operating Officer</p>
+              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Focused on translating commercial strategy into efficient operating processes and measurable outcomes.</p>
+              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-ct">Read biography</button>
             </div>
             <template id="bio-ct">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Chief Operating Officer</p>
-              <h3 class="mt-4 text-4xl font-light">Christian Thun</h3>
-              <span class="brushed mt-8 block h-px w-12"></span>
-              <div class="mt-8 space-y-6 text-[15px] font-light leading-[1.85] text-white/70">
+              <h3 class="mt-4 text-3xl font-light md:text-4xl">Christian Thun</h3>
+              <span class="brushed mt-7 block h-px w-12"></span>
+              <div class="mt-7 space-y-5 text-[15px] font-light leading-[1.85] text-ivory/70">
                 <p>Christian Thun serves as Chief Operating Officer of JMNII, bringing extensive experience in investment-related business activity, commercial growth and international operations. His background combines strategic business development with expertise in communications, sales leadership and global logistics.</p>
                 <p>Christian focuses on translating commercial strategy into efficient operating processes and measurable outcomes. His strengths include assessing growth opportunities, improving coordination across business functions, developing commercial relationships and supporting the systems needed for companies to expand across markets.</p>
                 <p>At JMNII, he works alongside the executive team to support operational performance, business development and the execution of group priorities across domestic and international activities.</p>
@@ -661,24 +602,23 @@
           </article>
 
           <!-- Jay Boateng -->
-          <article class="reveal d2 group flex flex-col border border-black/10 bg-white/60">
-            <div class="relative flex aspect-[4/3] items-end justify-between overflow-hidden bg-[#141414] p-8">
-              <span class="pointer-events-none absolute -right-6 -top-10 text-[11rem] font-extralight leading-none text-white/[.04] transition-transform duration-700 group-hover:-translate-x-3" aria-hidden="true">JB</span>
-              <span class="relative text-6xl font-extralight tracking-[0.12em] text-ivory/85" aria-hidden="true">JB</span>
+          <article class="graphite-card reveal d2 group flex w-[84%] shrink-0 snap-start flex-col md:w-auto">
+            <div class="relative flex aspect-[2/1] items-end justify-between overflow-hidden border-b border-graphite bg-black p-7 md:aspect-[4/3]">
+              <span class="pointer-events-none absolute -right-6 -top-8 text-[9rem] font-extralight leading-none text-ivory/[.035] transition-transform duration-700 group-hover:-translate-x-3 md:text-[11rem]" aria-hidden="true">JB</span>
+              <span class="relative text-5xl font-extralight tracking-[0.12em] text-ivory/85 md:text-6xl" aria-hidden="true">JB</span>
               <span class="relative text-[10px] uppercase tracking-[0.3em] text-silver">Advisor</span>
             </div>
-            <div class="flex flex-1 flex-col p-8 md:p-10">
-              <h3 class="text-2xl font-light text-graphite">Jay Boateng</h3>
-              <span class="brushed-deep mt-5 block h-px w-10"></span>
-              <p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Senior Advisor | Private Capital and Portfolio Strategy</p>
-              <p class="mt-6 flex-1 text-sm font-light leading-[1.8] text-black/65">Advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations.</p>
-              <button type="button" class="bio-open mt-8 self-start border-b border-graphite/40 pb-1 text-[11px] uppercase tracking-[0.24em] text-graphite transition-colors hover:border-graphite" data-bio="bio-jb">Read biography</button>
+            <div class="flex flex-1 flex-col p-7 md:p-9">
+              <h3 class="text-2xl font-light">Jay Boateng</h3>
+              <p class="mt-3 text-[11px] uppercase tracking-[0.24em] text-silver">Senior Advisor | Private Capital and Portfolio Strategy</p>
+              <p class="mt-5 flex-1 text-sm font-light leading-[1.75] text-ivory/60">Advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations.</p>
+              <button type="button" class="bio-open mt-5 self-start border-b border-silver/50 pb-1 pt-3 text-[11px] uppercase tracking-[0.24em] text-ivory transition-colors hover:border-ivory" data-bio="bio-jb">Read biography</button>
             </div>
             <template id="bio-jb">
               <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Senior Advisor | Private Capital and Portfolio Strategy</p>
-              <h3 class="mt-4 text-4xl font-light">Jay Boateng</h3>
-              <span class="brushed mt-8 block h-px w-12"></span>
-              <div class="mt-8 space-y-6 text-[15px] font-light leading-[1.85] text-white/70">
+              <h3 class="mt-4 text-3xl font-light md:text-4xl">Jay Boateng</h3>
+              <span class="brushed mt-7 block h-px w-12"></span>
+              <div class="mt-7 space-y-5 text-[15px] font-light leading-[1.85] text-ivory/70">
                 <p>Jay Boateng is Senior Advisor to JMNII, contributing extensive experience in private equity and the management of diversified private investment interests. He has worked with high-net-worth individuals and private investment portfolios spanning a broad range of sectors, including energy, restaurants and hospitality, clothing and consumer businesses.</p>
                 <p>His cross-sector exposure provides an informed perspective on capital opportunities, portfolio development and the practical considerations involved in investing across different industries. He brings a strong understanding of privately held businesses, commercial risk and the importance of aligning investment strategy with long-term objectives.</p>
                 <p>Jay advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations as the group continues to develop its investment and business interests.</p>
@@ -686,90 +626,79 @@
             </template>
           </article>
         </div>
+        <p class="mt-4 flex items-center gap-3 text-[10px] uppercase tracking-[0.28em] text-ivory/35 md:hidden" aria-hidden="true">Swipe <span class="block h-px w-8 bg-silver/50"></span></p>
       </div>
     </section>
 
-    <!-- ===================== CLOSING STATEMENT ===================== -->
-    <section class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-48">
-      <div class="mx-auto max-w-7xl">
-        <span class="brushed mb-12 block h-px w-12"></span>
-        <h2 class="reveal max-w-5xl text-[clamp(2.4rem,5.6vw,5rem)] font-extralight leading-[1.05] tracking-tight">Building a stronger business begins with <span class="silver-text font-light">the right partnership.</span></h2>
-        <div class="reveal d1 mt-14 flex flex-col items-start gap-8 sm:flex-row sm:items-center">
-          <a href="#contact" class="bg-ivory px-10 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white">Contact Us</a>
-          <p class="text-sm font-light text-white/50">Explore a strategic conversation with JMNII.</p>
-        </div>
-      </div>
-    </section>
-
-    <!-- ===================== 07 · CONTACT ===================== -->
-    <section id="contact" class="border-t border-white/10 bg-[#0E0E0E] px-6 py-32 text-ivory md:px-12 md:py-40">
-      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-12">
+    <!-- ===================== 06 · CONTACT (charcoal) ===================== -->
+    <section id="contact" class="bg-charcoal px-5 py-20 md:px-12 md:py-28">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 lg:grid-cols-12 lg:gap-16">
         <div class="reveal lg:col-span-5">
           <span class="brushed mb-5 block h-px w-12"></span>
-          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">07 / Contact</span>
-          <h2 class="text-[clamp(2rem,3.6vw,3.1rem)] font-light leading-[1.1] tracking-tight">Start a conversation <span class="text-white/55">with JMNII.</span></h2>
-          <p class="mt-8 text-[17px] font-light leading-[1.85] text-white/60">For corporate inquiries, strategic partnerships and business opportunities, we welcome introductions from aligned organizations and professional counterparts.</p>
-          <p class="mt-14 text-[11px] uppercase tracking-[0.28em] text-silver">Miami, Florida | The Netherlands | London, England</p>
+          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">06 / Contact</span>
+          <h2 class="text-[clamp(1.9rem,3.6vw,3.1rem)] font-extralight leading-[1.1] tracking-tight">Building a stronger business begins with <span class="silver-text font-light">the right partnership.</span></h2>
+          <p class="mt-7 text-[16px] font-light leading-[1.8] text-ivory/60">Start a conversation with JMNII. For corporate inquiries, strategic partnerships and business opportunities, we welcome introductions from aligned organizations and professional counterparts.</p>
+          <p class="mt-10 text-[10px] uppercase tracking-[0.28em] text-silver">Miami, Florida | The Netherlands | London, England</p>
         </div>
 
         <div class="reveal d1 lg:col-span-6 lg:col-start-7">
-          <div id="form-sent" class="hidden border border-silver/30 p-10" role="status">
+          <div id="form-sent" class="graphite-card hidden p-10" role="status">
             <p class="text-[11px] uppercase tracking-[0.3em] text-silver">Thank you</p>
             <p class="mt-4 text-2xl font-light">Your message has been received.</p>
-            <p class="mt-3 text-sm text-white/55">A member of the JMNII team will be in touch.</p>
+            <p class="mt-3 text-sm text-ivory/55">A member of the JMNII team will be in touch.</p>
           </div>
           <!-- Netlify Forms: submissions are captured in the Netlify dashboard once deployed on Netlify -->
-          <form id="contact-form" name="jmnii-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="?sent=1#contact" class="grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2">
+          <form id="contact-form" name="jmnii-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="?sent=1#contact" class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
             <input type="hidden" name="form-name" value="jmnii-contact">
             <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
-            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Full Name</span><input class="field mt-2" type="text" name="full-name" autocomplete="name" required></label>
-            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Company</span><input class="field mt-2" type="text" name="company" autocomplete="organization"></label>
-            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Email</span><input class="field mt-2" type="email" name="email" autocomplete="email" required></label>
-            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Country</span><input class="field mt-2" type="text" name="country" autocomplete="country-name"></label>
+            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Full Name</span><input class="field mt-1" type="text" name="full-name" autocomplete="name" required></label>
+            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Company</span><input class="field mt-1" type="text" name="company" autocomplete="organization"></label>
+            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Email</span><input class="field mt-1" type="email" name="email" autocomplete="email" inputmode="email" required></label>
+            <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Country</span><input class="field mt-1" type="text" name="country" autocomplete="country-name"></label>
             <label class="block sm:col-span-2"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Inquiry Type</span>
-              <select class="field mt-2" name="inquiry-type" required>
+              <select class="field mt-1" name="inquiry-type" required>
                 <option value="" disabled selected>Select an inquiry type</option>
                 <option>Strategic Partnership</option><option>Business Opportunity</option><option>Corporate Inquiry</option><option>Media</option><option>Other</option>
               </select>
             </label>
-            <label class="block sm:col-span-2"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Message</span><textarea class="field mt-2 min-h-[150px] resize-y" name="message" required></textarea></label>
-            <div class="sm:col-span-2"><button type="submit" class="bg-ivory px-10 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white">Send Inquiry</button></div>
+            <label class="block sm:col-span-2"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Message</span><textarea class="field mt-1 min-h-[130px] resize-y" name="message" required></textarea></label>
+            <div class="sm:col-span-2"><button type="submit" class="w-full bg-ivory px-10 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white sm:w-auto">Send Inquiry</button></div>
           </form>
         </div>
       </div>
     </section>
   </main>
 
-  <!-- ===================== FOOTER ===================== -->
-  <footer class="overflow-hidden bg-[#0E0E0E] px-6 pt-20 text-ivory md:px-12">
+  <!-- ===================== FOOTER (black) ===================== -->
+  <footer class="overflow-hidden border-t border-graphite bg-black px-5 pt-16 md:px-12 md:pt-20">
     <div class="mx-auto max-w-7xl">
-      <p class="max-w-3xl text-[clamp(1.4rem,2.6vw,2rem)] font-light leading-snug text-white/80">Private capital. International perspective. Disciplined execution.</p>
-      <span class="brushed mt-14 block h-px w-full opacity-50"></span>
-      <div class="mt-10 flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
+      <p class="max-w-3xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-snug text-ivory/80">Private capital. International perspective. Disciplined execution.</p>
+      <span class="brushed mt-12 block h-px w-full opacity-40"></span>
+      <div class="mt-10 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div>
           <p class="text-lg font-light tracking-[0.22em]">JMNII</p>
-          <p class="mt-3 text-sm text-white/50">A privately held global holding company.</p>
+          <p class="mt-2 text-sm text-ivory/50">A privately held global holding company.</p>
         </div>
-        <div class="flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.22em] text-white/55">
-          <a href="#about" class="hover:text-ivory">About</a><a href="#approach" class="hover:text-ivory">Our Approach</a><a href="#capabilities" class="hover:text-ivory">Capabilities</a><a href="#presence" class="hover:text-ivory">Global Presence</a><a href="#leadership" class="hover:text-ivory">Leadership</a><a href="#contact" class="hover:text-ivory">Contact</a>
+        <div class="grid grid-cols-2 gap-x-8 gap-y-1 text-[11px] uppercase tracking-[0.22em] text-ivory/55 sm:flex sm:flex-wrap">
+          <a href="#about" class="py-2 hover:text-ivory">About</a><a href="#approach" class="py-2 hover:text-ivory">Our Approach</a><a href="#capabilities" class="py-2 hover:text-ivory">Capabilities</a><a href="#presence" class="py-2 hover:text-ivory">Global Presence</a><a href="#leadership" class="py-2 hover:text-ivory">Leadership</a><a href="#contact" class="py-2 hover:text-ivory">Contact</a>
         </div>
       </div>
-      <div class="mt-14 flex flex-col justify-between gap-3 text-[10px] uppercase tracking-[0.26em] text-silver/80 sm:flex-row">
+      <div class="mt-12 flex flex-col justify-between gap-2 text-[10px] uppercase tracking-[0.26em] text-silver/80 sm:flex-row">
         <span>Miami, Florida | The Netherlands | London, England</span><span>&copy; 2026 JMNII</span>
       </div>
-      <p class="wordmark pointer-events-none mt-16 select-none text-center text-[clamp(5rem,26vw,25rem)] font-extralight" aria-hidden="true">JMNII</p>
+      <p class="wordmark pointer-events-none mt-12 select-none text-center text-[clamp(5rem,26vw,25rem)] font-extralight" aria-hidden="true">JMNII</p>
     </div>
   </footer>
 
-  <!-- ===================== BIO DRAWER ===================== -->
+  <!-- ===================== BIOGRAPHY DRAWER ===================== -->
   <div id="drawer" class="fixed inset-0 z-[80]" role="dialog" aria-modal="true" aria-label="Leadership biography">
-    <div class="backdrop absolute inset-0 bg-black/60" data-close></div>
-    <div class="panel absolute bottom-0 right-0 top-0 flex w-full max-w-xl flex-col overflow-y-auto bg-[#141414] px-8 py-10 text-ivory md:px-14">
+    <div class="backdrop absolute inset-0 bg-black/70" data-close></div>
+    <div class="panel absolute bottom-0 right-0 top-0 flex w-full max-w-xl flex-col overflow-y-auto border-l border-graphite bg-charcoal px-6 py-8 md:px-14 md:py-10">
       <div class="flex items-center justify-between">
-        <span class="text-[11px] uppercase tracking-[0.3em] text-white/40">Leadership</span>
-        <button type="button" id="drawer-close" class="flex items-center gap-3 text-[11px] uppercase tracking-[0.24em] text-white/60 hover:text-ivory" data-close>Close <span aria-hidden="true" class="text-lg leading-none">&times;</span></button>
+        <span class="text-[11px] uppercase tracking-[0.3em] text-ivory/40">Leadership</span>
+        <button type="button" id="drawer-close" class="-mr-2 flex h-11 items-center gap-3 px-2 text-[11px] uppercase tracking-[0.24em] text-ivory/70 hover:text-ivory" data-close>Close <span aria-hidden="true" class="text-lg leading-none">&times;</span></button>
       </div>
-      <div id="drawer-body" class="mt-16 pb-10"></div>
+      <div id="drawer-body" class="mt-12 pb-10 md:mt-16"></div>
     </div>
   </div>
 
@@ -781,13 +710,13 @@
       var $ = function (s, c) { return (c || document).querySelector(s); };
       var $$ = function (s, c) { return Array.prototype.slice.call((c || document).querySelectorAll(s)); };
 
-      /* ---------- Intro curtain: plays once per visit ---------- */
+      /* Intro curtain plays once per visit */
       if (root.classList.contains('intro')) {
         try { sessionStorage.setItem('jmnii-intro', '1'); } catch (e) {}
-        setTimeout(function () { root.classList.remove('intro'); }, 2600);
+        setTimeout(function () { root.classList.remove('intro'); }, 2500);
       }
 
-      /* ---------- Live local time in each market ---------- */
+      /* Live local time in each market */
       var clocks = $$('[data-clock]');
       function tick() {
         var now = new Date();
@@ -797,15 +726,15 @@
       }
       tick(); setInterval(tick, 15000);
 
-      /* ---------- Reveals ---------- */
+      /* Reveals */
       var reveals = $$('.reveal');
       if (reduced || !('IntersectionObserver' in window)) reveals.forEach(function (el) { el.classList.add('in'); });
       else {
-        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+        var io = new IntersectionObserver(function (es) { es.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } }); }, { rootMargin: '0px 0px -6% 0px', threshold: 0.08 });
         reveals.forEach(function (el) { io.observe(el); });
       }
 
-      /* ---------- Active section in the navigation ---------- */
+      /* Active section in the navigation */
       var links = $$('.nav-link');
       if ('IntersectionObserver' in window) {
         var so = new IntersectionObserver(function (es) {
@@ -814,7 +743,7 @@
         ['about', 'approach', 'capabilities', 'presence', 'leadership', 'contact'].forEach(function (id) { var s = document.getElementById(id); if (s) so.observe(s); });
       }
 
-      /* ---------- Scroll-linked: manifesto words + approach progress ---------- */
+      /* Scroll-linked: manifesto words + approach progress */
       var statement = $('#statement'), words = [];
       if (statement) {
         statement.innerHTML = statement.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
@@ -828,15 +757,15 @@
           var vh = window.innerHeight;
           if (words.length) {
             var r = statement.getBoundingClientRect();
-            var p = reduced ? 1 : Math.min(1, Math.max(0, (vh * 0.85 - r.top) / (r.height + vh * 0.35)));
+            var p = reduced ? 1 : Math.min(1, Math.max(0, (vh * 0.9 - r.top) / (r.height + vh * 0.3)));
             var n = Math.round(p * words.length);
             words.forEach(function (w, i) { w.classList.toggle('lit', i < n); });
           }
           if (stepsList) {
             var b = stepsList.getBoundingClientRect();
-            var q = Math.min(1, Math.max(0, (vh * 0.6 - b.top) / b.height));
+            var q = Math.min(1, Math.max(0, (vh * 0.62 - b.top) / b.height));
             fill.style.transform = 'scaleY(' + (reduced ? 1 : q).toFixed(3) + ')';
-            steps.forEach(function (s) { s.classList.toggle('is-on', reduced || s.getBoundingClientRect().top < vh * 0.62); });
+            steps.forEach(function (s) { s.classList.toggle('is-on', reduced || s.getBoundingClientRect().top < vh * 0.64); });
           }
         });
       }
@@ -844,12 +773,12 @@
       window.addEventListener('resize', onScroll, { passive: true });
       onScroll();
 
-      /* ---------- Capabilities accordion ---------- */
+      /* Capabilities accordion */
       $$('.acc').forEach(function (btn) {
         btn.addEventListener('click', function () { btn.setAttribute('aria-expanded', String(btn.getAttribute('aria-expanded') !== 'true')); });
       });
 
-      /* ---------- Mobile menu ---------- */
+      /* Mobile menu */
       var toggle = $('#menu-toggle'), menu = $('#mobile-menu');
       function setMenu(open) {
         menu.classList.toggle('is-open', open);
@@ -860,11 +789,12 @@
       toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
       $$('a', menu).forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
 
-      /* ---------- Biography drawer ---------- */
+      /* Biography drawer */
       var drawer = $('#drawer'), body = $('#drawer-body'), lastFocus = null;
       function openBio(id, trigger) {
         body.innerHTML = document.getElementById(id).innerHTML;
         lastFocus = trigger;
+        drawer.querySelector('.panel').scrollTop = 0;
         drawer.classList.add('is-open');
         document.body.style.overflow = 'hidden';
         setTimeout(function () { $('#drawer-close').focus(); }, 60);
@@ -882,7 +812,7 @@
         if (menu.classList.contains('is-open')) setMenu(false);
       });
 
-      /* ---------- Contact confirmation ---------- */
+      /* Contact confirmation */
       if (new URLSearchParams(location.search).has('sent')) {
         $('#contact-form').classList.add('hidden');
         $('#form-sent').classList.remove('hidden');
@@ -894,7 +824,7 @@
        Cursor left  -> London in focus, the Netherlands blurred.
        Cursor right -> the Netherlands in focus, London blurred.
        Centre       -> focus returns to Miami.
-       Runs only when window.innerWidth > 1024.
+       Runs only when window.innerWidth > 1024; phones stay static.
        ========================================================= */
     (function () {
       var hero = document.getElementById('hero');
