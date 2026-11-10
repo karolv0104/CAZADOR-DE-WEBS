@@ -1,383 +1,623 @@
-<!doctype html>
-<html lang="en">
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
 <head>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>JMNII | Global Holdings — Capital to build. Expertise to scale.</title>
-  <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.">
-  <meta property="og:title" content="JMNII | Global Holdings — Capital to build. Expertise to scale.">
-  <meta property="og:description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value.">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>JMNII Global Holdings | Capital to build. Expertise to scale.</title>
+  <meta name="description" content="JMNII is a privately held global holding company combining capital, ownership and operational expertise to build long-term business value. Miami, Florida | The Netherlands | London, England.">
+  <meta property="og:title" content="JMNII Global Holdings">
+  <meta property="og:description" content="Capital to build. Expertise to scale. A privately held global holding company headquartered in Miami, with an international presence in the Netherlands and London.">
   <meta property="og:type" content="website">
   <meta name="theme-color" content="#141414">
   <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+
+  <!-- Google Fonts: Plus Jakarta Sans -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="assets/tailwind.css">
-  <link rel="stylesheet" href="assets/site.css">
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CSS: official CDN (pinned version) -->
+  <script src="https://cdn.tailwindcss.com/3.4.16"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            ivory: '#FBF9F6',
+            carbon: '#141414',
+            graphite: '#2B2B2B',
+            silver: '#B9B8B4'
+          },
+          fontFamily: { jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    html { -webkit-text-size-adjust: 100%; }
+    body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FBF9F6; color: #2B2B2B; -webkit-font-smoothing: antialiased; }
+    ::selection { background: #141414; color: #FBF9F6; }
+    section[id] { scroll-margin-top: 72px; }
+
+    /* Hero layers: GPU-composited, transform + filter only */
+    .city-layer { will-change: transform, filter, opacity; transform: translate3d(0,0,0); backface-visibility: hidden; }
+    .headline-layer { will-change: transform; transform: translate3d(0,0,0); }
+
+    /* Mobile menu */
+    #mobile-menu { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease; }
+    #mobile-menu.is-open { opacity: 1; visibility: visible; }
+
+    /* Form fields: underline only */
+    .field { width: 100%; background: transparent; border: 0; border-bottom: 1px solid rgba(251,249,246,.22); padding: .85rem 0; color: #FBF9F6; font-size: 15px; border-radius: 0; transition: border-color .3s ease; }
+    .field::placeholder { color: rgba(251,249,246,.32); }
+    .field:focus { outline: none; border-color: #FBF9F6; }
+    select.field { -webkit-appearance: none; appearance: none; background-image: linear-gradient(45deg, transparent 50%, rgba(251,249,246,.6) 50%), linear-gradient(135deg, rgba(251,249,246,.6) 50%, transparent 50%); background-position: calc(100% - 10px) 55%, calc(100% - 5px) 55%; background-size: 5px 5px; background-repeat: no-repeat; }
+    select.field option { background: #141414; color: #FBF9F6; }
+    :focus-visible { outline: 1px solid currentColor; outline-offset: 4px; }
+
+    /* Restrained scroll reveals */
+    .js .reveal { opacity: 0; transform: translate3d(0,18px,0); transition: opacity 1s cubic-bezier(.2,.7,.2,1), transform 1s cubic-bezier(.2,.7,.2,1); }
+    .js .reveal.in { opacity: 1; transform: none; }
+
+    @media (prefers-reduced-motion: reduce) {
+      html { scroll-behavior: auto; }
+      .js .reveal { opacity: 1; transform: none; transition: none; }
+    }
+  </style>
 </head>
-<body class="bg-carbon text-ivory font-jakarta">
-<a href="#main" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[60] focus:bg-ivory focus:px-4 focus:py-2 focus:text-carbon">Skip to content</a>
 
-<header class="site-header fixed inset-x-0 top-0 z-50">
-  <div class="mx-auto flex max-w-[1400px] items-center justify-between px-4 py-5 sm:px-10">
-    <a href="index.html" class="text-[15px] font-semibold tracking-[.38em] text-ivory" aria-label="JMNII home">JMNII</a>
-    <nav class="hidden items-center gap-8 text-[11px] font-medium uppercase tracking-[.24em] lg:flex" aria-label="Main">
-        <a href="about.html" class="nav-link">About</a>
-        <a href="approach.html" class="nav-link">Our Approach</a>
-        <a href="capabilities.html" class="nav-link">Capabilities</a>
-        <a href="leadership.html" class="nav-link">Leadership</a>
-        <a href="presence.html" class="nav-link">Global Presence</a>
-        <a href="contact.html" class="nav-link">Contact</a>
-    </nav>
-    <button type="button" class="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden" data-menu-toggle aria-expanded="false" aria-controls="mobile-menu" aria-label="Menu">
-      <span class="block h-px w-6 bg-ivory"></span><span class="block h-px w-6 bg-ivory"></span>
-    </button>
-  </div>
-</header>
-<div id="mobile-menu" class="mobile-menu fixed inset-0 z-40 bg-carbon/95 px-4 pt-24 backdrop-blur lg:hidden" data-menu>
-  <nav class="flex flex-col" aria-label="Mobile">
-      <a href="about.html" class="block border-b hairline py-5 text-2xl font-light">About</a>
-      <a href="approach.html" class="block border-b hairline py-5 text-2xl font-light">Our Approach</a>
-      <a href="capabilities.html" class="block border-b hairline py-5 text-2xl font-light">Capabilities</a>
-      <a href="leadership.html" class="block border-b hairline py-5 text-2xl font-light">Leadership</a>
-      <a href="presence.html" class="block border-b hairline py-5 text-2xl font-light">Global Presence</a>
-      <a href="contact.html" class="block border-b hairline py-5 text-2xl font-light">Contact</a>
-  </nav>
-  <p class="label mt-10">Miami · The Netherlands · London</p>
-</div>
+<body class="antialiased font-jakarta">
+  <a href="#about" class="sr-only focus:not-sr-only focus:fixed focus:left-4 focus:top-4 focus:z-[70] focus:bg-ivory focus:px-4 focus:py-2 focus:text-carbon">Skip to content</a>
 
-<main id="main">
-  <section id="hero" class="hero relative h-[100svh] min-h-[680px] w-full overflow-hidden bg-carbon" aria-label="JMNII — Miami, London, the Netherlands">
-    <!-- L0 · Atmosphere (deepest, barely moves) -->
-    <div class="layer layer-bleed atmosphere" data-speed="6" aria-hidden="true"></div>
-
-    <!-- L1 · MIAMI — centre / background, reflected over dark water -->
-    <div class="layer inset-x-[-6%] bottom-[-2%] h-[52%] blend-overlay opacity-70" data-speed="14" aria-hidden="true">
-      <div class="absolute inset-x-0 bottom-[30%] h-[70%]">
-        <svg class="h-full w-full" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
-          <defs>
-            <linearGradient id="miamiFill" x1="0" y1="0" x2="0" y2="1">
-              <stop offset="0" stop-color="#f2f1ee"/>
-              <stop offset="1" stop-color="#8d8d8a"/>
-            </linearGradient>
-          </defs>
-          <g id="miami" fill="url(#miamiFill)">
-            <!-- low waterfront mass -->
-            <rect x="120"  y="300" width="46" height="120"/>
-            <rect x="178"  y="262" width="34" height="158"/>
-            <rect x="224"  y="320" width="60" height="100"/>
-            <!-- slim residential towers -->
-            <rect x="300"  y="190" width="38" height="230"/>
-            <path d="M350 420 V160 q22 -26 44 0 V420 Z"/>                 <!-- rounded crown -->
-            <rect x="408"  y="230" width="30" height="190"/>
-            <rect x="450"  y="120" width="42" height="300"/>
-            <path d="M504 420 V150 L530 118 L556 150 V420 Z"/>             <!-- faceted top -->
-            <rect x="570"  y="210" width="36" height="210"/>
-            <!-- downtown core -->
-            <path d="M622 420 V96 h18 v-14 h16 v14 h18 V420 Z"/>           <!-- stepped tower -->
-            <rect x="688"  y="140" width="40" height="280"/>
-            <path d="M742 420 V64 L770 40 L798 64 V420 Z"/>               <!-- tallest -->
-            <rect x="812"  y="118" width="44" height="302"/>
-            <path d="M870 420 V150 q26 -40 52 0 V420 Z"/>
-            <rect x="936"  y="176" width="32" height="244"/>
-            <path d="M982 420 V110 l30 -22 l30 22 V420 Z"/>
-            <rect x="1056" y="200" width="40" height="220"/>
-            <rect x="1108" y="150" width="28" height="270"/>
-            <!-- Brickell / bay curve -->
-            <path d="M1150 420 V170 C1170 150 1196 150 1214 168 V420 Z"/>
-            <rect x="1228" y="236" width="44" height="184"/>
-            <rect x="1284" y="196" width="30" height="224"/>
-            <rect x="1326" y="270" width="58" height="150"/>
-            <rect x="1396" y="300" width="40" height="120"/>
-            <rect x="1448" y="330" width="70" height="90"/>
-          </g>
-          <!-- vertical fenestration hairlines -->
-          <g stroke="#141414" stroke-opacity=".35" stroke-width="1">
-            <path d="M762 70 V420 M778 70 V420 M462 125 V420 M478 125 V420 M832 122 V420 M640 100 V420 M1000 112 V420 M1024 112 V420"/>
-          </g>
-        </svg>
-      </div>
-      <!-- reflection -->
-      <div class="water absolute inset-x-0 bottom-0 h-[30%] overflow-hidden">
-        <svg class="h-full w-full opacity-35" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMin slice" style="transform:scaleY(-1)">
-          <use href="#miami"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- Beacons ride with Miami (separate, normal blend so they stay crisp) -->
-    <div class="layer inset-x-[-6%] bottom-[-2%] h-[52%]" data-speed="14" aria-hidden="true">
-      <div class="absolute inset-x-0 bottom-[30%] h-[70%]">
-        <svg class="h-full w-full" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
-          <circle class="beacon"    cx="770"  cy="36" r="2.4" fill="#FBF9F6"/>
-          <circle class="beacon d2" cx="530"  cy="114" r="2"  fill="#FBF9F6"/>
-          <circle class="beacon d3" cx="1012" cy="84" r="2"   fill="#FBF9F6"/>
-        </svg>
-      </div>
-    </div>
-
-    <!-- L2 · LONDON — left: The Gherkin, The Shard, the Cheesegrater -->
-    <div class="layer left-[-4%] bottom-[-3%] h-[66%] w-[44%] min-w-[300px] blend-overlay opacity-75 fade-floor" data-speed="28" aria-hidden="true">
-      <svg class="h-full w-full" viewBox="0 0 700 700" preserveAspectRatio="xMinYMax meet">
-        <defs>
-          <linearGradient id="ldnFill" x1="0" y1="0" x2="1" y2="1">
-            <stop offset="0" stop-color="#ffffff"/>
-            <stop offset="1" stop-color="#7a7a77"/>
-          </linearGradient>
-          <clipPath id="gherkinClip">
-            <path d="M150 700 C128 560 136 430 196 336 Q212 314 228 336 C288 430 296 560 274 700 Z"/>
-          </clipPath>
-        </defs>
-        <!-- background blocks -->
-        <g fill="#cfcfcc" opacity=".55">
-          <rect x="20"  y="560" width="90" height="140"/>
-          <rect x="300" y="590" width="70" height="110"/>
-          <rect x="600" y="540" width="80" height="160"/>
-        </g>
-        <!-- The Gherkin -->
-        <path d="M150 700 C128 560 136 430 196 336 Q212 314 228 336 C288 430 296 560 274 700 Z" fill="url(#ldnFill)"/>
-        <g clip-path="url(#gherkinClip)" stroke="#141414" stroke-opacity=".45" stroke-width="2" fill="none">
-          <path d="M60 700 L300 300 M100 700 L340 300 M140 700 L380 300 M20 700 L260 300 M-20 700 L220 300"/>
-          <path d="M360 700 L120 300 M320 700 L80 300 M280 700 L40 300 M400 700 L160 300 M440 700 L200 300"/>
-        </g>
-        <!-- The Shard: fractured glass spire -->
-        <path d="M392 700 L432 182 L446 96 L452 150 L470 120 L476 196 L520 700 Z" fill="url(#ldnFill)"/>
-        <path d="M446 96 L458 700" stroke="#141414" stroke-opacity=".35" stroke-width="1.5"/>
-        <path d="M470 120 L486 700" stroke="#141414" stroke-opacity=".25" stroke-width="1"/>
-        <!-- The Cheesegrater wedge -->
-        <path d="M540 700 V310 L600 300 L600 700 Z" fill="#e6e6e3" opacity=".8"/>
-        <path d="M540 310 L510 700" stroke="#e6e6e3" stroke-opacity=".7" stroke-width="2"/>
-        <!-- fine edge light -->
-        <g fill="none" stroke="#FBF9F6" stroke-opacity=".25" stroke-width="1">
-          <path d="M196 336 C136 430 128 560 150 700"/>
-          <path d="M446 96 L432 182 L392 700"/>
-        </g>
-      </svg>
-    </div>
-
-    <!-- L3 · NETHERLANDS — right: contemporary Dutch cityscape
-         (asymmetric cable-stayed bridge pylon, tilted cube houses, stacked shifted towers, market arch) -->
-    <div class="layer right-[-4%] bottom-[-3%] h-[68%] w-[48%] min-w-[320px] blend-overlay opacity-75 fade-floor" data-speed="34" aria-hidden="true">
-      <svg class="h-full w-full" viewBox="0 0 800 700" preserveAspectRatio="xMaxYMax meet">
-        <defs>
-          <linearGradient id="nlFill" x1="1" y1="0" x2="0" y2="1">
-            <stop offset="0" stop-color="#ffffff"/>
-            <stop offset="1" stop-color="#7a7a77"/>
-          </linearGradient>
-        </defs>
-        <!-- stacked, shifted towers -->
-        <g fill="url(#nlFill)">
-          <rect x="560" y="420" width="90" height="280"/>
-          <rect x="548" y="250" width="90" height="170"/>
-          <rect x="566" y="120" width="84" height="130"/>
-          <rect x="660" y="330" width="80" height="370"/>
-          <rect x="672" y="180" width="80" height="150"/>
-        </g>
-        <g stroke="#141414" stroke-opacity=".35" stroke-width="1">
-          <path d="M548 300 H638 M548 350 H638 M560 470 H650 M560 520 H650 M560 570 H650 M660 380 H740 M660 430 H740 M672 230 H752 M672 280 H752"/>
-        </g>
-        <!-- market-hall horseshoe arch -->
-        <path d="M330 700 V560 C330 470 470 470 470 560 V700 H440 V566 C440 510 360 510 360 566 V700 Z" fill="#e2e2df" opacity=".85"/>
-        <!-- tilted cube houses on columns -->
-        <g fill="#f0f0ed">
-          <rect x="70"  y="560" width="56" height="56" transform="rotate(45 98 588)"/>
-          <rect x="140" y="560" width="56" height="56" transform="rotate(45 168 588)"/>
-          <rect x="210" y="560" width="56" height="56" transform="rotate(45 238 588)"/>
-        </g>
-        <g fill="#bdbdba"><rect x="94" y="626" width="8" height="74"/><rect x="164" y="626" width="8" height="74"/><rect x="234" y="626" width="8" height="74"/></g>
-        <!-- asymmetric bent bridge pylon with stay cables -->
-        <path d="M486 700 L500 700 L486 330 L452 200 L444 204 L474 334 Z" fill="url(#nlFill)"/>
-        <g stroke="#FBF9F6" stroke-opacity=".35" stroke-width="1">
-          <path d="M452 206 L300 640 M452 206 L250 640 M452 206 L200 640 M452 206 L150 640"/>
-          <path d="M456 214 L530 640 M458 222 L560 640"/>
-        </g>
-        <rect x="100" y="638" width="700" height="5" fill="#d8d8d5"/>
-      </svg>
-    </div>
-
-    <!-- Foreground: thin architectural frame lines (fastest layer = closest to the eye) -->
-    <div class="layer layer-bleed" data-speed="54" aria-hidden="true">
-      <div class="absolute left-[8%] top-[18%] h-[64%] w-px bg-gradient-to-b from-transparent via-ivory/10 to-transparent"></div>
-      <div class="absolute right-[8%] top-[22%] h-[56%] w-px bg-gradient-to-b from-transparent via-ivory/10 to-transparent"></div>
-    </div>
-
-    <!-- Static finishing passes -->
-    <div class="pointer-events-none absolute inset-0 vignette" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute inset-0 z-10 scrim" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute inset-0 grain" aria-hidden="true"></div>
-
-
-    <div class="absolute inset-0 z-20 flex items-center justify-center px-4">
-      <div id="headline" class="text-center" style="will-change:transform;transform:translate3d(0,0,0)" data-speed="-18" data-tilt="2.2">
-        <p class="intro eyebrow mb-8 text-[11px] font-medium uppercase text-ivory/55 sm:text-xs">JMNII <span class="mx-2 text-ivory/25">|</span> Global Holdings</p>
-        <h1 class="headline text-[clamp(2.4rem,7.4vw,6.6rem)] leading-[1.02] text-ivory">
-          <span class="intro r2 block font-medium">Capital to build.</span>
-          <span class="intro r3 block font-extralight text-ivory/80">Expertise to scale.</span>
-        </h1>
-        <p class="intro r3 mx-auto mt-8 max-w-xl text-[15px] leading-relaxed text-ivory/65 sm:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
-        <div class="intro r4 mt-10 flex flex-col items-center justify-center gap-4 sm:flex-row">
-          <a href="about.html" class="btn btn-solid">Discover JMNII <svg class="arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
-          <a href="approach.html" class="btn btn-ghost">Our Approach</a>
-        </div>
-      </div>
-    </div>
-    <div class="intro r4 absolute inset-x-0 bottom-0 z-30 mx-auto flex max-w-[1400px] items-end justify-between px-4 pb-6 text-[10px] uppercase tracking-[.3em] text-ivory/40 sm:px-10 sm:text-[11px]">
-      <span class="hidden md:block">MIA&nbsp;&nbsp;25.7617°N · 80.1918°W</span><span class="hidden md:block">LDN&nbsp;&nbsp;51.5074°N · 0.1278°W</span><span class="hidden md:block">NLD&nbsp;&nbsp;52.1326°N · 5.2913°E</span>
-      <a href="#beyond" class="scroll-cue mx-auto flex flex-col items-center md:hidden" aria-label="Scroll down">
-        <span class="block h-8 w-px overflow-hidden"><span class="block h-full w-full bg-ivory/60"></span></span>
+  <!-- ===================== NAVIGATION ===================== -->
+  <nav class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#141414]/90 px-6 py-5 backdrop-blur-md md:px-12" aria-label="Main">
+    <div class="mx-auto flex max-w-7xl items-center justify-between">
+      <a href="#hero" class="text-lg font-light tracking-[0.2em] text-ivory">
+        JMNII <span class="ml-2 hidden text-[10px] tracking-[0.3em] text-white/40 sm:inline">| GLOBAL HOLDINGS</span>
       </a>
+      <div class="hidden space-x-10 text-[11px] uppercase tracking-[0.22em] text-white/60 lg:flex">
+        <a href="#about" class="transition-colors hover:text-ivory">About</a>
+        <a href="#approach" class="transition-colors hover:text-ivory">Our Approach</a>
+        <a href="#capabilities" class="transition-colors hover:text-ivory">Capabilities</a>
+        <a href="#leadership" class="transition-colors hover:text-ivory">Leadership</a>
+        <a href="#contact" class="transition-colors hover:text-ivory">Contact</a>
+      </div>
+      <button id="menu-toggle" type="button" class="flex h-10 w-10 flex-col items-center justify-center gap-[6px] lg:hidden" aria-expanded="false" aria-controls="mobile-menu" aria-label="Open menu">
+        <span class="block h-px w-6 bg-ivory"></span><span class="block h-px w-6 bg-ivory"></span>
+      </button>
     </div>
-  </section>
+  </nav>
 
-  <section id="beyond" class="section">
-    <div class="mx-auto grid max-w-[1400px] gap-12 px-4 py-24 sm:px-10 sm:py-32 lg:grid-cols-12">
-      <div class="lg:col-span-6">
-        <p class="label reveal-up">01 — Beyond capital</p>
-        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">More than investment. A platform for growth.</h2>
-      </div>
-      <div class="lg:col-span-5 lg:col-start-8 lg:pt-14">
-        <p class="reveal-up d2 text-[17px] leading-relaxed text-ivory/70 lede">At JMNII, we believe the most valuable contribution to a business goes beyond financial resources. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets. Our role is to help turn promising opportunities into stronger, more capable enterprises.</p>
-        <a href="about.html" class="text-link reveal-up d3 mt-8 inline-block text-sm">About JMNII</a>
-      </div>
+  <div id="mobile-menu" class="fixed inset-0 z-40 bg-[#141414]/97 px-6 pt-28 lg:hidden">
+    <div class="flex flex-col text-2xl font-light text-ivory">
+      <a href="#about" class="border-b border-white/10 py-5">About</a>
+      <a href="#approach" class="border-b border-white/10 py-5">Our Approach</a>
+      <a href="#capabilities" class="border-b border-white/10 py-5">Capabilities</a>
+      <a href="#leadership" class="border-b border-white/10 py-5">Leadership</a>
+      <a href="#contact" class="border-b border-white/10 py-5">Contact</a>
     </div>
-  </section>
-
-  <section class="section panel">
-    <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-10 sm:py-32">
-      <p class="label reveal-up">02 — Core strengths</p>
-        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light max-w-3xl">The resources to invest. The capabilities to execute.</h2>
-      <div class="mt-16 grid gap-12 md:grid-cols-3">
-        <article class="reveal-up d1 border-t hairline pt-8">
-          <p class="num text-xs text-ivory/40">01</p>
-          <h3 class="mt-6 text-xl font-medium tracking-wide">Private Capital</h3>
-          <p class="mt-4 leading-relaxed text-ivory/65">Selective capital support designed around long-term ownership, business fundamentals and responsible allocation.</p>
-        </article>
-        <article class="reveal-up d2 border-t hairline pt-8">
-          <p class="num text-xs text-ivory/40">02</p>
-          <h3 class="mt-6 text-xl font-medium tracking-wide">Strategic Management</h3>
-          <p class="mt-4 leading-relaxed text-ivory/65">Clear priorities, performance oversight and experienced operational support across complex commercial functions.</p>
-        </article>
-        <article class="reveal-up d3 border-t hairline pt-8">
-          <p class="num text-xs text-ivory/40">03</p>
-          <h3 class="mt-6 text-xl font-medium tracking-wide">Global Execution</h3>
-          <p class="mt-4 leading-relaxed text-ivory/65">Cross-border relationships, logistical capabilities and practical experience coordinating businesses across markets.</p>
-        </article>
-      </div>
-      <a href="capabilities.html" class="text-link reveal-up mt-14 inline-block text-sm">Explore capabilities</a>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="mx-auto max-w-[1400px] px-4 py-24 sm:px-10 sm:py-32">
-      <div class="grid gap-12 lg:grid-cols-12">
-        <div class="lg:col-span-7">
-          <p class="label reveal-up">03 — Our approach</p>
-        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">Conviction in the opportunity. Commitment to the outcome.</h2>
-        </div>
-        <div class="lg:col-span-4 lg:col-start-9 lg:pt-14">
-          <p class="reveal-up d2 text-[17px] leading-relaxed text-ivory/70 lede">We assess opportunities through their fundamentals, leadership, commercial position and capacity for sustainable growth. Where we see alignment, we bring together funding, strategic oversight and operating expertise to help the business execute its next stage of development.</p>
-        </div>
-      </div>
-      <ol class="steps mt-20 grid grid-cols-2 gap-x-8 gap-y-12 border-t hairline md:grid-cols-4">
-          <li class="reveal-up d1 relative pt-10">
-            <span class="step-dot absolute left-0 top-[-4px]"></span>
-            <p class="num text-xs text-ivory/40">01</p>
-            <p class="mt-3 text-2xl font-light">Identify</p>
-          </li>
-          <li class="reveal-up d2 relative pt-10">
-            <span class="step-dot absolute left-0 top-[-4px]"></span>
-            <p class="num text-xs text-ivory/40">02</p>
-            <p class="mt-3 text-2xl font-light">Invest</p>
-          </li>
-          <li class="reveal-up d3 relative pt-10">
-            <span class="step-dot absolute left-0 top-[-4px]"></span>
-            <p class="num text-xs text-ivory/40">03</p>
-            <p class="mt-3 text-2xl font-light">Strengthen</p>
-          </li>
-          <li class="reveal-up d4 relative pt-10">
-            <span class="step-dot absolute left-0 top-[-4px]"></span>
-            <p class="num text-xs text-ivory/40">04</p>
-            <p class="mt-3 text-2xl font-light">Grow</p>
-          </li>
-      </ol>
-      <a href="approach.html" class="text-link reveal-up mt-14 inline-block text-sm">How we work</a>
-    </div>
-  </section>
-
-  <section class="section panel">
-    <div class="mx-auto grid max-w-[1400px] items-center gap-14 px-4 py-24 sm:px-10 sm:py-32 lg:grid-cols-12">
-      <div class="lg:col-span-5">
-        <p class="label reveal-up">04 — International presence</p>
-        <h2 class="display reveal-up d1 mt-6 text-[clamp(1.9rem,4.2vw,3.4rem)] font-light ">International reach. Connected leadership.</h2>
-        <p class="reveal-up d2 mt-8 text-[17px] leading-relaxed text-ivory/70 lede">From our Miami headquarters to our presence in the Netherlands and London, JMNII is structured to connect capital, commercial intelligence and operational capabilities across borders.</p>
-        <a href="presence.html" class="text-link reveal-up d3 mt-8 inline-block text-sm">Global presence</a>
-      </div>
-      <div class="reveal-up d2 lg:col-span-7">
-        <svg class="w-full h-auto" viewBox="0 0 1000 375" role="img" aria-label="Miami head office connected to London and the Netherlands">
-      <defs>
-        <pattern id="dots" width="14" height="14" patternUnits="userSpaceOnUse"><circle cx="1" cy="1" r=".9" fill="#FBF9F6" fill-opacity=".14"/></pattern>
-        <radialGradient id="mapFade" cx="50%" cy="50%" r="60%"><stop offset=".55" stop-color="#fff"/><stop offset="1" stop-color="#000"/></radialGradient>
-        <mask id="mapMask"><rect width="1000" height="375" fill="url(#mapFade)"/></mask>
-      </defs>
-      <rect width="1000" height="375" fill="url(#dots)" mask="url(#mapMask)"/>
-      <g stroke="#FBF9F6" stroke-opacity=".08"><path d="M0 125H1000M0 250H1000M250 0V375M500 0V375M750 0V375"/></g>
-      <path class="map-arc" d="M165.1 285.3 Q 520 -60 832.3 70.8" fill="none" stroke="#FBF9F6" stroke-opacity=".5" stroke-width="1.2"/>
-      <path class="map-arc" d="M165.1 285.3 Q 560 -30 877.4 65.6" fill="none" stroke="#FBF9F6" stroke-opacity=".3" stroke-width="1"/>
-      <circle class="map-pulse" cx="165.1" cy="285.3" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
-      <circle cx="165.1" cy="285.3" r="3.2" fill="#FBF9F6"/>
-      <text x="179.1" y="289.3" text-anchor="start" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">MIAMI — HEAD OFFICE</text>
-      <circle class="map-pulse" cx="832.3" cy="70.8" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
-      <circle cx="832.3" cy="70.8" r="3.2" fill="#FBF9F6"/>
-      <text x="818.3" y="92.8" text-anchor="end" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">LONDON</text>
-      <circle class="map-pulse" cx="877.4" cy="65.6" r="4" fill="none" stroke="#FBF9F6" stroke-opacity=".7"/>
-      <circle cx="877.4" cy="65.6" r="3.2" fill="#FBF9F6"/>
-      <text x="869.4" y="51.599999999999994" text-anchor="end" fill="#FBF9F6" fill-opacity=".75" font-size="12" letter-spacing="2.4" font-family="Plus Jakarta Sans, sans-serif">THE NETHERLANDS</text>
-    </svg>
-      </div>
-    </div>
-  </section>
-
-  <section class="section">
-    <div class="mx-auto flex max-w-[1400px] flex-col items-start justify-between gap-10 px-4 py-24 sm:px-10 md:flex-row md:items-end">
-      <div class="max-w-3xl">
-        <h2 class="display reveal-up text-[clamp(1.8rem,4vw,3.2rem)] font-light">Building a stronger business begins with the right partnership.</h2>
-        <p class="reveal-up d1 mt-5 text-ivory/65">Explore a strategic conversation with JMNII.</p>
-      </div>
-      <a href="contact.html" class="btn btn-solid reveal-up d2 shrink-0">Contact Us <svg class="arrow" width="16" height="10" viewBox="0 0 16 10" fill="none" aria-hidden="true"><path d="M0 5h14M10 1l4 4-4 4" stroke="currentColor" stroke-width="1.2"/></svg></a>
-    </div>
-  </section>
-</main>
-<footer class="section">
-  <div class="mx-auto max-w-[1400px] px-4 py-16 sm:px-10">
-    <p class="reveal-up max-w-3xl text-[clamp(1.4rem,3vw,2.2rem)] font-light leading-snug text-ivory/85">Private capital. International perspective. Disciplined execution.</p>
-    <div class="mt-14 grid gap-10 border-t hairline pt-10 md:grid-cols-3">
-      <div>
-        <a href="index.html" class="text-[15px] font-semibold tracking-[.38em]">JMNII</a>
-        <p class="mt-4 text-sm text-ivory/55">A privately held global holding company.</p>
-      </div>
-      <div>
-        <p class="label mb-4">Navigate</p>
-        <nav class="grid grid-cols-2 gap-y-3 text-sm" aria-label="Footer">
-          <a href="about.html" class="nav-link">About</a>
-          <a href="approach.html" class="nav-link">Our Approach</a>
-          <a href="capabilities.html" class="nav-link">Capabilities</a>
-          <a href="leadership.html" class="nav-link">Leadership</a>
-          <a href="presence.html" class="nav-link">Global Presence</a>
-          <a href="contact.html" class="nav-link">Contact</a>
-        </nav>
-      </div>
-      <div>
-        <p class="label mb-4">Presence</p>
-        <p class="text-sm text-ivory/70">Miami, Florida<br>The Netherlands<br>London, England</p>
-      </div>
-    </div>
-    <div class="mt-14 flex flex-col justify-between gap-3 text-[11px] uppercase tracking-[.24em] text-ivory/35 sm:flex-row">
-      <span>&copy; 2026 JMNII</span>
-      <span>Miami / The Netherlands / London</span>
-    </div>
+    <p class="mt-10 text-[11px] uppercase tracking-[0.3em] text-white/40">Miami, Florida | The Netherlands | London, England</p>
   </div>
-</footer>
-<script src="assets/site.js" defer></script>
+
+  <!-- ===================== HERO: CINEMATIC 3D WITH DYNAMIC BLUR ===================== -->
+  <header id="hero" class="relative flex h-screen min-h-[640px] w-full items-center justify-center overflow-hidden bg-[#141414]">
+
+    <!-- Global network lines (static background) -->
+    <svg class="pointer-events-none absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 1440 900" aria-hidden="true">
+      <g stroke="#FBF9F6" fill="none">
+        <path d="M0 450 H1440" stroke-opacity=".08"/>
+        <path d="M0 640 H1440" stroke-opacity=".05"/>
+        <path d="M360 0 V900 M1080 0 V900" stroke-opacity=".05"/>
+        <path d="M160 640 Q 720 120 1290 600" stroke-opacity=".09" stroke-dasharray="3 7"/>
+        <path d="M160 640 Q 760 260 1240 520" stroke-opacity=".06" stroke-dasharray="3 7"/>
+      </g>
+      <g fill="#FBF9F6" fill-opacity=".35">
+        <circle cx="160" cy="640" r="2"/><circle cx="1290" cy="600" r="2"/><circle cx="1240" cy="520" r="2"/>
+      </g>
+    </svg>
+
+    <!-- CITY 1 · LONDON (left) — abstract financial-district structure -->
+    <div id="layer-london" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="26" style="filter: blur(4px); opacity: .32;" aria-hidden="true">
+      <div class="absolute bottom-0 left-[4%] flex h-[66vh] w-[30vw] max-w-[440px] flex-col justify-end border-l border-t border-white/20 bg-gradient-to-tr from-white/[.06] to-transparent p-6 lg:left-[6%]">
+        <svg class="absolute inset-x-6 bottom-20 top-10" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
+          <!-- The Gherkin with its diagrid -->
+          <path d="M60 520 C44 410 50 300 98 226 Q110 210 122 226 C170 300 176 410 160 520" stroke-opacity=".7"/>
+          <path d="M70 470 L150 330 M60 420 L130 280 M80 520 L160 380 M150 470 L70 330 M160 420 L90 280 M140 520 L60 380" stroke-opacity=".25"/>
+          <!-- The Shard -->
+          <path d="M200 520 L232 140 L244 70 L250 112 L264 92 L268 150 L304 520" stroke-opacity=".8"/>
+          <path d="M244 70 L254 520 M264 92 L278 520" stroke-opacity=".25"/>
+          <!-- The Cheesegrater wedge -->
+          <path d="M320 520 V250 L372 240 V520 M320 250 L300 520" stroke-opacity=".55"/>
+          <path d="M0 519 H400" stroke-opacity=".4"/>
+        </svg>
+        <div class="relative">
+          <span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/50">London</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-white/30">United Kingdom Presence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CITY 2 · MIAMI (centre) — minimalist skyline, global head office -->
+    <div id="layer-miami" class="city-layer pointer-events-none absolute inset-0 z-10" data-speed="12" style="filter: blur(0px); opacity: .5;" aria-hidden="true">
+      <div class="absolute bottom-0 left-1/2 flex h-[46vh] w-full max-w-4xl -translate-x-1/2 flex-col justify-end border-x border-t border-white/10 bg-gradient-to-t from-white/[.05] to-transparent p-8">
+        <svg class="absolute inset-x-8 bottom-20 top-8" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
+          <g stroke-opacity=".75">
+            <path d="M40 300 V200 H80 V300 M92 300 V170 H122 V300 M134 300 V230 H190 V300"/>
+            <path d="M206 300 V120 H240 V300 M252 300 V96 Q272 72 292 96 V300 M304 300 V150 H330 V300"/>
+            <path d="M344 300 V70 H382 V300 M394 300 V90 L418 60 L442 90 V300"/>
+            <path d="M458 300 V52 H474 V40 H488 V52 H504 V300"/>
+            <path d="M518 300 V22 L544 0 L570 22 V300"/>
+            <path d="M584 300 V80 H624 V300 M636 300 V110 Q660 74 684 110 V300 M696 300 V136 H724 V300"/>
+            <path d="M738 300 V100 L764 80 L790 100 V300 M802 300 V170 H840 V300 M852 300 V220 H890 V300"/>
+          </g>
+          <path d="M0 299 H900" stroke-opacity=".5"/>
+          <g stroke-opacity=".18"><path d="M531 22 V300 M557 22 V300 M471 52 V300 M363 70 V300"/></g>
+        </svg>
+        <div class="relative">
+          <span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/55">Miami</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-white/30">Global Head Office</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- CITY 3 · THE NETHERLANDS (right) — contemporary Dutch architecture -->
+    <div id="layer-netherlands" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="32" style="filter: blur(4px); opacity: .32;" aria-hidden="true">
+      <div class="absolute bottom-0 right-[4%] flex h-[58vh] w-[28vw] max-w-[400px] flex-col items-end justify-end border-r border-t border-white/20 bg-gradient-to-tl from-white/[.06] to-transparent p-6 text-right lg:right-[6%]">
+        <svg class="absolute inset-x-6 bottom-20 top-10" viewBox="0 0 380 460" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
+          <!-- Stacked, shifted towers -->
+          <path d="M210 460 V300 H290 V460 M198 300 V180 H278 V300 M216 180 V80 H290 V180" stroke-opacity=".75"/>
+          <path d="M300 460 V240 H368 V460 M312 240 V140 H376 V240" stroke-opacity=".6"/>
+          <!-- Tilted cube houses -->
+          <path d="M40 380 l26 -26 l26 26 l-26 26 Z M96 380 l26 -26 l26 26 l-26 26 Z M66 406 V460 M122 406 V460" stroke-opacity=".6"/>
+          <!-- Asymmetric bridge pylon with stays -->
+          <path d="M168 460 L180 460 L170 240 L150 150 L142 154 L160 244 Z" stroke-opacity=".7"/>
+          <path d="M150 156 L30 440 M150 156 L70 440 M150 156 L196 440" stroke-opacity=".25"/>
+          <path d="M0 440 H200 M0 459 H380" stroke-opacity=".4"/>
+        </svg>
+        <div class="relative">
+          <span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-white/50">The Netherlands</span>
+          <span class="text-[10px] uppercase tracking-[0.2em] text-white/30">European Presence</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- Soft halo for legibility + vignette -->
+    <div class="pointer-events-none absolute inset-0 z-20" style="background: radial-gradient(46% 38% at 50% 48%, rgba(20,20,20,.78) 0%, rgba(20,20,20,0) 100%);" aria-hidden="true"></div>
+
+    <!-- TOP LAYER · Headline -->
+    <div id="layer-text" class="headline-layer relative z-30 max-w-4xl px-6 pt-16 text-center" data-speed="-14">
+      <p class="mb-6 text-[11px] font-light uppercase tracking-[0.5em] text-white/45">JMNII &nbsp;|&nbsp; Global Holdings</p>
+      <h1 class="mb-8 text-[clamp(2.4rem,6.4vw,5.4rem)] font-light leading-[1.05] tracking-[0.04em] text-ivory">
+        Capital to build.<br><span class="font-extralight text-ivory/80">Expertise to scale.</span>
+      </h1>
+      <p class="mx-auto mb-12 max-w-2xl text-sm font-light leading-relaxed text-white/60 md:text-base">
+        A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.
+      </p>
+      <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
+        <a href="#about" class="w-full bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white sm:w-auto">Discover JMNII</a>
+        <a href="#approach" class="w-full border border-white/25 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-white/60 sm:w-auto">Our Approach</a>
+      </div>
+    </div>
+  </header>
+
+  <main>
+    <!-- ===================== 01 · ABOUT / POSITIONING (light) ===================== -->
+    <section id="about" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 md:grid-cols-12">
+        <div class="reveal md:col-span-5">
+          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">01 / Positioning</span>
+          <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">More than investment.<br><span class="font-medium">A platform for growth.</span></h2>
+        </div>
+        <div class="reveal space-y-7 text-[17px] font-light leading-[1.85] text-black/70 md:col-span-6 md:col-start-7 md:pt-12">
+          <p>JMNII is a privately held global holding company focused on supporting, developing and strengthening businesses through private capital, strategic direction and operational expertise. Headquartered in Miami, with an international presence in the Netherlands and London, the group combines a long-term ownership perspective with the capabilities required to build commercially resilient companies.</p>
+          <p>At JMNII, we believe the most valuable contribution to a business goes beyond financial resources. We combine capital with strategic direction, operational oversight and access to commercial relationships, supporting businesses as they grow, evolve and enter new markets. Our role is to help turn promising opportunities into stronger, more capable enterprises.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 02 · CORE STRENGTHS (dark) ===================== -->
+    <section id="strengths" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
+      <div class="mx-auto max-w-7xl">
+        <div class="reveal mb-24 text-center">
+          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">02 / Core Strengths</span>
+          <h2 class="text-[clamp(1.9rem,3.4vw,2.8rem)] font-light tracking-tight">Capital opens doors. <span class="text-white/60">Expertise builds businesses.</span></h2>
+        </div>
+        <div class="grid grid-cols-1 gap-14 md:grid-cols-3">
+          <article class="reveal border-t border-white/15 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">01</span>
+            <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Private Capital</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">Selective capital support designed around long-term ownership, business fundamentals and responsible allocation.</p>
+          </article>
+          <article class="reveal border-t border-white/15 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">02</span>
+            <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Strategic Management</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">Clear priorities, performance oversight and experienced operational support across complex commercial functions.</p>
+          </article>
+          <article class="reveal border-t border-white/15 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">03</span>
+            <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Global Execution</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">Cross-border relationships, logistical capabilities and practical experience coordinating businesses across markets.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 03 · OUR APPROACH (light) ===================== -->
+    <section id="approach" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+          <div class="reveal md:col-span-6">
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">03 / Our Approach</span>
+            <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">A disciplined approach to opportunity and <span class="font-medium">value creation.</span></h2>
+          </div>
+          <p class="reveal text-[17px] font-light leading-[1.85] text-black/70 md:col-span-5 md:col-start-8 md:pt-12">Every business has its own operating reality. Our approach begins with understanding that reality: the market, the people, the capital requirements and the areas where focused support can create the greatest impact.</p>
+        </div>
+
+        <ol class="mt-24 grid grid-cols-1 border-t border-black/10 md:grid-cols-2 lg:grid-cols-4">
+          <li class="reveal border-b border-black/10 py-12 md:pr-10 lg:border-b-0 lg:border-r">
+            <span class="text-[11px] tracking-[0.2em] text-black/35">01</span>
+            <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Evaluate with care</h3>
+            <p class="text-sm font-light leading-relaxed text-black/60">We review opportunities against their commercial fundamentals, risk profile, leadership capabilities and potential for sustainable development.</p>
+          </li>
+          <li class="reveal border-b border-black/10 py-12 md:pl-10 lg:border-b-0 lg:border-r lg:pr-10">
+            <span class="text-[11px] tracking-[0.2em] text-black/35">02</span>
+            <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Align capital and strategy</h3>
+            <p class="text-sm font-light leading-relaxed text-black/60">We shape the appropriate level of financial and strategic involvement, linking resources to clearly defined business priorities.</p>
+          </li>
+          <li class="reveal border-b border-black/10 py-12 md:pr-10 lg:border-b-0 lg:border-r lg:pl-10">
+            <span class="text-[11px] tracking-[0.2em] text-black/35">03</span>
+            <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Support the operation</h3>
+            <p class="text-sm font-light leading-relaxed text-black/60">We help businesses strengthen execution through management oversight, financial discipline, commercial relationships and operational coordination.</p>
+          </li>
+          <li class="reveal py-12 md:pl-10">
+            <span class="text-[11px] tracking-[0.2em] text-black/35">04</span>
+            <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Build for the long term</h3>
+            <p class="text-sm font-light leading-relaxed text-black/60">We focus on enduring commercial performance, scalable systems and the capabilities required to adapt as markets change.</p>
+          </li>
+        </ol>
+      </div>
+    </section>
+
+    <!-- ===================== 04 · CAPABILITIES (dark) ===================== -->
+    <section id="capabilities" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+          <div class="reveal md:col-span-6">
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">04 / Capabilities</span>
+            <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight">The resources to invest. <span class="text-white/60">The capabilities to execute.</span></h2>
+          </div>
+          <p class="reveal text-[17px] font-light leading-[1.85] text-white/60 md:col-span-5 md:col-start-8 md:pt-12">JMNII offers a coordinated group-level platform across capital allocation, ownership strategy and commercial operations. Our capabilities are brought together around the particular needs of each business and relationship.</p>
+        </div>
+
+        <div class="mt-24 grid grid-cols-1 gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">01</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">Private capital and holdings</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p>
+          </article>
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">02</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">Corporate strategy and oversight</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p>
+          </article>
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">03</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">Business development and partnerships</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p>
+          </article>
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">04</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">International expansion and market entry</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p>
+          </article>
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">05</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">Supply chain, sourcing and logistics</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p>
+          </article>
+          <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
+            <span class="text-[11px] tracking-[0.2em] text-white/35">06</span>
+            <h3 class="mb-4 mt-10 text-lg font-medium">Brand, intellectual property and commercial assets</h3>
+            <p class="text-sm font-light leading-relaxed text-white/60">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p>
+          </article>
+        </div>
+
+        <div class="reveal mt-20 grid grid-cols-1 gap-8 border-t border-white/10 pt-12 md:grid-cols-12">
+          <span class="text-[11px] uppercase tracking-[0.3em] text-white/40 md:col-span-3">Opportunity focus</span>
+          <div class="md:col-span-9">
+            <p class="text-[17px] font-light leading-[1.85] text-white/70">JMNII’s perspective is cross-sector rather than restricted to one industry. Potential areas of interest include consumer brands, apparel and lifestyle, hospitality, health and wellness, international commerce, logistics and selected industrial or energy-related opportunities.</p>
+            <p class="mt-4 text-xs text-white/40">This describes areas of consideration, not a representation of current holdings.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 05 · LEADERSHIP (light) ===================== -->
+    <section id="leadership" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
+      <div class="mx-auto max-w-7xl">
+        <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
+          <div class="reveal md:col-span-6">
+            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">05 / Leadership</span>
+            <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">Strategic judgment. <span class="font-medium">Direct involvement in execution.</span></h2>
+          </div>
+          <p class="reveal text-[17px] font-light leading-[1.85] text-black/70 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital. The group’s leadership model combines strategic judgment with direct involvement in execution.</p>
+        </div>
+
+        <div class="mt-24 grid grid-cols-1 gap-8 lg:grid-cols-3">
+          <!-- Michael Hobart -->
+          <article class="reveal flex flex-col border border-black/10 bg-white/50">
+            <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
+              <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">MH</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">CEO</span>
+            </div>
+            <div class="flex flex-1 flex-col p-8 md:p-10">
+              <h3 class="text-2xl font-light text-graphite">Michael Hobart</h3>
+              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Chief Executive Officer</p>
+              <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
+                <p>Michael Hobart is Chief Executive Officer of JMNII, responsible for the group’s strategic direction, executive management and coordination of its business interests. He brings broad hands-on experience leading interconnected businesses across the United States and international markets, with expertise spanning corporate operations, financial oversight, commercial development and organizational growth.</p>
+                <p>In senior leadership roles within the JII group, Michael has overseen multiple operating businesses and complex cross-border initiatives. His responsibilities have included budget planning and financial controls, banking and business administration, commercial negotiations, contract and legal coordination, senior personnel management, product development, manufacturing relationships, distribution infrastructure and international market expansion.</p>
+                <p>He has led significant operational projects, supported the launch and development of consumer brands, managed multidisciplinary teams and built commercial relationships across different jurisdictions. His leadership is characterized by close attention to execution, financial accountability and the establishment of scalable systems designed to support long-term business performance.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Christian Thun -->
+          <article class="reveal flex flex-col border border-black/10 bg-white/50">
+            <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
+              <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">CT</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">COO</span>
+            </div>
+            <div class="flex flex-1 flex-col p-8 md:p-10">
+              <h3 class="text-2xl font-light text-graphite">Christian Thun</h3>
+              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Chief Operating Officer</p>
+              <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
+                <p>Christian Thun serves as Chief Operating Officer of JMNII, bringing extensive experience in investment-related business activity, commercial growth and international operations. His background combines strategic business development with expertise in communications, sales leadership and global logistics.</p>
+                <p>Christian focuses on translating commercial strategy into efficient operating processes and measurable outcomes. His strengths include assessing growth opportunities, improving coordination across business functions, developing commercial relationships and supporting the systems needed for companies to expand across markets.</p>
+                <p>At JMNII, he works alongside the executive team to support operational performance, business development and the execution of group priorities across domestic and international activities.</p>
+              </div>
+            </div>
+          </article>
+
+          <!-- Jay Boateng -->
+          <article class="reveal flex flex-col border border-black/10 bg-white/50">
+            <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
+              <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">JB</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">Advisor</span>
+            </div>
+            <div class="flex flex-1 flex-col p-8 md:p-10">
+              <h3 class="text-2xl font-light text-graphite">Jay Boateng</h3>
+              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Senior Advisor | Private Capital and Portfolio Strategy</p>
+              <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
+                <p>Jay Boateng is Senior Advisor to JMNII, contributing extensive experience in private equity and the management of diversified private investment interests. He has worked with high-net-worth individuals and private investment portfolios spanning a broad range of sectors, including energy, restaurants and hospitality, clothing and consumer businesses.</p>
+                <p>His cross-sector exposure provides an informed perspective on capital opportunities, portfolio development and the practical considerations involved in investing across different industries. He brings a strong understanding of privately held businesses, commercial risk and the importance of aligning investment strategy with long-term objectives.</p>
+                <p>Jay advises JMNII on private capital strategy, the assessment of selected opportunities and portfolio-level considerations as the group continues to develop its investment and business interests.</p>
+              </div>
+            </div>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== 06 · CONTACT (dark) ===================== -->
+    <section id="contact" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
+      <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-12">
+        <div class="reveal lg:col-span-5">
+          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">06 / Contact</span>
+          <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight">Start a conversation <span class="text-white/60">with JMNII.</span></h2>
+          <p class="mt-8 text-[17px] font-light leading-[1.85] text-white/60">For corporate inquiries, strategic partnerships and business opportunities, we welcome introductions from aligned organizations and professional counterparts.</p>
+          <div class="mt-14 space-y-6 border-t border-white/10 pt-10">
+            <div><p class="text-sm text-ivory">Miami, Florida</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">Global Head Office</p></div>
+            <div><p class="text-sm text-ivory">The Netherlands</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">European Presence</p></div>
+            <div><p class="text-sm text-ivory">London, England</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">United Kingdom Presence</p></div>
+          </div>
+        </div>
+
+        <div class="reveal lg:col-span-6 lg:col-start-7">
+          <div id="form-sent" class="hidden border border-white/15 p-10" role="status">
+            <p class="text-[11px] uppercase tracking-[0.3em] text-white/40">Thank you</p>
+            <p class="mt-4 text-2xl font-light">Your message has been received.</p>
+            <p class="mt-3 text-sm text-white/55">A member of the JMNII team will be in touch.</p>
+          </div>
+
+          <!-- Netlify Forms: submissions are captured in the Netlify dashboard once the site is deployed on Netlify -->
+          <form id="contact-form" name="jmnii-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="?sent=1#contact" class="grid grid-cols-1 gap-x-8 gap-y-9 sm:grid-cols-2">
+            <input type="hidden" name="form-name" value="jmnii-contact">
+            <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+
+            <label class="block">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Full Name</span>
+              <input class="field mt-2" type="text" name="full-name" autocomplete="name" required>
+            </label>
+            <label class="block">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Company</span>
+              <input class="field mt-2" type="text" name="company" autocomplete="organization">
+            </label>
+            <label class="block">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Email</span>
+              <input class="field mt-2" type="email" name="email" autocomplete="email" required>
+            </label>
+            <label class="block">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Country</span>
+              <input class="field mt-2" type="text" name="country" autocomplete="country-name">
+            </label>
+            <label class="block sm:col-span-2">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Inquiry Type</span>
+              <select class="field mt-2" name="inquiry-type" required>
+                <option value="" disabled selected>Select an inquiry type</option>
+                <option>Strategic Partnership</option>
+                <option>Business Opportunity</option>
+                <option>Corporate Inquiry</option>
+                <option>Media</option>
+                <option>Other</option>
+              </select>
+            </label>
+            <label class="block sm:col-span-2">
+              <span class="text-[10px] uppercase tracking-[0.26em] text-white/45">Message</span>
+              <textarea class="field mt-2 min-h-[150px] resize-y" name="message" required></textarea>
+            </label>
+            <div class="sm:col-span-2">
+              <button type="submit" class="bg-ivory px-10 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white">Send Inquiry</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ===================== FOOTER ===================== -->
+  <footer class="border-t border-white/10 bg-[#141414] px-6 py-16 text-ivory md:px-12">
+    <div class="mx-auto max-w-7xl">
+      <p class="max-w-3xl text-[clamp(1.4rem,2.6vw,2rem)] font-light leading-snug text-white/80">Private capital. International perspective. Disciplined execution.</p>
+      <div class="mt-14 flex flex-col gap-10 border-t border-white/10 pt-10 md:flex-row md:items-start md:justify-between">
+        <div>
+          <p class="text-lg font-light tracking-[0.2em]">JMNII</p>
+          <p class="mt-3 text-sm text-white/50">A privately held global holding company.</p>
+        </div>
+        <div class="flex flex-wrap gap-x-8 gap-y-3 text-[11px] uppercase tracking-[0.22em] text-white/55">
+          <a href="#about" class="hover:text-ivory">About</a>
+          <a href="#approach" class="hover:text-ivory">Our Approach</a>
+          <a href="#capabilities" class="hover:text-ivory">Capabilities</a>
+          <a href="#leadership" class="hover:text-ivory">Leadership</a>
+          <a href="#contact" class="hover:text-ivory">Contact</a>
+        </div>
+      </div>
+      <div class="mt-14 flex flex-col justify-between gap-3 text-[10px] uppercase tracking-[0.26em] text-white/35 sm:flex-row">
+        <span>Miami, Florida | The Netherlands | London, England</span>
+        <span>&copy; 2026 JMNII</span>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ===================== SCRIPTS ===================== -->
+  <script>
+    /* Reveals, mobile menu and contact confirmation (all devices) */
+    (function () {
+      var root = document.documentElement;
+      root.classList.add('js');
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var reveals = document.querySelectorAll('.reveal');
+      if (reduced || !('IntersectionObserver' in window)) {
+        reveals.forEach(function (el) { el.classList.add('in'); });
+      } else {
+        var io = new IntersectionObserver(function (entries) {
+          entries.forEach(function (e) { if (e.isIntersecting) { e.target.classList.add('in'); io.unobserve(e.target); } });
+        }, { rootMargin: '0px 0px -8% 0px', threshold: 0.1 });
+        reveals.forEach(function (el) { io.observe(el); });
+      }
+
+      var toggle = document.getElementById('menu-toggle');
+      var menu = document.getElementById('mobile-menu');
+      function setMenu(open) {
+        menu.classList.toggle('is-open', open);
+        toggle.setAttribute('aria-expanded', String(open));
+        toggle.setAttribute('aria-label', open ? 'Close menu' : 'Open menu');
+        document.body.style.overflow = open ? 'hidden' : '';
+      }
+      toggle.addEventListener('click', function () { setMenu(!menu.classList.contains('is-open')); });
+      menu.querySelectorAll('a').forEach(function (a) { a.addEventListener('click', function () { setMenu(false); }); });
+      document.addEventListener('keydown', function (e) { if (e.key === 'Escape') setMenu(false); });
+
+      if (new URLSearchParams(location.search).has('sent')) {
+        document.getElementById('contact-form').classList.add('hidden');
+        document.getElementById('form-sent').classList.remove('hidden');
+      }
+    })();
+
+    /* =========================================================
+       HERO: 3D parallax + dynamic depth-of-field (desktop only)
+       a) Each layer moves at its own speed with translate3d (GPU).
+       b) Cursor left  -> London in focus, the Netherlands blurred.
+          Cursor right -> the Netherlands in focus, London blurred.
+          Centre       -> focus returns to Miami.
+       Runs only when window.innerWidth > 1024; on smaller screens
+       the cities stay static so nothing breaks on phones.
+       ========================================================= */
+    (function () {
+      var hero = document.getElementById('hero');
+      var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      var cities = {
+        london:      document.getElementById('layer-london'),
+        miami:       document.getElementById('layer-miami'),
+        netherlands: document.getElementById('layer-netherlands')
+      };
+      var text = document.getElementById('layer-text');
+      var layers = [cities.london, cities.miami, cities.netherlands, text];
+
+      var MAX_BLUR = 6, MIN_OPACITY = 0.22, MAX_OPACITY = 0.62, EASE = 0.08;
+      var target = { x: 0, y: 0 }, current = { x: 0, y: 0 };
+      var rafId = null, active = false, rect = null;
+
+      // Focus weight for each city from the horizontal cursor position (-1 left … 0 centre … 1 right)
+      function focus(x) {
+        return {
+          london:      Math.max(0, -x),
+          miami:       1 - Math.abs(x),
+          netherlands: Math.max(0, x)
+        };
+      }
+
+      function apply() {
+        layers.forEach(function (el) {
+          var s = parseFloat(el.dataset.speed) || 0;
+          el.style.transform = 'translate3d(' + (-current.x * s).toFixed(2) + 'px,' + (-current.y * s * 0.6).toFixed(2) + 'px,0)';
+        });
+        var f = focus(current.x);
+        Object.keys(cities).forEach(function (k) {
+          var w = Math.min(1, f[k] * 1.6);                       // sharpen faster near the focused side
+          cities[k].style.filter = 'blur(' + ((1 - w) * MAX_BLUR).toFixed(2) + 'px)';
+          cities[k].style.opacity = (MIN_OPACITY + w * (MAX_OPACITY - MIN_OPACITY)).toFixed(3);
+        });
+      }
+
+      function render() {
+        current.x += (target.x - current.x) * EASE;
+        current.y += (target.y - current.y) * EASE;
+        apply();
+        var settled = Math.abs(target.x - current.x) < 0.001 && Math.abs(target.y - current.y) < 0.001;
+        rafId = settled ? null : requestAnimationFrame(render);   // sleeps when nothing moves
+      }
+      function wake() { if (active && !rafId) rafId = requestAnimationFrame(render); }
+
+      function onMove(e) {
+        rect = rect || hero.getBoundingClientRect();
+        target.x = Math.max(-1, Math.min(1, ((e.clientX - rect.left) / rect.width - 0.5) * 2));
+        target.y = Math.max(-1, Math.min(1, ((e.clientY - rect.top) / rect.height - 0.5) * 2));
+        wake();
+      }
+      function onLeave() { target.x = 0; target.y = 0; wake(); }
+
+      function enable() {
+        if (active) return;
+        active = true;
+        hero.addEventListener('mousemove', onMove, { passive: true });
+        hero.addEventListener('mouseleave', onLeave, { passive: true });
+        current.x = current.y = target.x = target.y = 0;
+        apply();
+      }
+      function disable() {
+        if (!active) return;
+        active = false;
+        hero.removeEventListener('mousemove', onMove);
+        hero.removeEventListener('mouseleave', onLeave);
+        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+        // Static silhouettes on phones and tablets
+        layers.forEach(function (el) { el.style.transform = 'none'; });
+        cities.miami.style.filter = 'none'; cities.miami.style.opacity = '.5';
+        cities.london.style.filter = cities.netherlands.style.filter = 'blur(4px)';
+        cities.london.style.opacity = cities.netherlands.style.opacity = '.3';
+      }
+
+      function check() {
+        rect = null;
+        if (window.innerWidth > 1024 && !reduced) enable(); else disable();
+      }
+
+      check();
+      window.addEventListener('resize', check, { passive: true });
+      window.addEventListener('scroll', function () { rect = null; }, { passive: true });
+    })();
+  </script>
 </body>
 </html>
