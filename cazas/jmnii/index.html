@@ -1,0 +1,378 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>JMNII — Capital to build. Expertise to scale.</title>
+  <meta name="description" content="JMNII · Miami · London · Netherlands">
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:ital,wght@0,200..800;1,200..800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind compiled to a static file (no runtime CDN): assets/tailwind.css -->
+  <link rel="stylesheet" href="assets/tailwind.css">
+
+  <style>
+    :root { --carbon:#141414; --ivory:#FBF9F6; }
+    html, body { background: var(--carbon); color: var(--ivory); }
+    body { font-family: "Plus Jakarta Sans", system-ui, sans-serif; -webkit-font-smoothing: antialiased; }
+
+    /* ---------- HERO STAGE ---------- */
+    .hero { perspective: 1400px; isolation: isolate; }
+
+    /* Every moving layer: GPU-composited, transform-only animation */
+    .layer {
+      position: absolute;
+      will-change: transform;
+      transform: translate3d(0,0,0);
+      backface-visibility: hidden;
+      pointer-events: none;
+    }
+    /* Layers are slightly oversized so edges never show while they drift */
+    .layer-bleed { inset: -6%; }
+
+    /* City silhouettes fuse into the carbon background */
+    .blend-overlay  { mix-blend-mode: overlay; }
+    .blend-screen   { mix-blend-mode: screen; }
+
+    /* Atmosphere: graphite horizon glow the overlay layers blend against */
+    .atmosphere {
+      background:
+        radial-gradient(60% 40% at 50% 72%, rgba(96,96,93,.42) 0%, rgba(48,48,46,.2) 45%, rgba(20,20,20,0) 75%),
+        radial-gradient(40% 30% at 18% 75%, rgba(80,80,78,.28) 0%, rgba(20,20,20,0) 70%),
+        radial-gradient(40% 30% at 84% 74%, rgba(80,80,78,.28) 0%, rgba(20,20,20,0) 70%),
+        linear-gradient(180deg, #141414 0%, #181818 55%, #121212 100%);
+    }
+
+    /* Water under Miami: dark horizontal "scanline" texture */
+    .water {
+      background:
+        repeating-linear-gradient(180deg, rgba(251,249,246,.045) 0 1px, rgba(0,0,0,0) 1px 6px),
+        linear-gradient(180deg, rgba(40,40,39,.9), rgba(20,20,20,1));
+      -webkit-mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.6) 40%, transparent 100%);
+              mask-image: linear-gradient(180deg, #000 0%, rgba(0,0,0,.6) 40%, transparent 100%);
+    }
+
+    /* Film grain (static — never animated, so it costs nothing per frame) */
+    .grain {
+      background-image: url("data:image/svg+xml;utf8,<svg xmlns='http://www.w3.org/2000/svg' width='160' height='160'><filter id='n'><feTurbulence type='fractalNoise' baseFrequency='.9' numOctaves='2' stitchTiles='stitch'/><feColorMatrix values='0 0 0 0 1  0 0 0 0 1  0 0 0 0 1  0 0 0 .55 0'/></filter><rect width='100%' height='100%' filter='url(%23n)'/></svg>");
+      opacity: .07;
+      mix-blend-mode: overlay;
+    }
+
+    /* Foreground cities dissolve into the floor instead of ending on a hard edge */
+    .fade-floor {
+      -webkit-mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
+              mask-image: linear-gradient(0deg, transparent 0%, #000 34%);
+    }
+    /* Soft carbon halo behind the headline: legibility without a visible box */
+    .scrim { background: radial-gradient(42% 30% at 50% 50%, rgba(20,20,20,.7) 0%, rgba(20,20,20,0) 100%); }
+
+    .vignette {
+      background: radial-gradient(120% 90% at 50% 45%, rgba(20,20,20,0) 45%, rgba(10,10,10,.85) 100%);
+    }
+
+    /* Aviation warning lights on the tallest towers — slow, quiet pulse */
+    .beacon { animation: beacon 3.6s ease-in-out infinite; transform-box: fill-box; transform-origin: center; }
+    .beacon.d2 { animation-delay: 1.2s; }
+    .beacon.d3 { animation-delay: 2.4s; }
+    @keyframes beacon { 0%, 100% { opacity: .15; } 50% { opacity: .9; } }
+
+    /* Headline */
+    .headline { letter-spacing: .035em; text-wrap: balance; }
+    .eyebrow  { letter-spacing: .42em; }
+
+    /* Intro reveal (opacity only on the wrapper; transforms stay owned by JS) */
+    .reveal { opacity: 0; transition: opacity 1.6s cubic-bezier(.2,.7,.2,1); }
+    .is-ready .reveal { opacity: 1; }
+    .is-ready .reveal.r2 { transition-delay: .25s; }
+    .is-ready .reveal.r3 { transition-delay: .5s; }
+    .is-ready .reveal.r4 { transition-delay: .8s; }
+
+    .rule { background: linear-gradient(90deg, transparent, rgba(251,249,246,.35), transparent); height: 1px; }
+
+    .scroll-cue span { animation: cue 2.4s cubic-bezier(.6,0,.4,1) infinite; }
+    @keyframes cue { 0% { transform: translate3d(0,-100%,0); } 60%,100% { transform: translate3d(0,100%,0); } }
+
+    @media (prefers-reduced-motion: reduce) {
+      .beacon, .scroll-cue span { animation: none; }
+      .reveal { transition: none; opacity: 1; }
+    }
+  </style>
+</head>
+
+<body class="bg-carbon text-ivory font-jakarta">
+
+  <!-- ====================== HERO ====================== -->
+  <section id="hero" class="hero relative h-[100svh] min-h-[640px] w-full overflow-hidden bg-carbon" aria-label="JMNII — Miami, London, Netherlands">
+
+    <!-- L0 · Atmosphere (deepest, barely moves) -->
+    <div class="layer layer-bleed atmosphere" data-speed="6" aria-hidden="true"></div>
+
+    <!-- L1 · MIAMI — centre / background, reflected over dark water -->
+    <div class="layer inset-x-[-6%] bottom-[-2%] h-[52%] blend-overlay opacity-70" data-speed="14" aria-hidden="true">
+      <div class="absolute inset-x-0 bottom-[30%] h-[70%]">
+        <svg class="h-full w-full" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+          <defs>
+            <linearGradient id="miamiFill" x1="0" y1="0" x2="0" y2="1">
+              <stop offset="0" stop-color="#f2f1ee"/>
+              <stop offset="1" stop-color="#8d8d8a"/>
+            </linearGradient>
+          </defs>
+          <g id="miami" fill="url(#miamiFill)">
+            <!-- low waterfront mass -->
+            <rect x="120"  y="300" width="46" height="120"/>
+            <rect x="178"  y="262" width="34" height="158"/>
+            <rect x="224"  y="320" width="60" height="100"/>
+            <!-- slim residential towers -->
+            <rect x="300"  y="190" width="38" height="230"/>
+            <path d="M350 420 V160 q22 -26 44 0 V420 Z"/>                 <!-- rounded crown -->
+            <rect x="408"  y="230" width="30" height="190"/>
+            <rect x="450"  y="120" width="42" height="300"/>
+            <path d="M504 420 V150 L530 118 L556 150 V420 Z"/>             <!-- faceted top -->
+            <rect x="570"  y="210" width="36" height="210"/>
+            <!-- downtown core -->
+            <path d="M622 420 V96 h18 v-14 h16 v14 h18 V420 Z"/>           <!-- stepped tower -->
+            <rect x="688"  y="140" width="40" height="280"/>
+            <path d="M742 420 V64 L770 40 L798 64 V420 Z"/>               <!-- tallest -->
+            <rect x="812"  y="118" width="44" height="302"/>
+            <path d="M870 420 V150 q26 -40 52 0 V420 Z"/>
+            <rect x="936"  y="176" width="32" height="244"/>
+            <path d="M982 420 V110 l30 -22 l30 22 V420 Z"/>
+            <rect x="1056" y="200" width="40" height="220"/>
+            <rect x="1108" y="150" width="28" height="270"/>
+            <!-- Brickell / bay curve -->
+            <path d="M1150 420 V170 C1170 150 1196 150 1214 168 V420 Z"/>
+            <rect x="1228" y="236" width="44" height="184"/>
+            <rect x="1284" y="196" width="30" height="224"/>
+            <rect x="1326" y="270" width="58" height="150"/>
+            <rect x="1396" y="300" width="40" height="120"/>
+            <rect x="1448" y="330" width="70" height="90"/>
+          </g>
+          <!-- vertical fenestration hairlines -->
+          <g stroke="#141414" stroke-opacity=".35" stroke-width="1">
+            <path d="M762 70 V420 M778 70 V420 M462 125 V420 M478 125 V420 M832 122 V420 M640 100 V420 M1000 112 V420 M1024 112 V420"/>
+          </g>
+        </svg>
+      </div>
+      <!-- reflection -->
+      <div class="water absolute inset-x-0 bottom-0 h-[30%] overflow-hidden">
+        <svg class="h-full w-full opacity-35" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMin slice" style="transform:scaleY(-1)">
+          <use href="#miami"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- Beacons ride with Miami (separate, normal blend so they stay crisp) -->
+    <div class="layer inset-x-[-6%] bottom-[-2%] h-[52%]" data-speed="14" aria-hidden="true">
+      <div class="absolute inset-x-0 bottom-[30%] h-[70%]">
+        <svg class="h-full w-full" viewBox="0 0 1600 420" preserveAspectRatio="xMidYMax slice">
+          <circle class="beacon"    cx="770"  cy="36" r="2.4" fill="#FBF9F6"/>
+          <circle class="beacon d2" cx="530"  cy="114" r="2"  fill="#FBF9F6"/>
+          <circle class="beacon d3" cx="1012" cy="84" r="2"   fill="#FBF9F6"/>
+        </svg>
+      </div>
+    </div>
+
+    <!-- L2 · LONDON — left: The Gherkin, The Shard, the Cheesegrater -->
+    <div class="layer left-[-4%] bottom-[-3%] h-[66%] w-[44%] min-w-[300px] blend-overlay opacity-75 fade-floor" data-speed="28" aria-hidden="true">
+      <svg class="h-full w-full" viewBox="0 0 700 700" preserveAspectRatio="xMinYMax meet">
+        <defs>
+          <linearGradient id="ldnFill" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#7a7a77"/>
+          </linearGradient>
+          <clipPath id="gherkinClip">
+            <path d="M150 700 C128 560 136 430 196 336 Q212 314 228 336 C288 430 296 560 274 700 Z"/>
+          </clipPath>
+        </defs>
+        <!-- background blocks -->
+        <g fill="#cfcfcc" opacity=".55">
+          <rect x="20"  y="560" width="90" height="140"/>
+          <rect x="300" y="590" width="70" height="110"/>
+          <rect x="600" y="540" width="80" height="160"/>
+        </g>
+        <!-- The Gherkin -->
+        <path d="M150 700 C128 560 136 430 196 336 Q212 314 228 336 C288 430 296 560 274 700 Z" fill="url(#ldnFill)"/>
+        <g clip-path="url(#gherkinClip)" stroke="#141414" stroke-opacity=".45" stroke-width="2" fill="none">
+          <path d="M60 700 L300 300 M100 700 L340 300 M140 700 L380 300 M20 700 L260 300 M-20 700 L220 300"/>
+          <path d="M360 700 L120 300 M320 700 L80 300 M280 700 L40 300 M400 700 L160 300 M440 700 L200 300"/>
+        </g>
+        <!-- The Shard: fractured glass spire -->
+        <path d="M392 700 L432 182 L446 96 L452 150 L470 120 L476 196 L520 700 Z" fill="url(#ldnFill)"/>
+        <path d="M446 96 L458 700" stroke="#141414" stroke-opacity=".35" stroke-width="1.5"/>
+        <path d="M470 120 L486 700" stroke="#141414" stroke-opacity=".25" stroke-width="1"/>
+        <!-- The Cheesegrater wedge -->
+        <path d="M540 700 V310 L600 300 L600 700 Z" fill="#e6e6e3" opacity=".8"/>
+        <path d="M540 310 L510 700" stroke="#e6e6e3" stroke-opacity=".7" stroke-width="2"/>
+        <!-- fine edge light -->
+        <g fill="none" stroke="#FBF9F6" stroke-opacity=".25" stroke-width="1">
+          <path d="M196 336 C136 430 128 560 150 700"/>
+          <path d="M446 96 L432 182 L392 700"/>
+        </g>
+      </svg>
+    </div>
+
+    <!-- L3 · NETHERLANDS — right: contemporary Dutch cityscape
+         (asymmetric cable-stayed bridge pylon, tilted cube houses, stacked shifted towers, market arch) -->
+    <div class="layer right-[-4%] bottom-[-3%] h-[68%] w-[48%] min-w-[320px] blend-overlay opacity-75 fade-floor" data-speed="34" aria-hidden="true">
+      <svg class="h-full w-full" viewBox="0 0 800 700" preserveAspectRatio="xMaxYMax meet">
+        <defs>
+          <linearGradient id="nlFill" x1="1" y1="0" x2="0" y2="1">
+            <stop offset="0" stop-color="#ffffff"/>
+            <stop offset="1" stop-color="#7a7a77"/>
+          </linearGradient>
+        </defs>
+        <!-- stacked, shifted towers -->
+        <g fill="url(#nlFill)">
+          <rect x="560" y="420" width="90" height="280"/>
+          <rect x="548" y="250" width="90" height="170"/>
+          <rect x="566" y="120" width="84" height="130"/>
+          <rect x="660" y="330" width="80" height="370"/>
+          <rect x="672" y="180" width="80" height="150"/>
+        </g>
+        <g stroke="#141414" stroke-opacity=".35" stroke-width="1">
+          <path d="M548 300 H638 M548 350 H638 M560 470 H650 M560 520 H650 M560 570 H650 M660 380 H740 M660 430 H740 M672 230 H752 M672 280 H752"/>
+        </g>
+        <!-- market-hall horseshoe arch -->
+        <path d="M330 700 V560 C330 470 470 470 470 560 V700 H440 V566 C440 510 360 510 360 566 V700 Z" fill="#e2e2df" opacity=".85"/>
+        <!-- tilted cube houses on columns -->
+        <g fill="#f0f0ed">
+          <rect x="70"  y="560" width="56" height="56" transform="rotate(45 98 588)"/>
+          <rect x="140" y="560" width="56" height="56" transform="rotate(45 168 588)"/>
+          <rect x="210" y="560" width="56" height="56" transform="rotate(45 238 588)"/>
+        </g>
+        <g fill="#bdbdba"><rect x="94" y="626" width="8" height="74"/><rect x="164" y="626" width="8" height="74"/><rect x="234" y="626" width="8" height="74"/></g>
+        <!-- asymmetric bent bridge pylon with stay cables -->
+        <path d="M486 700 L500 700 L486 330 L452 200 L444 204 L474 334 Z" fill="url(#nlFill)"/>
+        <g stroke="#FBF9F6" stroke-opacity=".35" stroke-width="1">
+          <path d="M452 206 L300 640 M452 206 L250 640 M452 206 L200 640 M452 206 L150 640"/>
+          <path d="M456 214 L530 640 M458 222 L560 640"/>
+        </g>
+        <rect x="100" y="638" width="700" height="5" fill="#d8d8d5"/>
+      </svg>
+    </div>
+
+    <!-- Foreground: thin architectural frame lines (fastest layer = closest to the eye) -->
+    <div class="layer layer-bleed" data-speed="54" aria-hidden="true">
+      <div class="absolute left-[8%] top-[18%] h-[64%] w-px bg-gradient-to-b from-transparent via-ivory/10 to-transparent"></div>
+      <div class="absolute right-[8%] top-[22%] h-[56%] w-px bg-gradient-to-b from-transparent via-ivory/10 to-transparent"></div>
+    </div>
+
+    <!-- Static finishing passes -->
+    <div class="pointer-events-none absolute inset-0 vignette" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-0 z-10 scrim" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-0 grain" aria-hidden="true"></div>
+
+    <!-- ---------- NAV ---------- -->
+    <header class="reveal absolute inset-x-0 top-0 z-30 flex items-center justify-between px-4 py-6 sm:px-10">
+      <a href="#hero" class="text-[15px] font-semibold tracking-[.38em] text-ivory">JMNII</a>
+      <nav class="hidden gap-10 text-[12px] font-medium uppercase tracking-[.28em] text-ivory/60 md:flex">
+        <a href="#about" class="transition-colors hover:text-ivory">About</a>
+        <a href="#approach" class="transition-colors hover:text-ivory">Approach</a>
+        <a href="#contact" class="transition-colors hover:text-ivory">Contact</a>
+      </nav>
+    </header>
+
+    <!-- ---------- HEADLINE (top layer, moves opposite to the cursor) ---------- -->
+    <div class="absolute inset-0 z-20 flex items-center justify-center px-4">
+      <div id="headline" class="text-center" style="will-change:transform;transform:translate3d(0,0,0)" data-speed="-18" data-tilt="2.2">
+        <p class="reveal eyebrow mb-8 text-[11px] font-medium uppercase text-ivory/55 sm:text-xs">
+          Miami <span class="mx-2 text-ivory/25">/</span> London <span class="mx-2 text-ivory/25">/</span> Netherlands
+        </p>
+        <h1 class="headline text-[clamp(2.4rem,7.4vw,6.6rem)] leading-[1.02] text-ivory">
+          <span class="reveal r2 block font-medium">Capital to build.</span>
+          <span class="reveal r3 block font-extralight text-ivory/80">Expertise to scale.</span>
+        </h1>
+        <div class="reveal r4 mx-auto mt-10 w-40 rule"></div>
+      </div>
+    </div>
+
+    <!-- ---------- FOOTER STRIP: real coordinates of the three cities ---------- -->
+    <div class="reveal r4 absolute inset-x-0 bottom-0 z-30 flex items-end justify-between px-4 pb-6 text-[10px] uppercase tracking-[.3em] text-ivory/40 sm:px-10 sm:text-[11px]">
+      <span class="hidden sm:block">LDN&nbsp;&nbsp;51.5074°N · 0.1278°W</span>
+      <span class="hidden sm:block">MIA&nbsp;&nbsp;25.7617°N · 80.1918°W</span>
+      <span class="hidden sm:block">AMS&nbsp;&nbsp;52.3676°N · 4.9041°E</span>
+      <a href="#about" class="scroll-cue mx-auto flex flex-col items-center gap-3 sm:hidden" aria-label="Scroll">
+        <span class="block h-8 w-px overflow-hidden"><span class="block h-full w-full bg-ivory/60"></span></span>
+      </a>
+    </div>
+  </section>
+
+  <!-- Placeholder anchor for the next section (content pending real business data) -->
+  <section id="about" class="min-h-[40vh] bg-carbon"></section>
+
+  <script>
+  /* ============================================================
+     JMNII · Hero parallax — vanilla JS, transform-only, rAF-driven
+     - mousemove sets a target; a lerp eases every layer toward it
+     - only translate3d / rotate are written (GPU compositor, no layout)
+     - the loop sleeps once everything has settled (zero idle CPU)
+     ============================================================ */
+  (() => {
+    const hero   = document.getElementById('hero');
+    const layers = [...hero.querySelectorAll('[data-speed]')].map(el => ({
+      el,
+      speed: parseFloat(el.dataset.speed) || 0,
+      tilt:  parseFloat(el.dataset.tilt)  || 0
+    }));
+
+    requestAnimationFrame(() => document.documentElement.classList.add('is-ready'));
+
+    const reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    if (reduced) return;
+
+    const EASE = 0.075;                 // lower = silkier, heavier
+    const target  = { x: 0, y: 0 };
+    const current = { x: 0, y: 0 };
+    let rafId = null, rect = hero.getBoundingClientRect();
+
+    const onResize = () => { rect = hero.getBoundingClientRect(); };
+    window.addEventListener('resize', onResize, { passive: true });
+    window.addEventListener('scroll', onResize, { passive: true });
+
+    hero.addEventListener('mousemove', (e) => {
+      // normalised -1 … 1 from the hero centre
+      target.x = ((e.clientX - rect.left) / rect.width  - 0.5) * 2;
+      target.y = ((e.clientY - rect.top)  / rect.height - 0.5) * 2;
+      wake();
+    }, { passive: true });
+
+    hero.addEventListener('mouseleave', () => { target.x = 0; target.y = 0; wake(); }, { passive: true });
+
+    // Touch / no-mouse devices: a slow, almost imperceptible drift keeps the depth alive
+    const hasFinePointer = window.matchMedia('(pointer: fine)').matches;
+
+    function render(t) {
+      if (!hasFinePointer) {
+        target.x = Math.sin(t / 5200) * 0.35;
+        target.y = Math.cos(t / 7100) * 0.22;
+      }
+
+      current.x += (target.x - current.x) * EASE;
+      current.y += (target.y - current.y) * EASE;
+
+      for (const { el, speed, tilt } of layers) {
+        const x = (-current.x * speed).toFixed(2);
+        const y = (-current.y * speed * 0.6).toFixed(2);
+        el.style.transform = tilt
+          ? `translate3d(${x}px, ${y}px, 0) rotateX(${(current.y * tilt).toFixed(3)}deg) rotateY(${(-current.x * tilt).toFixed(3)}deg)`
+          : `translate3d(${x}px, ${y}px, 0)`;
+      }
+
+      const settled = Math.abs(target.x - current.x) < 0.0005 && Math.abs(target.y - current.y) < 0.0005;
+      rafId = (settled && hasFinePointer) ? null : requestAnimationFrame(render);
+    }
+
+    function wake() { if (!rafId) rafId = requestAnimationFrame(render); }
+
+    // Pause entirely when the hero is off-screen
+    new IntersectionObserver(([entry]) => {
+      if (entry.isIntersecting) wake();
+      else if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
+    }).observe(hero);
+  })();
+  </script>
+</body>
+</html>
