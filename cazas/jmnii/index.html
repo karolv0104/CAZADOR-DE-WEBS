@@ -26,7 +26,8 @@
             ivory: '#FBF9F6',
             carbon: '#141414',
             graphite: '#2B2B2B',
-            silver: '#B9B8B4'
+            silver: '#B9B8B4',
+            'silver-deep': '#8A8984'
           },
           fontFamily: { jakarta: ['"Plus Jakarta Sans"', 'system-ui', 'sans-serif'] }
         }
@@ -39,6 +40,10 @@
     body { font-family: 'Plus Jakarta Sans', system-ui, sans-serif; background-color: #FBF9F6; color: #2B2B2B; -webkit-font-smoothing: antialiased; }
     ::selection { background: #141414; color: #FBF9F6; }
     section[id] { scroll-margin-top: 72px; }
+
+    /* Brushed silver: a hairline with a subtle metallic sheen */
+    .brushed-deep { background: linear-gradient(90deg, #6f6e6a 0%, #a9a8a4 32%, #7f7e7a 52%, #b4b3af 74%, #75746f 100%); }
+    .brushed { background: linear-gradient(90deg, #8f8e8a 0%, #dcdbd7 32%, #a6a5a1 52%, #e6e5e1 74%, #9a9995 100%); }
 
     /* Hero layers: GPU-composited, transform + filter only */
     .city-layer { will-change: transform, filter, opacity; transform: translate3d(0,0,0); backface-visibility: hidden; }
@@ -74,7 +79,7 @@
   <nav class="fixed top-0 left-0 z-50 w-full border-b border-white/10 bg-[#141414]/90 px-6 py-5 backdrop-blur-md md:px-12" aria-label="Main">
     <div class="mx-auto flex max-w-7xl items-center justify-between">
       <a href="#hero" class="text-lg font-light tracking-[0.2em] text-ivory">
-        JMNII <span class="ml-2 hidden text-[10px] tracking-[0.3em] text-white/40 sm:inline">| GLOBAL HOLDINGS</span>
+        JMNII <span class="ml-2 hidden text-[10px] tracking-[0.3em] text-silver sm:inline">| GLOBAL HOLDINGS</span>
       </a>
       <div class="hidden space-x-10 text-[11px] uppercase tracking-[0.22em] text-white/60 lg:flex">
         <a href="#about" class="transition-colors hover:text-ivory">About</a>
@@ -112,7 +117,7 @@
         <path d="M160 640 Q 720 120 1290 600" stroke-opacity=".09" stroke-dasharray="3 7"/>
         <path d="M160 640 Q 760 260 1240 520" stroke-opacity=".06" stroke-dasharray="3 7"/>
       </g>
-      <g fill="#FBF9F6" fill-opacity=".35">
+      <g fill="#B9B8B4" fill-opacity=".7">
         <circle cx="160" cy="640" r="2"/><circle cx="1290" cy="600" r="2"/><circle cx="1240" cy="520" r="2"/>
       </g>
     </svg>
@@ -187,7 +192,7 @@
 
     <!-- TOP LAYER · Headline -->
     <div id="layer-text" class="headline-layer relative z-30 max-w-4xl px-6 pt-16 text-center" data-speed="-14">
-      <p class="mb-6 text-[11px] font-light uppercase tracking-[0.5em] text-white/45">JMNII &nbsp;|&nbsp; Global Holdings</p>
+      <p class="mb-6 text-[11px] font-light uppercase tracking-[0.5em] text-silver/90">JMNII &nbsp;|&nbsp; Global Holdings</p>
       <h1 class="mb-8 text-[clamp(2.4rem,6.4vw,5.4rem)] font-light leading-[1.05] tracking-[0.04em] text-ivory">
         Capital to build.<br><span class="font-extralight text-ivory/80">Expertise to scale.</span>
       </h1>
@@ -196,7 +201,7 @@
       </p>
       <div class="flex flex-col items-center justify-center gap-4 sm:flex-row">
         <a href="#about" class="w-full bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-carbon transition-colors hover:bg-white sm:w-auto">Discover JMNII</a>
-        <a href="#approach" class="w-full border border-white/25 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-white/60 sm:w-auto">Our Approach</a>
+        <a href="#approach" class="w-full border border-silver/40 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-silver sm:w-auto">Our Approach</a>
       </div>
     </div>
   </header>
@@ -206,7 +211,7 @@
     <section id="about" class="bg-ivory px-6 py-32 md:px-12 md:py-40">
       <div class="mx-auto grid max-w-7xl grid-cols-1 gap-14 md:grid-cols-12">
         <div class="reveal md:col-span-5">
-          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">01 / Positioning</span>
+          <span class="brushed-deep mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">01 / Positioning</span>
           <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">More than investment.<br><span class="font-medium">A platform for growth.</span></h2>
         </div>
         <div class="reveal space-y-7 text-[17px] font-light leading-[1.85] text-black/70 md:col-span-6 md:col-start-7 md:pt-12">
@@ -220,22 +225,22 @@
     <section id="strengths" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
       <div class="mx-auto max-w-7xl">
         <div class="reveal mb-24 text-center">
-          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">02 / Core Strengths</span>
+          <span class="brushed mx-auto mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">02 / Core Strengths</span>
           <h2 class="text-[clamp(1.9rem,3.4vw,2.8rem)] font-light tracking-tight">Capital opens doors. <span class="text-white/60">Expertise builds businesses.</span></h2>
         </div>
         <div class="grid grid-cols-1 gap-14 md:grid-cols-3">
-          <article class="reveal border-t border-white/15 pt-10">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">01</span>
+          <article class="reveal border-t border-silver/40 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-silver">01</span>
             <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Private Capital</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">Selective capital support designed around long-term ownership, business fundamentals and responsible allocation.</p>
           </article>
-          <article class="reveal border-t border-white/15 pt-10">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">02</span>
+          <article class="reveal border-t border-silver/40 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-silver">02</span>
             <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Strategic Management</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">Clear priorities, performance oversight and experienced operational support across complex commercial functions.</p>
           </article>
-          <article class="reveal border-t border-white/15 pt-10">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">03</span>
+          <article class="reveal border-t border-silver/40 pt-10">
+            <span class="text-[11px] tracking-[0.2em] text-silver">03</span>
             <h3 class="mb-5 mt-6 text-xs font-medium uppercase tracking-[0.24em] text-white/90">Global Execution</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">Cross-border relationships, logistical capabilities and practical experience coordinating businesses across markets.</p>
           </article>
@@ -248,30 +253,30 @@
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
           <div class="reveal md:col-span-6">
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">03 / Our Approach</span>
+            <span class="brushed-deep mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">03 / Our Approach</span>
             <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">A disciplined approach to opportunity and <span class="font-medium">value creation.</span></h2>
           </div>
           <p class="reveal text-[17px] font-light leading-[1.85] text-black/70 md:col-span-5 md:col-start-8 md:pt-12">Every business has its own operating reality. Our approach begins with understanding that reality: the market, the people, the capital requirements and the areas where focused support can create the greatest impact.</p>
         </div>
 
-        <ol class="mt-24 grid grid-cols-1 border-t border-black/10 md:grid-cols-2 lg:grid-cols-4">
+        <ol class="mt-24 grid grid-cols-1 border-t border-silver-deep/40 md:grid-cols-2 lg:grid-cols-4">
           <li class="reveal border-b border-black/10 py-12 md:pr-10 lg:border-b-0 lg:border-r">
-            <span class="text-[11px] tracking-[0.2em] text-black/35">01</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver-deep">01</span>
             <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Evaluate with care</h3>
             <p class="text-sm font-light leading-relaxed text-black/60">We review opportunities against their commercial fundamentals, risk profile, leadership capabilities and potential for sustainable development.</p>
           </li>
           <li class="reveal border-b border-black/10 py-12 md:pl-10 lg:border-b-0 lg:border-r lg:pr-10">
-            <span class="text-[11px] tracking-[0.2em] text-black/35">02</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver-deep">02</span>
             <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Align capital and strategy</h3>
             <p class="text-sm font-light leading-relaxed text-black/60">We shape the appropriate level of financial and strategic involvement, linking resources to clearly defined business priorities.</p>
           </li>
           <li class="reveal border-b border-black/10 py-12 md:pr-10 lg:border-b-0 lg:border-r lg:pl-10">
-            <span class="text-[11px] tracking-[0.2em] text-black/35">03</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver-deep">03</span>
             <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Support the operation</h3>
             <p class="text-sm font-light leading-relaxed text-black/60">We help businesses strengthen execution through management oversight, financial discipline, commercial relationships and operational coordination.</p>
           </li>
           <li class="reveal py-12 md:pl-10">
-            <span class="text-[11px] tracking-[0.2em] text-black/35">04</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver-deep">04</span>
             <h3 class="mb-4 mt-8 text-xl font-medium text-graphite">Build for the long term</h3>
             <p class="text-sm font-light leading-relaxed text-black/60">We focus on enduring commercial performance, scalable systems and the capabilities required to adapt as markets change.</p>
           </li>
@@ -284,7 +289,7 @@
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
           <div class="reveal md:col-span-6">
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">04 / Capabilities</span>
+            <span class="brushed mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">04 / Capabilities</span>
             <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight">The resources to invest. <span class="text-white/60">The capabilities to execute.</span></h2>
           </div>
           <p class="reveal text-[17px] font-light leading-[1.85] text-white/60 md:col-span-5 md:col-start-8 md:pt-12">JMNII offers a coordinated group-level platform across capital allocation, ownership strategy and commercial operations. Our capabilities are brought together around the particular needs of each business and relationship.</p>
@@ -292,39 +297,39 @@
 
         <div class="mt-24 grid grid-cols-1 gap-px border border-white/10 bg-white/10 md:grid-cols-2 lg:grid-cols-3">
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">01</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">01</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">Private capital and holdings</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p>
           </article>
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">02</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">02</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">Corporate strategy and oversight</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p>
           </article>
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">03</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">03</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">Business development and partnerships</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p>
           </article>
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">04</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">04</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">International expansion and market entry</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p>
           </article>
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">05</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">05</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">Supply chain, sourcing and logistics</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p>
           </article>
           <article class="reveal bg-[#141414] p-10 transition-colors hover:bg-[#1a1a1a]">
-            <span class="text-[11px] tracking-[0.2em] text-white/35">06</span>
+            <span class="text-[11px] tracking-[0.2em] text-silver">06</span>
             <h3 class="mb-4 mt-10 text-lg font-medium">Brand, intellectual property and commercial assets</h3>
             <p class="text-sm font-light leading-relaxed text-white/60">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p>
           </article>
         </div>
 
         <div class="reveal mt-20 grid grid-cols-1 gap-8 border-t border-white/10 pt-12 md:grid-cols-12">
-          <span class="text-[11px] uppercase tracking-[0.3em] text-white/40 md:col-span-3">Opportunity focus</span>
+          <span class="text-[11px] uppercase tracking-[0.3em] text-silver md:col-span-3">Opportunity focus</span>
           <div class="md:col-span-9">
             <p class="text-[17px] font-light leading-[1.85] text-white/70">JMNII’s perspective is cross-sector rather than restricted to one industry. Potential areas of interest include consumer brands, apparel and lifestyle, hospitality, health and wellness, international commerce, logistics and selected industrial or energy-related opportunities.</p>
             <p class="mt-4 text-xs text-white/40">This describes areas of consideration, not a representation of current holdings.</p>
@@ -338,7 +343,7 @@
       <div class="mx-auto max-w-7xl">
         <div class="grid grid-cols-1 gap-14 md:grid-cols-12">
           <div class="reveal md:col-span-6">
-            <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-black/40">05 / Leadership</span>
+            <span class="brushed-deep mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver-deep">05 / Leadership</span>
             <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight text-graphite">Strategic judgment. <span class="font-medium">Direct involvement in execution.</span></h2>
           </div>
           <p class="reveal text-[17px] font-light leading-[1.85] text-black/70 md:col-span-5 md:col-start-8 md:pt-12">JMNII is guided by executives and advisers with complementary experience in international operations, investment activity, commercial development and private capital. The group’s leadership model combines strategic judgment with direct involvement in execution.</p>
@@ -349,11 +354,11 @@
           <article class="reveal flex flex-col border border-black/10 bg-white/50">
             <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
               <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">MH</span>
-              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">CEO</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-silver">CEO</span>
             </div>
             <div class="flex flex-1 flex-col p-8 md:p-10">
               <h3 class="text-2xl font-light text-graphite">Michael Hobart</h3>
-              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Chief Executive Officer</p>
+              <span class="brushed-deep mt-5 block h-px w-10"></span><p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Chief Executive Officer</p>
               <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
                 <p>Michael Hobart is Chief Executive Officer of JMNII, responsible for the group’s strategic direction, executive management and coordination of its business interests. He brings broad hands-on experience leading interconnected businesses across the United States and international markets, with expertise spanning corporate operations, financial oversight, commercial development and organizational growth.</p>
                 <p>In senior leadership roles within the JII group, Michael has overseen multiple operating businesses and complex cross-border initiatives. His responsibilities have included budget planning and financial controls, banking and business administration, commercial negotiations, contract and legal coordination, senior personnel management, product development, manufacturing relationships, distribution infrastructure and international market expansion.</p>
@@ -366,11 +371,11 @@
           <article class="reveal flex flex-col border border-black/10 bg-white/50">
             <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
               <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">CT</span>
-              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">COO</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-silver">COO</span>
             </div>
             <div class="flex flex-1 flex-col p-8 md:p-10">
               <h3 class="text-2xl font-light text-graphite">Christian Thun</h3>
-              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Chief Operating Officer</p>
+              <span class="brushed-deep mt-5 block h-px w-10"></span><p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Chief Operating Officer</p>
               <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
                 <p>Christian Thun serves as Chief Operating Officer of JMNII, bringing extensive experience in investment-related business activity, commercial growth and international operations. His background combines strategic business development with expertise in communications, sales leadership and global logistics.</p>
                 <p>Christian focuses on translating commercial strategy into efficient operating processes and measurable outcomes. His strengths include assessing growth opportunities, improving coordination across business functions, developing commercial relationships and supporting the systems needed for companies to expand across markets.</p>
@@ -383,11 +388,11 @@
           <article class="reveal flex flex-col border border-black/10 bg-white/50">
             <div class="flex aspect-[5/3] items-end justify-between bg-[#141414] p-8">
               <span class="text-6xl font-extralight tracking-[0.12em] text-ivory/85">JB</span>
-              <span class="text-[10px] uppercase tracking-[0.3em] text-white/35">Advisor</span>
+              <span class="text-[10px] uppercase tracking-[0.3em] text-silver">Advisor</span>
             </div>
             <div class="flex flex-1 flex-col p-8 md:p-10">
               <h3 class="text-2xl font-light text-graphite">Jay Boateng</h3>
-              <p class="mt-2 text-[11px] uppercase tracking-[0.24em] text-black/45">Senior Advisor | Private Capital and Portfolio Strategy</p>
+              <span class="brushed-deep mt-5 block h-px w-10"></span><p class="mt-4 text-[11px] uppercase tracking-[0.24em] text-silver-deep">Senior Advisor | Private Capital and Portfolio Strategy</p>
               <div class="mt-8 space-y-5 text-sm font-light leading-[1.8] text-black/65">
                 <p>Jay Boateng is Senior Advisor to JMNII, contributing extensive experience in private equity and the management of diversified private investment interests. He has worked with high-net-worth individuals and private investment portfolios spanning a broad range of sectors, including energy, restaurants and hospitality, clothing and consumer businesses.</p>
                 <p>His cross-sector exposure provides an informed perspective on capital opportunities, portfolio development and the practical considerations involved in investing across different industries. He brings a strong understanding of privately held businesses, commercial risk and the importance of aligning investment strategy with long-term objectives.</p>
@@ -403,13 +408,13 @@
     <section id="contact" class="bg-[#141414] px-6 py-32 text-ivory md:px-12 md:py-40">
       <div class="mx-auto grid max-w-7xl grid-cols-1 gap-16 lg:grid-cols-12">
         <div class="reveal lg:col-span-5">
-          <span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-white/40">06 / Contact</span>
+          <span class="brushed mb-5 block h-px w-12"></span><span class="mb-6 block text-[11px] uppercase tracking-[0.3em] text-silver">06 / Contact</span>
           <h2 class="text-[clamp(2rem,3.6vw,3rem)] font-light leading-[1.12] tracking-tight">Start a conversation <span class="text-white/60">with JMNII.</span></h2>
           <p class="mt-8 text-[17px] font-light leading-[1.85] text-white/60">For corporate inquiries, strategic partnerships and business opportunities, we welcome introductions from aligned organizations and professional counterparts.</p>
           <div class="mt-14 space-y-6 border-t border-white/10 pt-10">
-            <div><p class="text-sm text-ivory">Miami, Florida</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">Global Head Office</p></div>
-            <div><p class="text-sm text-ivory">The Netherlands</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">European Presence</p></div>
-            <div><p class="text-sm text-ivory">London, England</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-white/35">United Kingdom Presence</p></div>
+            <div><p class="text-sm text-ivory">Miami, Florida</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-silver">Global Head Office</p></div>
+            <div><p class="text-sm text-ivory">The Netherlands</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-silver">European Presence</p></div>
+            <div><p class="text-sm text-ivory">London, England</p><p class="mt-1 text-[10px] uppercase tracking-[0.24em] text-silver">United Kingdom Presence</p></div>
           </div>
         </div>
 
@@ -469,7 +474,8 @@
   <footer class="border-t border-white/10 bg-[#141414] px-6 py-16 text-ivory md:px-12">
     <div class="mx-auto max-w-7xl">
       <p class="max-w-3xl text-[clamp(1.4rem,2.6vw,2rem)] font-light leading-snug text-white/80">Private capital. International perspective. Disciplined execution.</p>
-      <div class="mt-14 flex flex-col gap-10 border-t border-white/10 pt-10 md:flex-row md:items-start md:justify-between">
+      <span class="brushed mt-14 block h-px w-full opacity-60"></span>
+      <div class="mt-10 flex flex-col gap-10 md:flex-row md:items-start md:justify-between">
         <div>
           <p class="text-lg font-light tracking-[0.2em]">JMNII</p>
           <p class="mt-3 text-sm text-white/50">A privately held global holding company.</p>
@@ -482,7 +488,7 @@
           <a href="#contact" class="hover:text-ivory">Contact</a>
         </div>
       </div>
-      <div class="mt-14 flex flex-col justify-between gap-3 text-[10px] uppercase tracking-[0.26em] text-white/35 sm:flex-row">
+      <div class="mt-14 flex flex-col justify-between gap-3 text-[10px] uppercase tracking-[0.26em] text-silver/80 sm:flex-row">
         <span>Miami, Florida | The Netherlands | London, England</span>
         <span>&copy; 2026 JMNII</span>
       </div>
