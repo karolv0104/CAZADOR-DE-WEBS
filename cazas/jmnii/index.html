@@ -97,7 +97,9 @@
     /* Hero: full-bleed city photography with a focus pull between cities */
     .city { position: absolute; inset: 0; margin: 0; overflow: hidden; opacity: 0; filter: blur(12px); transform: scale(1.04); transition: opacity 1.4s cubic-bezier(.4,0,.2,1), filter 1.4s cubic-bezier(.4,0,.2,1), transform 9s cubic-bezier(.2,.6,.2,1); will-change: opacity, filter, transform; }
     .city.is-active { opacity: 1; filter: blur(0); transform: scale(1); }
-    .city-img { position: absolute; left: -4%; top: -4%; width: 108%; height: 108%; max-width: none; object-fit: cover; will-change: transform; transform: translate3d(0,0,0); }
+    .city-img { position: absolute; left: -4%; top: -4%; width: 108%; height: 108%; max-width: none; object-fit: cover; object-position: var(--pos-d, 50% 50%); will-change: transform; transform: translate3d(0,0,0); }
+    @media (max-width: 767px) { .city-img { object-position: var(--pos-m, 50% 50%); } }
+    .hero-type { text-shadow: 0 2px 28px rgba(0,0,0,.45); }
     .headline-layer { will-change: transform; transform: translate3d(0,0,0); }
     .city-tab { position: relative; padding: 1.1rem 0 1.15rem; text-align: left; opacity: .55; transition: opacity .4s ease; }
     .city-tab:hover, .city-tab.is-active { opacity: 1; }
@@ -218,31 +220,32 @@
   <header id="hero" class="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-black">
     <div class="absolute inset-0" id="cities">
       <figure class="city is-active" data-city="miami" aria-hidden="false">
-        <img src="assets/photos/miami.jpg" srcset="assets/photos/miami-m.jpg 1200w, assets/photos/miami.jpg 2400w" sizes="100vw" alt="Miami skyline across Biscayne Bay at dusk" class="city-img" style="object-position:50% 60%" data-speed="10" fetchpriority="high" decoding="async">
+        <img src="assets/photos/miami.jpg" srcset="assets/photos/miami-m.jpg 1600w, assets/photos/miami.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="Miami skyline across Biscayne Bay at dusk" class="city-img" style="--pos-d:50% 62%;--pos-m:52% 60%" data-speed="10" fetchpriority="high" decoding="async">
       </figure>
       <figure class="city" data-city="london" aria-hidden="true">
-        <img src="assets/photos/london.jpg" srcset="assets/photos/london-m.jpg 1200w, assets/photos/london.jpg 2400w" sizes="100vw" alt="The City of London financial district at dusk" class="city-img" style="object-position:52% 45%" data-speed="14" loading="eager" decoding="async">
+        <img src="assets/photos/london.jpg" srcset="assets/photos/london-m.jpg 1600w, assets/photos/london.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="The City of London financial district at dusk" class="city-img" style="--pos-d:50% 50%;--pos-m:47% 50%" data-speed="14" loading="eager" decoding="async">
       </figure>
       <figure class="city" data-city="netherlands" aria-hidden="true">
-        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1200w, assets/photos/netherlands.jpg 2400w" sizes="100vw" alt="Contemporary Dutch waterfront architecture at dusk" class="city-img" style="object-position:38% 60%" data-speed="14" loading="eager" decoding="async">
+        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1600w, assets/photos/netherlands.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="Contemporary Dutch waterfront architecture at dusk" class="city-img" style="--pos-d:40% 62%;--pos-m:36% 60%" data-speed="14" loading="eager" decoding="async">
       </figure>
     </div>
 
-    <!-- Cinematic grade for legibility -->
-    <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/65 via-black/15 to-black/85" aria-hidden="true"></div>
-    <div class="pointer-events-none absolute inset-0 z-10" style="background: radial-gradient(56% 44% at 50% 46%, rgba(11,11,11,.55) 0%, rgba(11,11,11,0) 100%);" aria-hidden="true"></div>
+    <!-- Localized shading only where type sits: the photograph itself stays clean and luminous -->
+    <div class="pointer-events-none absolute inset-x-0 top-0 z-10 h-[46%] bg-gradient-to-b from-black/70 via-black/30 to-transparent" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-y-0 left-0 z-10 w-full bg-gradient-to-r from-black/45 via-black/10 to-transparent md:w-3/4 md:from-black/65 md:via-black/25" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-x-0 bottom-0 z-10 h-40 bg-gradient-to-t from-black/85 to-transparent" aria-hidden="true"></div>
 
     <!-- Headline -->
-    <div class="relative z-20 flex h-full items-center justify-center px-6 pb-20 pt-16 md:pb-28 md:pt-0">
-      <div id="layer-text" class="headline-layer max-w-5xl text-center">
+    <div class="relative z-20 mx-auto flex h-full max-w-7xl items-start px-6 pt-[15vh] md:px-12 md:pt-[17vh]">
+      <div id="layer-text" class="headline-layer hero-type max-w-3xl text-left">
         <p class="mb-6 text-[10px] font-light uppercase tracking-[0.45em] text-silver md:mb-7 md:text-[11px] md:tracking-[0.5em]">JMNII &nbsp;|&nbsp; Global Holdings</p>
-        <h1 class="mb-5 text-[clamp(2.15rem,7vw,6rem)] font-light leading-[1.04] tracking-[0.02em] text-ivory md:mb-8">
+        <h1 class="mb-6 text-[clamp(2.3rem,6.2vw,5.4rem)] font-light leading-[1.04] tracking-[0.01em] text-ivory md:mb-7">
           Capital to build.<br><span class="font-extralight text-ivory/80">Expertise to scale.</span>
         </h1>
-        <p class="lede mx-auto mb-8 max-w-2xl text-[14px] font-light leading-relaxed text-ivory/80 md:mb-12 md:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
-        <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-          <a href="#about" class="bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white">Discover JMNII</a>
-          <a href="#approach" class="border border-ivory/40 bg-black/20 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory backdrop-blur-sm transition-colors hover:border-ivory">Our Approach</a>
+        <p class="lede mb-10 hidden max-w-xl text-base font-light leading-relaxed text-ivory/85 sm:block">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
+        <div class="flex flex-row items-center gap-3 sm:gap-4">
+          <a href="#about" class="flex-1 bg-ivory px-3 py-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-black transition-colors hover:bg-white sm:flex-none sm:px-9 sm:text-[11px] sm:tracking-[0.24em]">Discover JMNII</a>
+          <a href="#approach" class="flex-1 border border-ivory/50 bg-black/25 px-3 py-4 text-center text-[10px] font-medium uppercase tracking-[0.18em] text-ivory backdrop-blur-sm transition-colors hover:border-ivory sm:flex-none sm:px-9 sm:text-[11px] sm:tracking-[0.24em]">Our Approach</a>
         </div>
       </div>
     </div>
