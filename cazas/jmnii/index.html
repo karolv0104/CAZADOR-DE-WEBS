@@ -102,7 +102,7 @@
     }
 
     /* Photography band */
-    .band-img { position: absolute; left: 0; right: 0; top: -12%; height: 124%; width: 100%; object-fit: cover; will-change: transform; }
+    .band-img { position: absolute; left: 0; right: 0; top: -12%; height: 124%; width: 100%; will-change: transform; }
 
     /* Manifesto words light up with scroll */
     .statement .w { color: rgba(251,249,246,.16); transition: color .5s ease; }
@@ -283,12 +283,16 @@
 
     <!-- ===================== PHOTOGRAPHY BAND ===================== -->
     <section class="relative h-[62vh] min-h-[380px] overflow-hidden bg-black md:h-[78vh]" aria-label="Private capital. International perspective. Disciplined execution.">
-      <img src="assets/photos/plaza.jpg" srcset="assets/photos/plaza-m.jpg 1200w, assets/photos/plaza.jpg 2400w" sizes="100vw" alt="Entrance plaza of a corporate headquarters at dusk" class="band-img" style="object-position:40% 50%" loading="lazy" decoding="async" data-band>
-      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/55" aria-hidden="true"></div>
+      <!-- Signature image: replace src/srcset with the definitive reference image (1.2.8) when supplied -->
+      <div class="band-img" data-band>
+        <img src="assets/photos/plaza.jpg" srcset="assets/photos/plaza-m.jpg 1200w, assets/photos/plaza.jpg 2400w" sizes="100vw" alt="Entrance plaza of a corporate headquarters at dusk" class="w-full h-full object-cover filter grayscale contrast-125" style="object-position:40% 50%" loading="lazy" decoding="async">
+      </div>
+      <!-- Dark gradient keeps the floating white type at full contrast -->
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/50 to-black/60" aria-hidden="true"></div>
       <div class="relative flex h-full items-end px-5 pb-14 md:px-12 md:pb-20">
         <div class="mx-auto w-full max-w-7xl">
           <span class="brushed mb-6 block h-px w-12"></span>
-          <p class="reveal max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] font-extralight leading-[1.08] tracking-tight">Private capital. International perspective. <span class="silver-text font-light">Disciplined execution.</span></p>
+          <p class="reveal max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] font-extralight leading-[1.08] tracking-tight text-white">Private capital. International perspective. <span class="font-light text-white">Disciplined execution.</span></p>
         </div>
       </div>
     </section>
