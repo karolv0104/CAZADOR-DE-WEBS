@@ -81,18 +81,28 @@
     #mobile-menu { opacity: 0; visibility: hidden; transition: opacity .35s ease, visibility .35s ease; }
     #mobile-menu.is-open { opacity: 1; visibility: visible; }
 
-    /* Hero */
-    .city-layer { will-change: transform, filter, opacity; transform: translate3d(0,0,0); backface-visibility: hidden; }
+    /* Hero: full-bleed city photography with a focus pull between cities */
+    .city { position: absolute; inset: 0; margin: 0; overflow: hidden; opacity: 0; filter: blur(12px); transform: scale(1.04); transition: opacity 1.4s cubic-bezier(.4,0,.2,1), filter 1.4s cubic-bezier(.4,0,.2,1), transform 9s cubic-bezier(.2,.6,.2,1); will-change: opacity, filter, transform; }
+    .city.is-active { opacity: 1; filter: blur(0); transform: scale(1); }
+    .city-img { position: absolute; left: -4%; top: -4%; width: 108%; height: 108%; max-width: none; object-fit: cover; will-change: transform; transform: translate3d(0,0,0); }
     .headline-layer { will-change: transform; transform: translate3d(0,0,0); }
-    .sweep { background: linear-gradient(100deg, transparent 0%, rgba(251,249,246,.04) 45%, rgba(251,249,246,0) 60%); width: 40%; animation: sweep 14s cubic-bezier(.45,0,.55,1) infinite; }
-    @keyframes sweep { 0% { transform: translate3d(-120%,0,0); } 100% { transform: translate3d(320%,0,0); } }
-    @media (max-height: 820px) and (min-width: 768px) {
-      #layer-text { padding-bottom: 7rem; }
+    .city-tab { position: relative; padding: 1.1rem 0 1.15rem; text-align: left; opacity: .55; transition: opacity .4s ease; }
+    .city-tab:hover, .city-tab.is-active { opacity: 1; }
+    .city-tab + .city-tab { padding-left: 1rem; }
+    .city-bar { position: absolute; left: 0; right: 1rem; top: -1px; height: 1px; overflow: hidden; }
+    .city-tab + .city-tab .city-bar { left: 1rem; }
+    .city-bar > span { display: block; height: 100%; background: linear-gradient(90deg, #8f8e8a, #e6e5e1, #9a9995); transform: scaleX(0); transform-origin: left; }
+    .city-tab.is-active .city-bar > span { transform: scaleX(1); transition: transform var(--dwell, 7s) linear; }
+    .city-tab.is-active.no-timer .city-bar > span { transition: none; }
+    @media (max-width: 767px) { .city { filter: none; } }
+    @media (max-height: 760px) and (min-width: 768px) {
       #layer-text h1 { font-size: clamp(2.4rem, 5.2vw, 4.4rem); margin-bottom: 1.25rem; }
       #layer-text > p:first-child { margin-bottom: 1.25rem; }
       #layer-text > p.lede { margin-bottom: 2rem; }
-      #layer-miami > div { height: 21vh; }
     }
+
+    /* Photography band */
+    .band-img { position: absolute; left: 0; right: 0; top: -12%; height: 124%; width: 100%; object-fit: cover; will-change: transform; }
 
     /* Manifesto words light up with scroll */
     .statement .w { color: rgba(251,249,246,.16); transition: color .5s ease; }
@@ -145,7 +155,8 @@
 
     @media (prefers-reduced-motion: reduce) {
       html { scroll-behavior: auto; }
-      .sweep, .map-arc, .map-pulse { animation: none; }
+      .map-arc, .map-pulse { animation: none; }
+      .city { transition: opacity .6s ease; filter: none; transform: none; }
       .js .reveal { opacity: 1; transform: none; transition: none; }
       .statement .w { color: #FBF9F6; }
       .step { opacity: 1; }
@@ -193,94 +204,57 @@
     <p class="mt-auto text-[10px] uppercase tracking-[0.3em] text-silver">Miami, Florida | The Netherlands | London, England</p>
   </div>
 
-  <!-- ===================== HERO ===================== -->
-  <header id="hero" class="relative flex h-[100svh] min-h-[620px] w-full items-center justify-center overflow-hidden bg-black">
-    <!-- Global network -->
-    <svg class="pointer-events-none absolute inset-0 h-full w-full" preserveAspectRatio="none" viewBox="0 0 1440 900" aria-hidden="true">
-      <g stroke="#FBF9F6" fill="none">
-        <path d="M0 450 H1440" stroke-opacity=".06"/><path d="M0 660 H1440" stroke-opacity=".045"/>
-        <path d="M360 0 V900 M1080 0 V900" stroke-opacity=".045"/>
-        <path d="M150 660 Q 720 120 1300 610" stroke-opacity=".09" stroke-dasharray="3 7"/>
-        <path d="M150 660 Q 760 260 1250 530" stroke-opacity=".06" stroke-dasharray="3 7"/>
-      </g>
-      <g fill="#B9B8B4" fill-opacity=".75"><circle cx="150" cy="660" r="2"/><circle cx="1300" cy="610" r="2"/><circle cx="1250" cy="530" r="2"/></g>
-    </svg>
-    <div class="sweep pointer-events-none absolute inset-y-0 left-0 z-[5]" aria-hidden="true"></div>
-
-    <!-- LONDON (left) -->
-    <div id="layer-london" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="26" style="filter: blur(4px); opacity: .3;" aria-hidden="true">
-      <div class="absolute bottom-16 left-[4%] flex h-[56vh] w-[30vw] max-w-[440px] flex-col justify-end border-l border-t border-ivory/20 bg-gradient-to-tr from-ivory/[.05] to-transparent p-6 lg:left-[6%]">
-        <svg class="absolute left-6 top-10 h-[calc(100%-7.5rem)] w-[calc(100%-3rem)]" viewBox="0 0 400 520" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
-          <path d="M60 520 C44 410 50 300 98 226 Q110 210 122 226 C170 300 176 410 160 520" stroke-opacity=".7"/>
-          <path d="M70 470 L150 330 M60 420 L130 280 M80 520 L160 380 M150 470 L70 330 M160 420 L90 280 M140 520 L60 380" stroke-opacity=".25"/>
-          <path d="M200 520 L232 140 L244 70 L250 112 L264 92 L268 150 L304 520" stroke-opacity=".8"/>
-          <path d="M244 70 L254 520 M264 92 L278 520" stroke-opacity=".25"/>
-          <path d="M320 520 V250 L372 240 V520 M320 250 L300 520" stroke-opacity=".55"/>
-          <path d="M0 519 H400" stroke-opacity=".4"/>
-        </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/55">London</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">United Kingdom Presence</span></div>
-      </div>
+  <!-- ===================== HERO: the three cities, full-bleed photography ===================== -->
+  <header id="hero" class="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-black">
+    <div class="absolute inset-0" id="cities">
+      <figure class="city is-active" data-city="miami" aria-hidden="false">
+        <img src="assets/photos/miami.jpg" srcset="assets/photos/miami-m.jpg 1200w, assets/photos/miami.jpg 2400w" sizes="100vw" alt="Miami skyline across Biscayne Bay at dusk" class="city-img" style="object-position:50% 60%" data-speed="10" fetchpriority="high" decoding="async">
+      </figure>
+      <figure class="city" data-city="london" aria-hidden="true">
+        <img src="assets/photos/london.jpg" srcset="assets/photos/london-m.jpg 1200w, assets/photos/london.jpg 2400w" sizes="100vw" alt="Canary Wharf, London, reflected in the dock at dusk" class="city-img" style="object-position:50% 55%" data-speed="14" loading="eager" decoding="async">
+      </figure>
+      <figure class="city" data-city="netherlands" aria-hidden="true">
+        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1200w, assets/photos/netherlands.jpg 2400w" sizes="100vw" alt="Rotterdam waterfront and the Erasmus Bridge under a dark sky" class="city-img" style="object-position:38% 60%" data-speed="14" loading="eager" decoding="async">
+      </figure>
     </div>
 
-    <!-- MIAMI (centre) -->
-    <div id="layer-miami" class="city-layer pointer-events-none absolute inset-0 z-10" data-speed="12" style="opacity: .5;" aria-hidden="true">
-      <div class="absolute bottom-16 left-1/2 flex h-[16vh] w-full max-w-4xl -translate-x-1/2 flex-col justify-end border-x border-t border-ivory/10 bg-gradient-to-t from-ivory/[.04] to-transparent p-6 md:h-[25vh] md:p-8">
-        <svg class="absolute left-6 top-6 h-[calc(100%-5rem)] w-[calc(100%-3rem)] md:left-8 md:h-[calc(100%-5.5rem)] md:w-[calc(100%-4rem)]" viewBox="0 0 900 300" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
-          <g stroke-opacity=".75">
-            <path d="M40 300 V200 H80 V300 M92 300 V170 H122 V300 M134 300 V230 H190 V300"/>
-            <path d="M206 300 V120 H240 V300 M252 300 V96 Q272 72 292 96 V300 M304 300 V150 H330 V300"/>
-            <path d="M344 300 V70 H382 V300 M394 300 V90 L418 60 L442 90 V300"/>
-            <path d="M458 300 V52 H474 V40 H488 V52 H504 V300"/>
-            <path d="M518 300 V22 L544 0 L570 22 V300"/>
-            <path d="M584 300 V80 H624 V300 M636 300 V110 Q660 74 684 110 V300 M696 300 V136 H724 V300"/>
-            <path d="M738 300 V100 L764 80 L790 100 V300 M802 300 V170 H840 V300 M852 300 V220 H890 V300"/>
-          </g>
-          <path d="M0 299 H900" stroke-opacity=".5"/>
-          <g stroke-opacity=".18"><path d="M531 22 V300 M557 22 V300 M471 52 V300 M363 70 V300"/></g>
-        </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/60">Miami</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">Global Head Office</span></div>
-      </div>
-    </div>
-
-    <!-- THE NETHERLANDS (right) -->
-    <div id="layer-netherlands" class="city-layer pointer-events-none absolute inset-0 z-10 hidden md:block" data-speed="32" style="filter: blur(4px); opacity: .3;" aria-hidden="true">
-      <div class="absolute bottom-16 right-[4%] flex h-[50vh] w-[28vw] max-w-[400px] flex-col items-end justify-end border-r border-t border-ivory/20 bg-gradient-to-tl from-ivory/[.05] to-transparent p-6 text-right lg:right-[6%]">
-        <svg class="absolute left-6 top-10 h-[calc(100%-7.5rem)] w-[calc(100%-3rem)]" viewBox="0 0 380 460" preserveAspectRatio="xMidYMax meet" fill="none" stroke="#FBF9F6" stroke-width="1.2">
-          <path d="M210 460 V300 H290 V460 M198 300 V180 H278 V300 M216 180 V80 H290 V180" stroke-opacity=".75"/>
-          <path d="M300 460 V240 H368 V460 M312 240 V140 H376 V240" stroke-opacity=".6"/>
-          <path d="M40 380 l26 -26 l26 26 l-26 26 Z M96 380 l26 -26 l26 26 l-26 26 Z M66 406 V460 M122 406 V460" stroke-opacity=".6"/>
-          <path d="M168 460 L180 460 L170 240 L150 150 L142 154 L160 244 Z" stroke-opacity=".7"/>
-          <path d="M150 156 L30 440 M150 156 L70 440 M150 156 L196 440" stroke-opacity=".25"/>
-          <path d="M0 440 H200 M0 459 H380" stroke-opacity=".4"/>
-        </svg>
-        <div class="relative"><span class="mb-1 block text-xs font-semibold uppercase tracking-[0.3em] text-ivory/55">The Netherlands</span><span class="text-[10px] uppercase tracking-[0.2em] text-silver/70">European Presence</span></div>
-      </div>
-    </div>
-
-    <div class="pointer-events-none absolute inset-0 z-20" style="background: radial-gradient(52% 44% at 50% 42%, rgba(11,11,11,.88) 0%, rgba(11,11,11,0) 100%);" aria-hidden="true"></div>
+    <!-- Cinematic grade for legibility -->
+    <div class="pointer-events-none absolute inset-0 z-10 bg-gradient-to-b from-black/65 via-black/15 to-black/85" aria-hidden="true"></div>
+    <div class="pointer-events-none absolute inset-0 z-10" style="background: radial-gradient(56% 44% at 50% 46%, rgba(11,11,11,.55) 0%, rgba(11,11,11,0) 100%);" aria-hidden="true"></div>
 
     <!-- Headline -->
-    <div id="layer-text" class="headline-layer relative z-30 max-w-5xl px-6 pb-40 text-center md:pb-36" data-speed="-14">
-      <p class="mb-6 text-[10px] font-light uppercase tracking-[0.45em] text-silver md:mb-7 md:text-[11px] md:tracking-[0.5em]">JMNII &nbsp;|&nbsp; Global Holdings</p>
-      <h1 class="mb-6 text-[clamp(2.5rem,7vw,6rem)] font-light leading-[1.04] tracking-[0.02em] text-ivory md:mb-8">
-        Capital to build.<br><span class="font-extralight text-ivory/75">Expertise to scale.</span>
-      </h1>
-      <p class="lede mx-auto mb-10 max-w-2xl text-[15px] font-light leading-relaxed text-ivory/60 md:mb-12 md:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
-      <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
-        <a href="#about" class="bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white">Discover JMNII</a>
-        <a href="#approach" class="border border-silver/40 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory transition-colors hover:border-silver">Our Approach</a>
+    <div class="relative z-20 flex h-full items-center justify-center px-6 pb-20 pt-16 md:pb-28 md:pt-0">
+      <div id="layer-text" class="headline-layer max-w-5xl text-center">
+        <p class="mb-6 text-[10px] font-light uppercase tracking-[0.45em] text-silver md:mb-7 md:text-[11px] md:tracking-[0.5em]">JMNII &nbsp;|&nbsp; Global Holdings</p>
+        <h1 class="mb-5 text-[clamp(2.15rem,7vw,6rem)] font-light leading-[1.04] tracking-[0.02em] text-ivory md:mb-8">
+          Capital to build.<br><span class="font-extralight text-ivory/80">Expertise to scale.</span>
+        </h1>
+        <p class="lede mx-auto mb-8 max-w-2xl text-[14px] font-light leading-relaxed text-ivory/80 md:mb-12 md:text-base">A privately held global holding company bringing together private capital, strategic leadership and international operating expertise to develop businesses with lasting potential.</p>
+        <div class="flex flex-col items-stretch justify-center gap-3 sm:flex-row sm:items-center sm:gap-4">
+          <a href="#about" class="bg-ivory px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-black transition-colors hover:bg-white">Discover JMNII</a>
+          <a href="#approach" class="border border-ivory/40 bg-black/20 px-9 py-4 text-[11px] font-medium uppercase tracking-[0.24em] text-ivory backdrop-blur-sm transition-colors hover:border-ivory">Our Approach</a>
+        </div>
       </div>
     </div>
 
-    <!-- Live local time in the three markets -->
-    <div class="absolute inset-x-0 bottom-0 z-30 border-t border-graphite/80">
-      <div class="mx-auto flex max-w-7xl items-center justify-between px-5 py-4 text-[10px] uppercase tracking-[0.24em] md:px-12 md:py-5 md:tracking-[0.28em]">
-        <div class="flex w-full justify-between gap-4 sm:w-auto sm:justify-start sm:gap-10">
-          <span><span class="text-silver">MIA</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="America/New_York">--:--</span></span>
-          <span><span class="text-silver">LDN</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="Europe/London">--:--</span></span>
-          <span><span class="text-silver">NLD</span> <span class="ml-1.5 tabular-nums text-ivory/70 md:ml-2" data-clock="Europe/Amsterdam">--:--</span></span>
-        </div>
-        <a href="#about" class="hidden items-center gap-4 text-ivory/45 hover:text-ivory sm:flex" aria-label="Scroll to content">Scroll <span class="block h-6 w-px bg-silver/60"></span></a>
+    <!-- City selector: name, role and live local time -->
+    <div class="absolute inset-x-0 bottom-0 z-30 border-t border-ivory/15 bg-black/30 backdrop-blur-md">
+      <div class="mx-auto grid max-w-7xl grid-cols-3 px-5 md:px-12" role="tablist" aria-label="Locations">
+        <button type="button" class="city-tab is-active" data-city="miami" role="tab" aria-selected="true">
+          <span class="city-bar"><span></span></span>
+          <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">MIA</span><span class="hidden md:inline">Miami</span> <span class="tabular-nums text-ivory/70" data-clock="America/New_York">--:--</span></span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">Global Head Office</span>
+        </button>
+        <button type="button" class="city-tab" data-city="london" role="tab" aria-selected="false">
+          <span class="city-bar"><span></span></span>
+          <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">LDN</span><span class="hidden md:inline">London</span> <span class="tabular-nums text-ivory/70" data-clock="Europe/London">--:--</span></span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">United Kingdom Presence</span>
+        </button>
+        <button type="button" class="city-tab" data-city="netherlands" role="tab" aria-selected="false">
+          <span class="city-bar"><span></span></span>
+          <span class="block text-[10px] uppercase tracking-[0.28em] text-silver"><span class="md:hidden">NL</span><span class="hidden md:inline">The Netherlands</span> <span class="tabular-nums text-ivory/70" data-clock="Europe/Amsterdam">--:--</span></span>
+          <span class="mt-1 hidden text-[10px] uppercase tracking-[0.22em] text-ivory/40 md:block">European Presence</span>
+        </button>
       </div>
     </div>
   </header>
@@ -303,6 +277,18 @@
             <p>Our role as a holding company is both strategic and practical. We work to align ownership interests, allocate resources, establish clear operating priorities and bring professional oversight to key commercial decisions — from business development and market entry to financial controls, global sourcing, logistics, brand strategy and corporate coordination.</p>
             <p class="text-ivory/85">We believe sustainable enterprise value is created when capital is matched with disciplined leadership and practical execution.</p>
           </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ===================== PHOTOGRAPHY BAND ===================== -->
+    <section class="relative h-[62vh] min-h-[380px] overflow-hidden bg-black md:h-[78vh]" aria-label="Private capital. International perspective. Disciplined execution.">
+      <img src="assets/photos/plaza.jpg" srcset="assets/photos/plaza-m.jpg 1200w, assets/photos/plaza.jpg 2400w" sizes="100vw" alt="Entrance plaza of a corporate headquarters at dusk" class="band-img" style="object-position:40% 50%" loading="lazy" decoding="async" data-band>
+      <div class="absolute inset-0 bg-gradient-to-t from-black via-black/35 to-black/55" aria-hidden="true"></div>
+      <div class="relative flex h-full items-end px-5 pb-14 md:px-12 md:pb-20">
+        <div class="mx-auto w-full max-w-7xl">
+          <span class="brushed mb-6 block h-px w-12"></span>
+          <p class="reveal max-w-4xl text-[clamp(1.9rem,4.6vw,4rem)] font-extralight leading-[1.08] tracking-tight">Private capital. International perspective. <span class="silver-text font-light">Disciplined execution.</span></p>
         </div>
       </div>
     </section>
@@ -515,20 +501,20 @@
         </div>
 
         <div class="mt-12 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
-          <article class="graphite-card reveal flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
+          <article class="graphite-card reveal group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/miami-m.jpg" alt="Miami skyline at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">Miami, Florida</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">The center of group leadership, strategic direction and coordination of our broader business interests.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">25.7617°N · 80.1918°W</p>
           </article>
-          <article class="graphite-card reveal d1 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
+          <article class="graphite-card reveal d1 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/netherlands-m.jpg" alt="Rotterdam and the Erasmus Bridge" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">The Netherlands</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Supporting the group’s European commercial relationships and cross-border business development activity.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">52.1326°N · 5.2913°E</p>
           </article>
-          <article class="graphite-card reveal d2 flex w-[84%] shrink-0 snap-start flex-col p-8 md:w-auto">
-            <div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
+          <article class="graphite-card reveal d2 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/london-m.jpg" alt="Canary Wharf, London, at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">London, England</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Strengthening our access to commercial relationships, international perspectives and strategic opportunities.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/30">51.5074°N · 0.1278°W</p>
@@ -672,9 +658,7 @@
   <!-- ===================== FOOTER (black) ===================== -->
   <footer class="overflow-hidden border-t border-graphite bg-black px-5 pt-16 md:px-12 md:pt-20">
     <div class="mx-auto max-w-7xl">
-      <p class="max-w-3xl text-[clamp(1.3rem,2.4vw,1.9rem)] font-light leading-snug text-ivory/80">Private capital. International perspective. Disciplined execution.</p>
-      <span class="brushed mt-12 block h-px w-full opacity-40"></span>
-      <div class="mt-10 flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
+      <div class="flex flex-col gap-8 md:flex-row md:items-start md:justify-between">
         <div>
           <p class="text-lg font-light tracking-[0.22em]">JMNII</p>
           <p class="mt-2 text-sm text-ivory/50">A privately held global holding company.</p>
@@ -749,7 +733,7 @@
         statement.innerHTML = statement.textContent.trim().split(/\s+/).map(function (w) { return '<span class="w">' + w + '</span>'; }).join(' ');
         words = $$('.w', statement);
       }
-      var stepsList = $('#steps'), steps = $$('.step'), fill = $('#progress'), ticking = false;
+      var stepsList = $('#steps'), steps = $$('.step'), fill = $('#progress'), bands = $$('[data-band]'), ticking = false;
       function onScroll() {
         if (ticking) return; ticking = true;
         requestAnimationFrame(function () {
@@ -761,6 +745,12 @@
             var n = Math.round(p * words.length);
             words.forEach(function (w, i) { w.classList.toggle('lit', i < n); });
           }
+          bands.forEach(function (im) {
+            var r2 = im.parentNode.getBoundingClientRect();
+            if (r2.bottom < 0 || r2.top > vh) return;
+            var k = (r2.top + r2.height / 2 - vh / 2) / vh;
+            im.style.transform = 'translate3d(0,' + (reduced ? 0 : (k * -60)).toFixed(1) + 'px,0)';
+          });
           if (stepsList) {
             var b = stepsList.getBoundingClientRect();
             var q = Math.min(1, Math.max(0, (vh * 0.62 - b.top) / b.height));
@@ -820,63 +810,77 @@
     })();
 
     /* =========================================================
-       HERO: 3D parallax + dynamic depth-of-field (desktop only)
-       Cursor left  -> London in focus, the Netherlands blurred.
-       Cursor right -> the Netherlands in focus, London blurred.
-       Centre       -> focus returns to Miami.
-       Runs only when window.innerWidth > 1024; phones stay static.
+       HERO — the three cities
+       Desktop (> 1024px, mouse): the cursor chooses the city in focus —
+         left = London, centre = Miami, right = the Netherlands —
+         with a focus pull (blur to sharp) and GPU parallax (translate3d).
+       All devices: the cities cycle on their own every 7 s and the tabs
+         select a city directly. Touch screens get no parallax.
        ========================================================= */
     (function () {
       var hero = document.getElementById('hero');
       var reduced = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      var cities = { london: document.getElementById('layer-london'), miami: document.getElementById('layer-miami'), netherlands: document.getElementById('layer-netherlands') };
-      var text = document.getElementById('layer-text');
-      var layers = [cities.london, cities.miami, cities.netherlands, text];
-      var MAX_BLUR = 6, MIN_OPACITY = 0.2, MAX_OPACITY = 0.55, EASE = 0.08;
-      var target = { x: 0, y: 0 }, current = { x: 0, y: 0 }, rafId = null, active = false, rect = null;
+      var order = ['miami', 'london', 'netherlands'];
+      var figs = {}, tabs = {};
+      Array.prototype.forEach.call(hero.querySelectorAll('.city'), function (f) { figs[f.dataset.city] = f; });
+      Array.prototype.forEach.call(hero.querySelectorAll('.city-tab'), function (t) { tabs[t.dataset.city] = t; });
+      var DWELL = 7000, current = 'miami', timer = null, pausedUntil = 0;
+      hero.style.setProperty('--dwell', DWELL + 'ms');
 
-      function apply() {
-        layers.forEach(function (el) {
-          var s = parseFloat(el.dataset.speed) || 0;
-          el.style.transform = 'translate3d(' + (-current.x * s).toFixed(2) + 'px,' + (-current.y * s * 0.6).toFixed(2) + 'px,0)';
-        });
-        var f = { london: Math.max(0, -current.x), miami: 1 - Math.abs(current.x), netherlands: Math.max(0, current.x) };
-        Object.keys(cities).forEach(function (k) {
-          var w = Math.min(1, f[k] * 1.6);
-          cities[k].style.filter = 'blur(' + ((1 - w) * MAX_BLUR).toFixed(2) + 'px)';
-          cities[k].style.opacity = (MIN_OPACITY + w * (MAX_OPACITY - MIN_OPACITY)).toFixed(3);
+      function show(key) {
+        current = key;
+        order.forEach(function (k) {
+          var on = k === key;
+          figs[k].classList.toggle('is-active', on);
+          figs[k].setAttribute('aria-hidden', String(!on));
+          tabs[k].classList.toggle('is-active', on);
+          tabs[k].setAttribute('aria-selected', String(on));
+          tabs[k].classList.toggle('no-timer', on && Date.now() < pausedUntil);
+          if (on) { var bar = tabs[k].querySelector('.city-bar > span'); bar.style.transition = 'none'; void bar.offsetWidth; bar.style.transition = ''; }
         });
       }
-      function render() {
-        current.x += (target.x - current.x) * EASE;
-        current.y += (target.y - current.y) * EASE;
-        apply();
-        rafId = (Math.abs(target.x - current.x) < 0.001 && Math.abs(target.y - current.y) < 0.001) ? null : requestAnimationFrame(render);
+      function schedule() {
+        clearTimeout(timer);
+        if (reduced) return;
+        timer = setTimeout(function () {
+          if (Date.now() >= pausedUntil) show(order[(order.indexOf(current) + 1) % order.length]);
+          schedule();
+        }, DWELL);
       }
-      function wake() { if (active && !rafId) rafId = requestAnimationFrame(render); }
+      order.forEach(function (k) {
+        tabs[k].addEventListener('click', function () { pausedUntil = Date.now() + 12000; show(k); schedule(); });
+      });
+      new IntersectionObserver(function (es) { if (es[0].isIntersecting) schedule(); else clearTimeout(timer); }).observe(hero);
+
+      /* Desktop: cursor-driven focus + parallax */
+      var imgs = Array.prototype.slice.call(hero.querySelectorAll('.city-img'));
+      var text = document.getElementById('layer-text');
+      var tx = 0, ty = 0, cx = 0, cy = 0, raf = null, active = false, rect = null, zone = null;
+      function frame() {
+        cx += (tx - cx) * 0.08; cy += (ty - cy) * 0.08;
+        imgs.forEach(function (im) { var sp = +im.dataset.speed; im.style.transform = 'translate3d(' + (-cx * sp).toFixed(2) + 'px,' + (-cy * sp * 0.6).toFixed(2) + 'px,0)'; });
+        text.style.transform = 'translate3d(' + (cx * 10).toFixed(2) + 'px,' + (cy * 6).toFixed(2) + 'px,0)';
+        raf = (Math.abs(tx - cx) < 0.001 && Math.abs(ty - cy) < 0.001) ? null : requestAnimationFrame(frame);
+      }
       function onMove(e) {
         rect = rect || hero.getBoundingClientRect();
-        target.x = Math.max(-1, Math.min(1, ((e.clientX - rect.left) / rect.width - 0.5) * 2));
-        target.y = Math.max(-1, Math.min(1, ((e.clientY - rect.top) / rect.height - 0.5) * 2));
-        wake();
+        tx = Math.max(-1, Math.min(1, ((e.clientX - rect.left) / rect.width - 0.5) * 2));
+        ty = Math.max(-1, Math.min(1, ((e.clientY - rect.top) / rect.height - 0.5) * 2));
+        if (e.clientY < rect.bottom - 90) {                       // the tab bar has its own controls
+          var z = tx < -0.34 ? 'london' : tx > 0.34 ? 'netherlands' : 'miami';
+          if (z !== zone) { zone = z; pausedUntil = Date.now() + 9000; if (z !== current) show(z); schedule(); }
+        }
+        if (!raf) raf = requestAnimationFrame(frame);
       }
-      function onLeave() { target.x = 0; target.y = 0; wake(); }
-      function enable() {
-        if (active) return; active = true;
-        hero.addEventListener('mousemove', onMove, { passive: true });
-        hero.addEventListener('mouseleave', onLeave, { passive: true });
-        current.x = current.y = target.x = target.y = 0; apply();
-      }
+      function onLeave() { tx = 0; ty = 0; zone = null; if (!raf) raf = requestAnimationFrame(frame); }
+      function enable() { if (active) return; active = true; hero.addEventListener('mousemove', onMove, { passive: true }); hero.addEventListener('mouseleave', onLeave, { passive: true }); }
       function disable() {
         if (!active) return; active = false;
         hero.removeEventListener('mousemove', onMove); hero.removeEventListener('mouseleave', onLeave);
-        if (rafId) { cancelAnimationFrame(rafId); rafId = null; }
-        layers.forEach(function (el) { el.style.transform = 'none'; });
-        cities.miami.style.filter = 'none'; cities.miami.style.opacity = '.5';
-        cities.london.style.filter = cities.netherlands.style.filter = 'blur(4px)';
-        cities.london.style.opacity = cities.netherlands.style.opacity = '.3';
+        if (raf) { cancelAnimationFrame(raf); raf = null; }
+        imgs.forEach(function (im) { im.style.transform = ''; }); text.style.transform = '';
       }
-      function check() { rect = null; if (window.innerWidth > 1024 && !reduced) enable(); else disable(); }
+      function check() { rect = null; if (window.innerWidth > 1024 && !reduced && window.matchMedia('(pointer: fine)').matches) enable(); else disable(); }
       check();
       window.addEventListener('resize', check, { passive: true });
       window.addEventListener('scroll', function () { rect = null; }, { passive: true });
