@@ -2,14 +2,17 @@
   publish = "."
   command = ""
 
+# Enterprise-grade HTTP security headers (all pages)
+[[headers]]
+  for = "/*"
+  [headers.values]
+    X-Frame-Options = "DENY"
+    X-Content-Type-Options = "nosniff"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+
+# Images and CSS: short cache so photo updates show up quickly
 [[headers]]
   for = "/assets/*"
   [headers.values]
     Cache-Control = "public, max-age=3600, must-revalidate"
-
-[[headers]]
-  for = "/*"
-  [headers.values]
-    X-Content-Type-Options = "nosniff"
-    Referrer-Policy = "strict-origin-when-cross-origin"
-    X-Frame-Options = "SAMEORIGIN"
