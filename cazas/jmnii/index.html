@@ -665,7 +665,7 @@
             <p class="mt-4 text-2xl font-light">Your message has been received.</p>
             <p class="mt-3 text-sm text-ivory/55">A member of the JMNII team will be in touch.</p>
           </div>
-          <!-- Netlify Forms: submissions are captured in the Netlify dashboard once deployed on Netlify -->
+          <!-- Contact form: JavaScript sends it to Web3Forms (emails info@jmnii.com). Without JavaScript it falls back to Netlify Forms. -->
           <form id="contact-form" name="jmnii-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="?sent=1#contact" class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
             <input type="hidden" name="form-name" value="jmnii-contact">
             <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
@@ -831,7 +831,7 @@
         if (menu.classList.contains('is-open')) setMenu(false);
       });
 
-      /* Contact form — send the real data to Netlify Forms, then confirm */
+      /* Contact form — sent to info@jmnii.com through Web3Forms; confirm only on success */
       var form = $('#contact-form');
       var sent = $('#form-sent');
       var formError = $('#form-error');
@@ -844,18 +844,35 @@
       form.addEventListener('submit', function (e) {
         e.preventDefault();
         if (!form.checkValidity()) { form.reportValidity(); return; }
+        var fd = new FormData(form);
+        if (fd.get('bot-field')) return; /* honeypot: silently drop bots */
         var btn = form.querySelector('button[type="submit"]');
         var label = btn.textContent;
         btn.disabled = true;
         btn.textContent = 'Sending…';
         formError.classList.add('hidden');
-        fetch('/', {
+        var payload = {
+          access_key: '768c3b1c-0a3e-4fff-b27f-8e1617b496eb',
+          subject: 'New inquiry from jmnii.com: ' + fd.get('inquiry-type'),
+          from_name: 'JMNII Website',
+          name: fd.get('full-name'),
+          company: fd.get('company'),
+          email: fd.get('email'),
+          country: fd.get('country'),
+          inquiry_type: fd.get('inquiry-type'),
+          message: fd.get('message')
+        };
+        fetch('https://api.web3forms.com/submit', {
           method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
+          headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
+          body: JSON.stringify(payload)
         })
           .then(function (res) {
-            if (!res.ok) throw new Error('HTTP ' + res.status);
+            return res.json().catch(function () { return {}; }).then(function (data) {
+              if (!res.ok || !data.success) throw new Error(data.message || ('HTTP ' + res.status));
+            });
+          })
+          .then(function () {
             form.reset();
             showSent();
           })
