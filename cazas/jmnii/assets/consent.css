@@ -1,0 +1,29 @@
+/* Privacy notice banner — discreet bottom-corner card in the JMNII palette */
+.jm-consent {
+  position: fixed; z-index: 70; right: 16px; bottom: calc(16px + env(safe-area-inset-bottom, 0px));
+  width: min(360px, calc(100vw - 32px)); box-sizing: border-box;
+  padding: 18px 20px 16px; background: rgba(20, 20, 20, .94); border: 1px solid #2B2B2B;
+  -webkit-backdrop-filter: blur(10px); backdrop-filter: blur(10px);
+  box-shadow: 0 18px 40px -20px rgba(0, 0, 0, .9);
+  font-family: 'Plus Jakarta Sans', system-ui, sans-serif; color: #FBF9F6;
+  opacity: 0; transform: translate3d(0, 12px, 0); pointer-events: none;
+  transition: opacity .6s cubic-bezier(.2,.7,.2,1), transform .6s cubic-bezier(.2,.7,.2,1);
+}
+.jm-consent.is-visible { opacity: 1; transform: none; pointer-events: auto; }
+.jm-consent::before { content: ""; position: absolute; left: 20px; top: -1px; width: 32px; height: 1px; background: #B9B8B4; }
+.jm-consent p { margin: 0; font-size: 12px; font-weight: 300; line-height: 1.7; color: rgba(251, 249, 246, .78); }
+.jm-consent a { color: #FBF9F6; text-decoration: underline; text-decoration-color: rgba(185, 184, 180, .6); text-underline-offset: 3px; }
+.jm-consent a:hover { text-decoration-color: #FBF9F6; }
+.jm-consent .jm-actions { display: flex; gap: 10px; margin-top: 14px; }
+.jm-consent button {
+  flex: 1; min-height: 40px; padding: 0 14px; cursor: pointer; font: inherit;
+  font-size: 10px; font-weight: 500; letter-spacing: .24em; text-transform: uppercase;
+  transition: background-color .3s ease, color .3s ease, border-color .3s ease;
+}
+.jm-consent .jm-accept { background: #FBF9F6; color: #0B0B0B; border: 1px solid #FBF9F6; }
+.jm-consent .jm-accept:hover { background: #fff; }
+.jm-consent .jm-decline { background: transparent; color: #FBF9F6; border: 1px solid rgba(185, 184, 180, .45); }
+.jm-consent .jm-decline:hover { border-color: #FBF9F6; }
+.jm-consent button:focus-visible, .jm-consent a:focus-visible { outline: 1px solid #B9B8B4; outline-offset: 3px; }
+@media (min-width: 768px) { .jm-consent { right: 28px; bottom: 28px; } }
+@media (prefers-reduced-motion: reduce) { .jm-consent { transition: opacity .2s linear; transform: none; } }
