@@ -2,7 +2,7 @@
   publish = "."
   command = ""
 
-# Enterprise-grade HTTP security headers (all pages)
+# Strict HTTP security headers (all pages)
 [[headers]]
   for = "/*"
   [headers.values]
@@ -10,8 +10,12 @@
     X-Content-Type-Options = "nosniff"
     Referrer-Policy = "strict-origin-when-cross-origin"
     Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=(), payment=(), usb=()"
+    # Only this site's own scripts run (no inline JS). Styles: own CSS + Google Fonts.
+    # The contact form may only talk to Web3Forms. Nobody may embed the site in a frame.
+    Content-Security-Policy = "default-src 'self'; script-src 'self'; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data:; connect-src 'self' https://api.web3forms.com; form-action 'self'; frame-ancestors 'none'; base-uri 'self'; object-src 'none'; upgrade-insecure-requests"
 
-# Images and CSS: short cache so photo updates show up quickly
+# Images, CSS and JS: short cache so updates show up quickly
 [[headers]]
   for = "/assets/*"
   [headers.values]
