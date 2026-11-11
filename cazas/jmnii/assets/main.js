@@ -181,7 +181,6 @@
       hero.style.setProperty('--dwell', DWELL + 'ms');
 
       function show(key) {
-        if (key !== 'miami') loadDeferredCities();
         current = key;
         order.forEach(function (k) {
           var on = k === key;
@@ -205,20 +204,6 @@
         tabs[k].addEventListener('click', function () { pausedUntil = Date.now() + 12000; show(k); schedule(); });
       });
       new IntersectionObserver(function (es) { if (es[0].isIntersecting) schedule(); else clearTimeout(timer); }).observe(hero);
-
-      /* London and the Netherlands only appear after the first rotation:
-         load their photos once the page has finished loading (or on first interaction). */
-      var deferredLoaded = false;
-      function loadDeferredCities() {
-        if (deferredLoaded) return; deferredLoaded = true;
-        Array.prototype.slice.call(hero.querySelectorAll('[data-srcset], [data-src]')).forEach(function (el) {
-          if (el.dataset.srcset) { el.srcset = el.dataset.srcset; el.removeAttribute('data-srcset'); }
-          if (el.dataset.src) { el.src = el.dataset.src; el.removeAttribute('data-src'); }
-        });
-      }
-      if (document.readyState === 'complete') setTimeout(loadDeferredCities, 600);
-      else window.addEventListener('load', function () { setTimeout(loadDeferredCities, 600); });
-      ['pointerover', 'touchstart', 'focusin'].forEach(function (ev) { hero.addEventListener(ev, loadDeferredCities, { once: true, passive: true }); });
 
       /* Desktop: cursor-driven focus + parallax */
       var imgs = Array.prototype.slice.call(hero.querySelectorAll('.city-img'));
