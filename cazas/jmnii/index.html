@@ -43,11 +43,8 @@
 
   <!-- Intro curtain: once per visit, only with JavaScript and without reduced motion -->
   <script src="assets/head.js"></script>
-
-  <!-- Google Fonts: Plus Jakarta Sans -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="preload" href="assets/fonts/plus-jakarta-sans-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin>
+  <link rel="stylesheet" href="assets/fonts.css">
 
   <!-- Tailwind CSS compiled to a static file (no runtime CDN). Palette (brief): deep black #0B0B0B, charcoal #141414,
        graphite #2B2B2B, warm ivory #FBF9F6, brushed silver #B9B8B4. Rebuild with tailwind.config.js if classes change. -->
@@ -112,12 +109,12 @@
     }
 
     /* Manifesto words light up with scroll */
-    .statement .w { color: rgba(251,249,246,.16); transition: color .5s ease; }
+    .statement .w { color: rgba(251,249,246,.36); transition: color .5s ease; }
     .statement .w.lit { color: #FBF9F6; }
 
     /* Approach progress */
     .progress-fill { transform: scaleY(0); transform-origin: top; will-change: transform; }
-    .step { opacity: .35; transition: opacity .6s ease; }
+    .step { opacity: .8; transition: opacity .6s ease; }
     .step.is-on { opacity: 1; }
     .step.is-on .step-dot { background: #B9B8B4; border-color: #B9B8B4; }
 
@@ -215,13 +212,13 @@
   <header id="hero" class="relative h-[100svh] min-h-[620px] w-full overflow-hidden bg-black">
     <div class="absolute inset-0" id="cities">
       <figure class="city is-active" data-city="miami" aria-hidden="false">
-        <img src="assets/photos/miami-brickell.jpg" srcset="assets/photos/miami-brickell-m.jpg 1600w, assets/photos/miami-brickell.jpg 3200w" sizes="(orientation: portrait) 180vh, 100vw" alt="Brickell skyline reflected in Biscayne Bay at night" class="city-img" style="--pos-d:50% 55%;--pos-m:62% 50%" data-speed="10" fetchpriority="high" decoding="async">
+        <picture><source type="image/webp" srcset="assets/photos/miami-brickell-800.webp 800w, assets/photos/miami-brickell-1200.webp 1200w, assets/photos/miami-brickell-2000.webp 2000w, assets/photos/miami-brickell-2800.webp 2800w, assets/photos/miami-brickell-3200.webp 3200w" sizes="(orientation: portrait) 180vh, 100vw"><img src="assets/photos/miami-brickell.jpg" srcset="assets/photos/miami-brickell-m.jpg 1600w, assets/photos/miami-brickell.jpg 3200w" sizes="(orientation: portrait) 180vh, 100vw" alt="Brickell skyline reflected in Biscayne Bay at night" class="city-img" style="--pos-d:50% 55%;--pos-m:62% 50%" data-speed="10" fetchpriority="high" decoding="async"></picture>
       </figure>
       <figure class="city" data-city="london" aria-hidden="true">
-        <img src="assets/photos/london.jpg" srcset="assets/photos/london-m.jpg 1600w, assets/photos/london.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="The City of London financial district at dusk" class="city-img" style="--pos-d:50% 50%;--pos-m:47% 50%" data-speed="14" loading="eager" decoding="async">
+        <picture><source type="image/webp" data-srcset="assets/photos/london-800.webp 800w, assets/photos/london-1200.webp 1200w, assets/photos/london-2000.webp 2000w, assets/photos/london-2752.webp 2752w" sizes="(orientation: portrait) 180vh, 100vw"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="assets/photos/london.jpg" data-srcset="assets/photos/london-m.jpg 1600w, assets/photos/london.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="The City of London financial district at dusk" class="city-img" style="--pos-d:50% 50%;--pos-m:47% 50%" data-speed="14" decoding="async"></picture>
       </figure>
       <figure class="city" data-city="netherlands" aria-hidden="true">
-        <img src="assets/photos/netherlands.jpg" srcset="assets/photos/netherlands-m.jpg 1600w, assets/photos/netherlands.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="Contemporary Dutch waterfront architecture at dusk" class="city-img" style="--pos-d:40% 62%;--pos-m:36% 60%" data-speed="14" loading="eager" decoding="async">
+        <picture><source type="image/webp" data-srcset="assets/photos/netherlands-800.webp 800w, assets/photos/netherlands-1200.webp 1200w, assets/photos/netherlands-2000.webp 2000w, assets/photos/netherlands-2752.webp 2752w" sizes="(orientation: portrait) 180vh, 100vw"><img src="data:image/gif;base64,R0lGODlhAQABAAAAACw=" data-src="assets/photos/netherlands.jpg" data-srcset="assets/photos/netherlands-m.jpg 1600w, assets/photos/netherlands.jpg 2752w" sizes="(orientation: portrait) 180vh, 100vw" alt="Contemporary Dutch waterfront architecture at dusk" class="city-img" style="--pos-d:40% 62%;--pos-m:36% 60%" data-speed="14" decoding="async"></picture>
       </figure>
     </div>
 
@@ -410,52 +407,52 @@
 
         <div class="mt-14 border-t border-silver/30 md:mt-20">
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="true" aria-controls="cap-1" id="cap-1-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="true" aria-controls="cap-1" id="cap-1-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">01</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Private capital and holdings</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-1" class="acc-panel" role="region" aria-labelledby="cap-1-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p></div></div>
+            <section id="cap-1" class="acc-panel" aria-labelledby="cap-1-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We provide strategic financial support to businesses and opportunities that align with our long-term objectives. Our focus is on thoughtful capital allocation, ownership alignment and building sustainable value over time.</p></div></section>
           </div>
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-2" id="cap-2-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-2" id="cap-2-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">02</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Corporate strategy and oversight</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-2" class="acc-panel" role="region" aria-labelledby="cap-2-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p></div></div>
+            <section id="cap-2" class="acc-panel" aria-labelledby="cap-2-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support strategic planning, executive decision-making, budgeting, reporting discipline, performance monitoring and organizational structures to help businesses operate with greater consistency and accountability.</p></div></section>
           </div>
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-3" id="cap-3-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-3" id="cap-3-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">03</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Business development and partnerships</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-3" class="acc-panel" role="region" aria-labelledby="cap-3-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p></div></div>
+            <section id="cap-3" class="acc-panel" aria-labelledby="cap-3-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We identify commercial opportunities, cultivate relationships, support negotiations and help establish partnerships that can strengthen market positioning, distribution and revenue potential.</p></div></section>
           </div>
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-4" id="cap-4-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-4" id="cap-4-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">04</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">International expansion and market entry</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-4" class="acc-panel" role="region" aria-labelledby="cap-4-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p></div></div>
+            <section id="cap-4" class="acc-panel" aria-labelledby="cap-4-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We support cross-border commercial activity through market coordination, international relationships, supplier engagement and practical planning for entering or serving new territories.</p></div></section>
           </div>
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-5" id="cap-5-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-5" id="cap-5-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">05</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Supply chain, sourcing and logistics</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-5" class="acc-panel" role="region" aria-labelledby="cap-5-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p></div></div>
+            <section id="cap-5" class="acc-panel" aria-labelledby="cap-5-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">Our operating perspective encompasses supplier selection, manufacturing coordination, procurement, warehousing, shipping and distribution workflows, helping businesses connect the commercial plan to physical execution.</p></div></section>
           </div>
           <div class="reveal border-b border-graphite">
-            <button class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-6" id="cap-6-btn">
+            <button type="button" class="acc flex w-full items-center gap-5 py-7 text-left md:gap-12 md:py-8" aria-expanded="false" aria-controls="cap-6" id="cap-6-btn">
               <span class="w-6 shrink-0 text-[11px] tracking-[0.2em] text-silver md:w-8">06</span>
               <span class="acc-title flex-1 text-[clamp(1.15rem,2.2vw,1.8rem)] font-light text-ivory/80">Brand, intellectual property and commercial assets</span>
               <span class="plus relative block h-4 w-4 shrink-0 text-silver" aria-hidden="true"></span>
             </button>
-            <div id="cap-6" class="acc-panel" role="region" aria-labelledby="cap-6-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p></div></div>
+            <section id="cap-6" class="acc-panel" aria-labelledby="cap-6-btn"><div><p class="max-w-3xl pb-8 pl-11 text-[15px] font-light leading-[1.8] text-ivory/60 md:pl-20 md:text-[16px]">We recognize the long-term importance of strong brands and well-managed intangible assets. The group supports brand strategy, commercial licensing coordination, trademark and intellectual-property administration with qualified professional advisers where appropriate.</p></div></section>
           </div>
         </div>
 
@@ -533,19 +530,19 @@
 
         <div class="mt-12 -mx-5 flex snap-x snap-mandatory gap-3 overflow-x-auto px-5 pb-2 [scrollbar-width:none] [&::-webkit-scrollbar]:hidden md:mx-0 md:grid md:grid-cols-3 md:gap-6 md:overflow-visible md:px-0 md:pb-0">
           <article class="graphite-card reveal group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
-            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/miami-brickell-m.jpg" alt="Miami Brickell skyline at night" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><picture class="block h-full w-full"><source type="image/webp" srcset="assets/photos/miami-brickell-800.webp 800w, assets/photos/miami-brickell-1200.webp 1200w" sizes="(min-width: 768px) 33vw, 100vw"><img src="assets/photos/miami-brickell-m.jpg" alt="Miami Brickell skyline at night" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></picture></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">Global Head Office</p><p class="text-sm tabular-nums text-ivory/60" data-clock="America/New_York">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">Miami, Florida</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">The center of group leadership, strategic direction and coordination of our broader business interests.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">25.7617°N · 80.1918°W</p>
           </article>
           <article class="graphite-card reveal d1 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
-            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/london-m.jpg" alt="The City of London financial district at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><picture class="block h-full w-full"><source type="image/webp" srcset="assets/photos/london-800.webp 800w, assets/photos/london-1200.webp 1200w" sizes="(min-width: 768px) 33vw, 100vw"><img src="assets/photos/london-m.jpg" alt="The City of London financial district at dusk" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></picture></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">United Kingdom Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/London">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">London, England</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Strengthening our access to commercial relationships, international perspectives and strategic opportunities.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">51.5074°N · 0.1278°W</p>
           </article>
           <article class="graphite-card reveal d2 group flex w-[84%] shrink-0 snap-start flex-col overflow-hidden p-8 md:w-auto">
-            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><img src="assets/photos/netherlands-m.jpg" alt="Contemporary Dutch waterfront architecture" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
+            <div class="-mx-8 -mt-8 mb-8 aspect-[16/10] overflow-hidden"><picture class="block h-full w-full"><source type="image/webp" srcset="assets/photos/netherlands-800.webp 800w, assets/photos/netherlands-1200.webp 1200w" sizes="(min-width: 768px) 33vw, 100vw"><img src="assets/photos/netherlands-m.jpg" alt="Contemporary Dutch waterfront architecture" class="h-full w-full object-cover transition-transform duration-[1600ms] ease-out group-hover:scale-[1.04]" loading="lazy" decoding="async"></picture></div><div class="flex items-baseline justify-between gap-4"><p class="text-[10px] uppercase tracking-[0.3em] text-silver">European Presence</p><p class="text-sm tabular-nums text-ivory/60" data-clock="Europe/Amsterdam">--:--</p></div>
             <h3 class="mt-8 text-2xl font-light">The Netherlands</h3>
             <p class="mt-3 flex-1 text-sm font-light leading-relaxed text-ivory/55">Supporting the group’s European commercial relationships and cross-border business development activity.</p>
             <p class="mt-8 text-[10px] uppercase tracking-[0.24em] text-ivory/60">52.1326°N · 5.2913°E</p>
@@ -662,7 +659,7 @@
           <!-- Contact form: JavaScript sends it to Web3Forms (emails info@jmnii.com). Without JavaScript it falls back to Netlify Forms. -->
           <form id="contact-form" name="jmnii-contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" action="?sent=1#contact" class="grid grid-cols-1 gap-x-8 gap-y-8 sm:grid-cols-2">
             <input type="hidden" name="form-name" value="jmnii-contact">
-            <p class="hidden"><label>Do not fill this out: <input name="bot-field"></label></p>
+            <p class="hidden"><label>Do not fill this out: <input type="text" name="bot-field" tabindex="-1" autocomplete="off"></label></p>
             <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Full Name</span><input class="field mt-1" type="text" name="full-name" autocomplete="name" required></label>
             <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Company</span><input class="field mt-1" type="text" name="company" autocomplete="organization"></label>
             <label class="block"><span class="text-[10px] uppercase tracking-[0.26em] text-silver">Email</span><input class="field mt-1" type="email" name="email" autocomplete="email" inputmode="email" required></label>
