@@ -88,6 +88,12 @@
       var drawer = $('#drawer'), body = $('#drawer-body'), lastFocus = null;
       function openBio(id, trigger) {
         body.innerHTML = document.getElementById(id).innerHTML;
+        /* Emails are assembled here (not written in the HTML) so spam bots cannot harvest them */
+        $$('.js-mail', body).forEach(function (m) {
+          var email = m.dataset.u + '@' + m.dataset.d;
+          m.href = 'mailto:' + email;
+          m.textContent = email;
+        });
         lastFocus = trigger;
         drawer.querySelector('.panel').scrollTop = 0;
         drawer.classList.add('is-open');
